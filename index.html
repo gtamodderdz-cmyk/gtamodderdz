@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GTA MODDER DZ | مودات جزائرية لـ GTA V</title>
+<meta name="description" content="الموقع الرسمي لقناة GTA MODDER DZ — مودات جزائرية للعبة GTA V: الشرطة، الدرك الوطني، الأزياء والمزيد.">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=Cairo:wght@400;600;700&family=Russo+One&display=swap" rel="stylesheet">
+<style>
+/* VOICE: proud, loud gaming crew from Algeria — night city, sirens, flag colours.
+   IDEA: a police dispatch / mod-garage terminal: livery stripes, badge plates, strobe light bar.
+   PICTURE: the channel logo on a glowing badge plate under a strobing blue/red light bar, flag crescent behind.
+   COLOUR and TYPE: night #0a0f0c, Algerian green #00a651 dominant, red #d21034 accent, white; Changa headings, Cairo body, Russo One for Latin tags.
+   LAYOUT: sticky header, hero composition, 4 category plates, mod grid, news + videos, footer with flag band. */
+:root{color-scheme:dark;--bg:#0a0f0c;--bg2:#101813;--panel:#131d17;--line:#22322a;--ink:#f2f5f1;--mute:#9db0a4;--g:#00a651;--g2:#006233;--r:#d21034;--b:#2f7bff;--sand:#c49a5a}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Cairo,Tahoma,sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:Changa,Cairo,sans-serif;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(34px,5.4vw,58px);font-weight:800}
+h2{font-size:clamp(26px,3.2vw,36px);font-weight:800}
+h3{font-size:19px;font-weight:700}
+.lat{font-family:"Russo One",Changa,sans-serif;letter-spacing:.02em}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
+button,input,select,textarea{font:inherit;font-size:16px;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--g);outline-offset:2px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:10px;border:1px solid var(--line);background:var(--panel);text-decoration:none;font-weight:700;white-space:nowrap}
+.btn:hover{border-color:var(--g)}
+.btn.pri{background:var(--g);border-color:var(--g);color:#04140b}
+.btn.red{background:var(--r);border-color:var(--r);color:#fff}
+.btn.disc{background:#5865f2;border-color:#5865f2;color:#fff}
+.btn.sm{min-height:36px;padding:0 12px;font-size:14px}
+.btn svg{width:20px;height:20px;flex:none}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(10,15,12,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.flag{height:4px;background:linear-gradient(90deg,var(--g) 0 50%,#fff 50% 100%)}
+.hd{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-inline-end:auto}
+.brand img{width:44px;height:44px;border-radius:10px;border:2px solid var(--g)}
+.brand b{font-family:"Russo One";font-size:19px;line-height:1}
+.brand b span{color:var(--g)}
+.mini{width:30px;height:20px;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.25);flex:none}
+.wave{position:absolute;inset:auto auto -2% -4%;width:46%;aspect-ratio:3/2;border-radius:8px;overflow:hidden;transform:rotate(-7deg);z-index:2;box-shadow:0 20px 50px rgba(0,0,0,.5);opacity:.9}
+.wave svg{width:100%;height:100%;display:block}
+.wave::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,.25),transparent 30%,rgba(255,255,255,.18) 45%,transparent 60%,rgba(0,0,0,.2))}
+.badge img{z-index:1}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;color:var(--mute)}
+nav a.on,nav a:hover{color:var(--ink);background:var(--panel)}
+nav a.on{box-shadow:inset 0 -3px 0 var(--g)}
+.hdx{display:flex;gap:8px}
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(800px 420px at 20% 40%,rgba(0,166,81,.22),transparent 70%),radial-gradient(500px 300px at 85% 0,rgba(210,16,52,.16),transparent 70%),var(--bg)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center}
+.hero p.lead{font-size:18px;color:#cfdad3;max-width:56ch;margin:18px 0 26px}
+.hero h1 em{font-style:normal;color:var(--g)}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.stats{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
+.stats div b{display:block;font-family:"Russo One";font-size:30px;line-height:1}
+.stats div span{color:var(--mute);font-size:14px}
+.badge{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin-inline:auto}
+.badge svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.badge img{position:absolute;inset:18%;width:64%;height:64%;border-radius:22px;border:3px solid #fff;box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 8px rgba(0,166,81,.35)}
+.strobe{animation:st 1.2s steps(1) infinite}.strobe.b2{animation-delay:.6s}
+@keyframes st{0%{opacity:1}50%{opacity:.15}}
+@media(prefers-reduced-motion:reduce){.strobe{animation:none}}
+/* sections */
+.sec-h{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.sec-h p{margin:6px 0 0;color:var(--mute)}
+.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.cat{position:relative;display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:14px;text-decoration:none;background:var(--panel);border:1px solid var(--line);overflow:hidden;min-height:150px}
+.cat:hover{border-color:var(--c)}
+.cat::before{content:"";position:absolute;inset:0 0 auto;height:8px;background:repeating-linear-gradient(90deg,var(--c) 0 22px,#fff 22px 44px)}
+.cat svg{width:44px;height:44px;color:var(--c);margin-top:6px}
+.cat b{font-family:"Russo One";font-size:17px}
+.cat span{color:var(--mute);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;transition:transform .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--g)}
+.cover{position:relative;aspect-ratio:16/9;background:#0d1511;overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.cover .ph{position:absolute;inset:0;display:grid;place-items:center;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--c) 30%,#0d1511) 0 18px,#0d1511 18px 36px)}
+.cover .ph svg{width:56px;height:56px;color:#fff;opacity:.85}
+.chip{display:inline-block;font-family:"Russo One";font-size:12px;padding:3px 9px;border-radius:6px;background:var(--c);color:#fff;white-space:nowrap}
+.cover .chip{position:absolute;top:10px;inset-inline-start:10px}
+.cbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.meta{display:flex;gap:14px;color:var(--mute);font-size:14px;flex-wrap:wrap;margin-top:auto}
+.meta span{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.meta svg{width:16px;height:16px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:28px}
+.news{display:flex;flex-direction:column;gap:12px}
+.ni{background:var(--panel);border:1px solid var(--line);border-inline-start:4px solid var(--r);border-radius:10px;padding:14px 16px}
+.ni time{color:var(--mute);font-size:13px}
+.ni p{margin:6px 0 0;color:#cfdad3;white-space:pre-wrap}
+.vids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.vid .cover .ph{background:linear-gradient(135deg,#1a0a0e,#3a0c18)}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center}
+.vid .play i{width:58px;height:40px;border-radius:12px;background:#ff0033;display:grid;place-items:center}
+.empty{padding:28px;border:1px dashed var(--line);border-radius:14px;color:var(--mute);text-align:center}
+/* mods page */
+.pagehd{background:linear-gradient(180deg,var(--bg2),var(--bg));border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-top:18px}
+.tabs a{flex:none;padding:10px 16px;border-radius:10px;border:1px solid var(--line);text-decoration:none;font-family:"Russo One";font-size:14px;background:var(--panel)}
+.tabs a.on{background:var(--c,var(--g));border-color:var(--c,var(--g));color:#fff}
+.tools{display:flex;gap:10px;margin:18px 0 22px;flex-wrap:wrap}
+.tools input,.tools select,.f input,.f select,.f textarea{min-height:44px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg2)}
+.tools input{flex:1 1 240px}
+/* detail */
+.det{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:start}
+.gal{position:relative}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:14px;background:#0d1511;scrollbar-width:none}
+.slides>div{flex:0 0 100%;scroll-snap-align:start;aspect-ratio:16/9}
+.slides img{width:100%;height:100%;object-fit:contain;display:block}
+.gnav{position:absolute;top:50%;translate:0 -50%;width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:22px}
+.gnav.p{inset-inline-start:10px}.gnav.n{inset-inline-end:10px}
+.thumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto}
+.thumbs button{flex:none;width:96px;aspect-ratio:16/9;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;background:#0d1511}
+.thumbs button.on{border-color:var(--g)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.side{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.spec{width:100%;border-collapse:collapse}
+.spec td{padding:9px 0;border-bottom:1px solid var(--line)}
+.spec td:first-child{color:var(--mute);width:40%}
+.giscus-box{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+.f .row2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media(max-width:600px){.f .row2{grid-template-columns:minmax(0,1fr)}}
+.desc{white-space:pre-wrap;color:#d7e1da;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:20px}
+.like.on{background:var(--r);border-color:var(--r);color:#fff}
+.cm{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.cmi{display:flex;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.av{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--g2);font-weight:700}
+.cmi p{margin:4px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.cmi small{color:var(--mute)}
+.cmf{display:flex;gap:10px;margin-top:16px;align-items:flex-start}
+.cmf textarea{flex:1;min-height:52px;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);resize:vertical}
+.x{background:none;border:0;color:var(--mute);min-height:32px;font-size:13px;text-decoration:underline}
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:36px;align-items:center}
+.about p{font-size:18px;color:#d7e1da}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:26px}
+.contact>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.contact code{font-size:17px;direction:ltr;text-align:start;overflow-wrap:anywhere}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+/* admin */
+.f{display:grid;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.f label{display:grid;gap:6px;font-weight:600}
+.f .row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.f textarea{min-height:120px;resize:vertical}
+.pv{display:flex;gap:8px;flex-wrap:wrap}
+.pv div{position:relative;width:120px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#0d1511}
+.pv img{width:100%;height:100%;object-fit:cover}
+.pv button{position:absolute;top:4px;inset-inline-end:4px;width:28px;height:28px;border-radius:50%;border:0;background:var(--r);color:#fff}
+.alist{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.alist>div{display:flex;gap:10px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.alist>div b{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.note{padding:12px 16px;border-radius:10px;background:rgba(0,166,81,.1);border:1px solid rgba(0,166,81,.35);color:#cfeedd;font-size:15px}
+.note.warn{background:rgba(210,16,52,.1);border-color:rgba(210,16,52,.4);color:#ffd5dd}
+/* modal + toast */
+.modal{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:rgba(0,0,0,.7);padding:16px}
+.modal.on{display:grid}
+.modal>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;max-width:420px;width:100%}
+.modal .cta{margin-top:18px;justify-content:flex-end}
+#toast{position:fixed;bottom:20px;left:50%;translate:-50% 0;z-index:60;background:var(--g);color:#04140b;font-weight:700;padding:12px 20px;border-radius:10px;display:none}
+footer{border-top:1px solid var(--line);background:var(--bg2)}
+footer .wrap{display:flex;gap:24px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+footer small{color:var(--mute)}
+.fb{height:10px;background:linear-gradient(90deg,var(--g) 0 50%,#fff 50%);position:relative}
+.fb::after{content:"";position:absolute;left:50%;top:0;width:10px;height:10px;translate:-50% 0;background:var(--r);border-radius:50%}
+.bc{color:var(--mute);font-size:14px;margin-bottom:10px}.bc a{color:var(--g)}
+[hidden]{display:none!important}
+@media(max-width:900px){.hero .wrap,.two,.det,.about{grid-template-columns:minmax(0,1fr)}.cats{grid-template-columns:repeat(2,minmax(0,1fr))}.badge{max-width:340px}}
+@media(max-width:600px){.hero .wrap{gap:24px}.badge{order:-1;max-width:260px}.vids{grid-template-columns:minmax(0,1fr)}.f .row{grid-template-columns:minmax(0,1fr)}.hdx .btn span{display:none}nav{width:100%;overflow-x:auto;flex-wrap:nowrap}nav a{flex:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-police" viewBox="0 0 48 48"><path fill="currentColor" d="M24 3 40 9v13c0 11-7 19-16 23C15 41 8 33 8 22V9z" opacity=".25"/><path fill="none" stroke="currentColor" stroke-width="3" d="M24 3 40 9v13c0 11-7 19-16 23C15 41 8 33 8 22V9z"/><path fill="currentColor" d="m24 14 2.6 6.2 6.6.5-5 4.4 1.5 6.5L24 28l-5.7 3.6 1.5-6.5-5-4.4 6.6-.5z"/></symbol>
+ <symbol id="i-gend" viewBox="0 0 48 48"><circle cx="24" cy="22" r="11" fill="none" stroke="currentColor" stroke-width="3"/><path fill="currentColor" d="m24 15 2 4.6 5 .4-3.8 3.3 1.2 4.9L24 25.5l-4.4 2.7 1.2-4.9L17 20l5-.4z"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M9 18c-2 9 3 18 11 21M39 18c2 9-3 18-11 21M18 44h12"/></symbol>
+ <symbol id="i-uni" viewBox="0 0 48 48"><path fill="currentColor" opacity=".25" d="M17 5h14l12 7-5 9-4-2v24H14V19l-4 2-5-9z"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" d="M17 5h14l12 7-5 9-4-2v24H14V19l-4 2-5-9zM17 5l7 8 7-8"/><rect x="27" y="22" width="5" height="4" fill="currentColor"/></symbol>
+ <symbol id="i-other" viewBox="0 0 48 48"><path fill="currentColor" opacity=".25" d="M6 30h36v8H6z"/><path fill="none" stroke="currentColor" stroke-width="3" d="M6 30h36v8H6zM13 30a11 11 0 0 1 22 0"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M24 4v6M9 10l4 4M39 10l-4 4"/><path fill="currentColor" d="M22 20h4v4h4v4H18v-4h4z"/></symbol>
+ <symbol id="flag" viewBox="0 0 900 600"><mask id="cres"><rect width="900" height="600" fill="#fff"/><circle cx="488" cy="300" r="120" fill="#000"/></mask><rect width="900" height="600" fill="#fff"/><rect width="450" height="600" fill="#006233"/><circle cx="450" cy="300" r="150" fill="#d21034" mask="url(#cres)"/><polygon fill="#d21034" points="448.0,300.0 497.7,283.8 497.8,231.5 528.5,273.8 578.2,257.7 547.5,300.0 578.2,342.3 528.5,326.2 497.8,368.5 497.7,316.2"/></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/></symbol>
+ <symbol id="i-chat" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v12H8l-4 4z"/></symbol>
+ <symbol id="i-dl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 3v12m-5-5 5 5 5-5M4 20h16"/></symbol>
+ <symbol id="i-disc" viewBox="0 0 24 24"><path fill="currentColor" d="M19.3 5.3A17 17 0 0 0 15 4l-.5 1a15.7 15.7 0 0 0-5 0L9 4a17 17 0 0 0-4.3 1.3C2 9.4 1.3 13.3 1.6 17.2A17 17 0 0 0 6.9 20l1.1-1.8c-.6-.2-1.2-.5-1.8-.9l.4-.3a12 12 0 0 0 10.8 0l.4.3c-.6.4-1.2.7-1.8.9l1.1 1.8a17 17 0 0 0 5.3-2.8c.4-4.5-.7-8.4-3.1-11.9zM8.5 14.8c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1zm7 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1z"/></symbol>
+ <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M22 8.2a3 3 0 0 0-2-2C18.3 5.7 12 5.7 12 5.7s-6.3 0-8 .5a3 3 0 0 0-2 2C1.6 9.9 1.6 12 1.6 12s0 2.1.4 3.8a3 3 0 0 0 2 2c1.7.5 8 .5 8 .5s6.3 0 8-.5a3 3 0 0 0 2-2c.4-1.7.4-3.8.4-3.8s0-2.1-.4-3.8zM10 15.2V8.8l5.3 3.2z"/></symbol>
+</svg>
+
+<header>
+ <div class="flag"></div>
+ <div class="hd">
+  <a class="brand" href="#home"><img src="logo.jpg" alt="شعار GTA MODDER DZ"><b class="lat">GTA MODDER <span>DZ</span></b><svg class="mini" viewBox="0 0 900 600" aria-label="علم الجزائر"><use href="#flag"/></svg></a>
+  <nav id="nav">
+   <a href="#home" data-r="home">الرئيسية</a>
+   <a href="#mods" data-r="mods">المودات</a>
+   <a href="#about" data-r="about">من نحن</a>
+   <a href="#admin" data-r="admin" id="navAdmin" hidden>لوحة التحكم</a>
+  </nav>
+  <div class="hdx">
+   <a class="btn disc sm" href="https://discord.gg/S57qpBeePT"><svg><use href="#i-disc"/></svg><span>Discord</span></a>
+   <a class="btn red sm" href="https://www.youtube.com/@GTAMODDERDZ"><svg><use href="#i-yt"/></svg><span>YouTube</span></a>
+  </div>
+ </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+ <div class="fb"></div>
+ <div class="band" style="padding-block:28px">
+  <div class="wrap">
+   <a class="brand" href="#home" style="margin:0"><img src="logo.jpg" alt=""><b class="lat">GTA MODDER <span>DZ</span></b></a>
+   <small>مودات جزائرية للعبة GTA V — صُنعت بحب في الجزائر <svg class="mini" style="width:21px;height:14px;vertical-align:-2px" viewBox="0 0 900 600"><use href="#flag"/></svg><br>للإعلانات والشراكات: <span dir="ltr">gtamodderdz@gmail.com</span></small>
+   <div class="tags"><a class="btn disc sm" href="https://discord.gg/S57qpBeePT"><svg><use href="#i-disc"/></svg>Discord</a><a class="btn red sm" href="https://www.youtube.com/@GTAMODDERDZ"><svg><use href="#i-yt"/></svg>YouTube</a></div>
+  </div>
+ </div>
+</footer>
+
+<div class="modal" id="modal"><div><h3 id="mT"></h3><p id="mB" style="color:var(--mute)"></p><div class="cta"><button class="btn" id="mNo">إلغاء</button><button class="btn red" id="mYes">تأكيد</button></div></div></div>
+<div id="toast" role="status"></div>
+
+<script src="config.js"></script>
+<script>
+{
+const CFG=window.SITE||{};
+const LOGO="logo.jpg";
+const DISCORD="https://discord.gg/S57qpBeePT", YT="https://www.youtube.com/@GTAMODDERDZ", MAIL="gtamodderdz@gmail.com";
+const CATS=[
+ {k:"police",n:"POLICE MODS",ar:"مودات الشرطة (الأمن الوطني)",c:"#2f7bff",i:"i-police"},
+ {k:"gendarmerie",n:"GENDARMERIE MODS",ar:"مودات الدرك الوطني",c:"#2e8b47",i:"i-gend"},
+ {k:"uniforms",n:"UNIFORMS",ar:"الأزياء والملابس الرسمية",c:"#c49a5a",i:"i-uni"},
+ {k:"other",n:"OTHER MODS",ar:"إسعاف، حماية مدنية وغيرها",c:"#d21034",i:"i-other"}];
+const catOf=k=>CATS.find(c=>c.k===k)||CATS[3];
+const D={mods:[],news:[],videos:[]};
+const S={loaded:false,err:false,edit:null,draftImgs:[],prev:{},sha:null,busy:false};
+const $=s=>document.querySelector(s), app=$("#app");
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl=u=>/^https:\/\//i.test(String(u||""))?String(u):"";
+const okImg=p=>/^images\/[\w-]+\.(jpg|jpeg|png|webp)$/i.test(String(p||""));
+const imgSrc=p=>okImg(p)?(S.prev[p]||p):"";
+const fmtD=t=>t?new Date(t).toLocaleDateString("ar-DZ",{year:"numeric",month:"long",day:"numeric"}):"";
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const sorted=a=>[...a].sort((x,y)=>(y.t||0)-(x.t||0));
+function toast(m,bad){const t=$("#toast");t.textContent=m;t.style.background=bad?"var(--r)":"var(--g)";t.style.color=bad?"#fff":"#04140b";t.style.display="block";clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display="none",3200)}
+function ask(title,body){return new Promise(res=>{$("#mT").textContent=title;$("#mB").textContent=body;const m=$("#modal");m.classList.add("on");const done=v=>{m.classList.remove("on");$("#mYes").onclick=$("#mNo").onclick=null;res(v)};$("#mYes").onclick=()=>done(true);$("#mNo").onclick=()=>done(false)})}
+
+/* ===== GitHub API (admin only) ===== */
+const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch{}}};
+function guessRepo(){const h=location.hostname,m=h.match(/^([\w-]+)\.github\.io$/i);if(!m)return{owner:"",repo:""};const seg=location.pathname.split("/").filter(Boolean)[0];return{owner:m[1],repo:seg&&!/\.html$/.test(seg)?seg:h}}
+const A=(()=>{const g=guessRepo();let s={};try{s=JSON.parse(store.get("gmdz_admin")||"{}")}catch{}return{owner:s.owner||g.owner,repo:s.repo||g.repo,branch:s.branch||"main",token:s.token||""}})();
+const isAdmin=()=>!!(A.token&&A.ok);
+const b64=s=>{const by=new TextEncoder().encode(s);let bin="";for(let i=0;i<by.length;i+=8192)bin+=String.fromCharCode(...by.subarray(i,i+8192));return btoa(bin)};
+const unb64=s=>new TextDecoder().decode(Uint8Array.from(atob(String(s).replace(/\s/g,"")),c=>c.charCodeAt(0)));
+async function gh(path,opt={}){
+ const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(A.owner)}/${encodeURIComponent(A.repo)}${path}`,{...opt,cache:"no-store",headers:{Authorization:"Bearer "+A.token,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28",...(opt.body?{"Content-Type":"application/json"}:{})}});
+ if(!r.ok){const e=new Error("GitHub "+r.status);e.status=r.status;throw e}
+ return r.status===204?null:r.json()}
+async function adminLogin(){
+ const rp=await gh("");if(!rp.permissions||!rp.permissions.push)throw new Error("المفتاح لا يملك صلاحية الكتابة على هذا الـ repository");
+ A.ok=true;A.branch=A.branch||rp.default_branch;await loadFromApi()}
+async function loadFromApi(){
+ try{const f=await gh(`/contents/data.json?ref=${encodeURIComponent(A.branch)}`);S.sha=f.sha;setData(JSON.parse(unb64(f.content)))}
+ catch(e){if(e.status===404){S.sha=null;setData({})}else throw e}}
+async function saveData(msg){
+ const body={message:msg,content:b64(JSON.stringify(D,null,1)),branch:A.branch};if(S.sha)body.sha=S.sha;
+ try{const r=await gh("/contents/data.json",{method:"PUT",body:JSON.stringify(body)});S.sha=r.content.sha}
+ catch(e){if(e.status===409||e.status===422){await loadFromApi();throw new Error("تم تعديل البيانات من مكان آخر — أُعيد تحميلها، حاول مجدداً")}throw e}}
+async function delFile(p){try{const f=await gh(`/contents/${p}?ref=${encodeURIComponent(A.branch)}`);await gh(`/contents/${p}`,{method:"DELETE",body:JSON.stringify({message:"حذف "+p,sha:f.sha,branch:A.branch})})}catch{}}
+async function toJpeg(file){const bm=await createImageBitmap(file),r=Math.min(1,1600/Math.max(bm.width,bm.height)),c=document.createElement("canvas");c.width=Math.round(bm.width*r);c.height=Math.round(bm.height*r);c.getContext("2d").drawImage(bm,0,0,c.width,c.height);return c.toDataURL("image/jpeg",.85)}
+async function uploadImg(file){
+ try{toast("جارِ رفع الصورة…");const d=await toJpeg(file),p="images/"+uid()+".jpg";
+  await gh("/contents/"+p,{method:"PUT",body:JSON.stringify({message:"رفع صورة "+p,content:d.split(",")[1],branch:A.branch})});
+  S.prev[p]=d;toast("تم رفع الصورة");return p}catch(e){toast("تعذّر رفع الصورة ("+(e.status||e.message)+")",1);return""}}
+
+/* ===== data ===== */
+function setData(j){D.mods=Array.isArray(j.mods)?j.mods:[];D.news=Array.isArray(j.news)?j.news:[];D.videos=Array.isArray(j.videos)?j.videos:[];S.loaded=true}
+async function loadPublic(){try{const r=await fetch("data.json?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw 0;setData(await r.json())}catch{S.err=true;S.loaded=true}}
+
+/* ===== pieces ===== */
+function cover(m){const c=catOf(m.cat),src=imgSrc((m.imgs||[])[0]);
+ return `<div class="cover" style="--c:${c.c}">${src?`<img src="${esc(src)}" alt="" loading="lazy">`:`<div class="ph"><svg><use href="#${c.i}"/></svg></div>`}<span class="chip lat" style="--c:${c.c}">${c.n}</span></div>`}
+function modCard(m){return `<a class="card" href="#mod-${esc(m.id)}">${cover(m)}<div class="cbody"><h3>${esc(m.title)}</h3><span style="color:var(--mute);font-size:14px">بواسطة ${esc(m.creator||"GTA MODDER DZ")}</span><div class="meta">${m.size?`<span dir="ltr">${esc(m.size)}</span>`:""}<span>${esc(m.version?"v"+m.version:"")}</span><span>${fmtD(m.t)}</span></div></div></a>`}
+function vidCard(v){const u=safeUrl(v.url),th=imgSrc(v.thumb);return `<a class="card vid" href="${esc(u||YT)}" target="_blank" rel="noopener"><div class="cover">${th?`<img src="${esc(th)}" alt="" loading="lazy">`:`<div class="ph"></div>`}<div class="play"><i><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M8 5v14l11-7z"/></svg></i></div></div><div class="cbody"><h3 style="font-size:17px">${esc(v.title)}</h3><div class="meta"><span>${fmtD(v.t)}</span></div></div></a>`}
+function newsItem(n){return `<article class="ni"><time>${fmtD(n.t)}</time><h3>${esc(n.title)}</h3>${n.body?`<p>${esc(n.body)}</p>`:""}</article>`}
+const loadingNote=()=>!S.loaded?`<div class="empty">جارِ التحميل…</div>`:S.err?`<div class="empty">تعذّر تحميل ملف data.json.</div>`:"";
+const emptyBox=t=>`<div class="empty">${t}${isAdmin()?`<br><a class="btn pri sm" style="margin-top:12px" href="#admin">أضف الآن من لوحة التحكم</a>`:""}</div>`;
+
+/* ===== views ===== */
+function vHome(){const mods=sorted(D.mods);
+ return `<section class="hero band"><div class="wrap">
+  <div><span class="chip lat" style="--c:var(--r);display:inline-flex;align-items:center;gap:8px"><svg class="mini" style="width:24px;height:16px" viewBox="0 0 900 600"><use href="#flag"/></svg>GTA V · ALGERIA</span>
+   <h1 style="margin-top:14px">مودات <em>جزائرية</em> 100%<br>لعالم GTA V</h1>
+   <p class="lead">سيارات الأمن الوطني والدرك الوطني، الأزياء الرسمية، الإسعاف والحماية المدنية… كل مودات قناة GTA MODDER DZ في مكان واحد، جاهزة للتحميل.</p>
+   <div class="cta"><a class="btn pri" href="#mods">تصفّح المودات</a><a class="btn disc" href="${DISCORD}" target="_blank" rel="noopener"><svg><use href="#i-disc"/></svg>انضم للديسكورد</a></div>
+   <div class="stats"><div><b>${D.mods.length}</b><span>مود منشور</span></div><div><b>${D.videos.length}</b><span>فيديو</span></div><div><b>${D.news.length}</b><span>خبر</span></div><div><b>4</b><span>أقسام</span></div></div>
+  </div>
+  <div class="badge"><svg class="bg" viewBox="0 0 400 400" aria-hidden="true">
+   <defs><radialGradient id="gl"><stop offset="0" stop-color="#00a651" stop-opacity=".55"/><stop offset="1" stop-color="#00a651" stop-opacity="0"/></radialGradient></defs>
+   <circle cx="200" cy="210" r="190" fill="url(#gl)"/>
+   <rect x="70" y="22" width="260" height="34" rx="17" fill="#1a2620" stroke="#2c3d33"/>
+   <rect class="strobe" x="80" y="28" width="115" height="22" rx="11" fill="#2f7bff"/>
+   <rect class="strobe b2" x="205" y="28" width="115" height="22" rx="11" fill="#ff1f45"/>
+   <g opacity=".5"><rect class="strobe" x="40" y="10" width="160" height="58" rx="29" fill="#2f7bff" style="filter:blur(18px)"/><rect class="strobe b2" x="200" y="10" width="160" height="58" rx="29" fill="#ff1f45" style="filter:blur(18px)"/></g>
+   <g fill="none" stroke="#fff" stroke-opacity=".12">${[0,1,2,3,4,5].map(i=>`<path d="M${30+i*14} 380 L200 240 L${370-i*14} 380"/>`).join("")}</g>
+  </svg><div class="wave" aria-hidden="true"><svg viewBox="0 0 900 600"><use href="#flag"/></svg></div><img src="${LOGO}" alt="شعار القناة GTA MODDER DZ"></div>
+ </div></section>
+ <section class="band" style="padding-top:8px"><div class="wrap"><div class="sec-h"><div><h2>أقسام المودات</h2><p>اختر القسم الذي يهمك</p></div></div>
+  <div class="cats">${CATS.map(c=>`<a class="cat" href="#${c.k}" style="--c:${c.c}"><svg><use href="#${c.i}"/></svg><b>${c.n}</b><span>${c.ar} · ${D.mods.filter(m=>m.cat===c.k).length} مود</span></a>`).join("")}</div></div></section>
+ <section class="band" style="padding-top:8px"><div class="wrap"><div class="sec-h"><div><h2>أحدث المودات</h2><p>آخر ما نزل على الموقع</p></div><a class="btn" href="#mods">عرض الكل</a></div>
+  ${loadingNote()||(mods.length?`<div class="grid">${mods.slice(0,6).map(modCard).join("")}</div>`:emptyBox("لا توجد مودات بعد — ترقّبوا أول مود قريباً!"))}</div></section>
+ <section class="band" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap two">
+  <div><div class="sec-h"><div><h2>آخر الأخبار</h2><p>جديد القناة والتحديثات</p></div></div>
+   ${loadingNote()||(D.news.length?`<div class="news">${sorted(D.news).slice(0,5).map(newsItem).join("")}</div>`:emptyBox("لا توجد أخبار حالياً."))}</div>
+  <div><div class="sec-h"><div><h2>آخر الفيديوهات</h2><p>من قناتنا على YouTube</p></div><a class="btn red sm" href="${YT}" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg>اشترك</a></div>
+   ${loadingNote()||(D.videos.length?`<div class="vids">${sorted(D.videos).slice(0,4).map(vidCard).join("")}</div>`:emptyBox("لم تُضف فيديوهات بعد — شاهد القناة مباشرة على YouTube."))}</div>
+ </div></section>`}
+
+function vMods(cat){const c=cat?catOf(cat):null;
+ return `<section class="pagehd band"><div class="wrap"><h1>${c?`<span class="lat">${c.n}</span>`:"كل المودات"}</h1><p style="color:var(--mute);margin:8px 0 0">${c?c.ar:"مودات جزائرية للشرطة والدرك والأزياء وأكثر"}</p>
+  <div class="tabs"><a href="#mods" class="${!c?"on":""}">ALL</a>${CATS.map(x=>`<a href="#${x.k}" class="${c&&c.k===x.k?"on":""}" style="--c:${x.c}">${x.n}</a>`).join("")}</div></div></section>
+ <section class="band" style="padding-top:0"><div class="wrap"><div class="tools"><input id="q" type="search" placeholder="ابحث عن مود أو صانع…" aria-label="بحث"><select id="sort" aria-label="ترتيب"><option value="new">الأحدث</option><option value="old">الأقدم</option><option value="az">حسب الاسم</option></select></div><div id="list"></div></div></section>`}
+function fillList(cat){
+ const q=($("#q")?.value||"").trim().toLowerCase(),so=$("#sort")?.value||"new";
+ let a=D.mods.filter(m=>(!cat||m.cat===cat)&&(!q||(m.title+" "+(m.creator||"")+" "+(m.desc||"")).toLowerCase().includes(q)));
+ a=so==="az"?a.sort((x,y)=>String(x.title).localeCompare(String(y.title),"ar")):so==="old"?sorted(a).reverse():sorted(a);
+ $("#list").innerHTML=loadingNote()||(a.length?`<div class="grid">${a.map(modCard).join("")}</div>`:emptyBox(q?"لا نتائج لبحثك.":"لا توجد مودات في هذا القسم بعد."));
+}
+
+function vMod(id){
+ const m=D.mods.find(x=>x.id===id);
+ if(!m)return `<section class="band"><div class="wrap">${loadingNote()||`<div class="empty">هذا المود غير موجود. <a href="#mods" style="color:var(--g)">العودة للمودات</a></div>`}</div></section>`;
+ const c=catOf(m.cat),imgs=(m.imgs||[]).map(imgSrc).filter(Boolean),dl=safeUrl(m.link);
+ return `<section class="band"><div class="wrap">
+  <div class="bc"><a href="#mods">المودات</a> / <a href="#${c.k}">${c.n}</a> / ${esc(m.title)}</div>
+  <div class="det"><div>
+   ${imgs.length?`<div class="gal"><div class="slides" id="sl">${imgs.map(s=>`<div><img src="${esc(s)}" alt=""></div>`).join("")}</div>${imgs.length>1?`<button class="gnav p" data-g="-1" aria-label="السابق">›</button><button class="gnav n" data-g="1" aria-label="التالي">‹</button>`:""}</div>
+   ${imgs.length>1?`<div class="thumbs">${imgs.map((s,i)=>`<button data-t="${i}" class="${i?"":"on"}"><img src="${esc(s)}" alt=""></button>`).join("")}</div>`:""}`:`<div style="--c:${c.c}">${cover(m)}</div>`}
+   <div class="desc">${esc(m.desc||"لا يوجد وصف.")}</div>
+   <h2 style="margin-top:34px">التفاعلات والتعليقات</h2>
+   <p style="color:var(--mute);margin:6px 0 0">أعجبك المود؟ تفاعل بـ ❤️ 👍 🚀 أو اترك تعليقاً (يتطلب حساب GitHub مجاني).</p>
+   <div class="giscus-box" id="gbox">${CFG.giscus&&CFG.giscus.repoId?"":`<div class="empty">التعليقات غير مفعّلة بعد — راجع إعداد Giscus في README.</div>`}</div>
+  </div>
+  <aside class="side"><span class="chip lat" style="--c:${c.c};align-self:start">${c.n}</span><h1 style="font-size:clamp(26px,3vw,36px)">${esc(m.title)}</h1>
+   <table class="spec"><tr><td>صانع المود</td><td>${esc(m.creator||"GTA MODDER DZ")}</td></tr><tr><td>حجم الملف</td><td dir="ltr" style="text-align:start">${esc(m.size||"—")}</td></tr><tr><td>الإصدار</td><td>${esc(m.version||"1.0")}</td></tr><tr><td>تاريخ النشر</td><td>${fmtD(m.t)}</td></tr></table>
+   ${dl?`<a class="btn pri" style="justify-content:center" href="${esc(dl)}" target="_blank" rel="noopener"><svg><use href="#i-dl"/></svg>تحميل المود</a>`:`<span class="note warn">رابط التحميل غير متوفر بعد.</span>`}
+   <a class="btn" style="justify-content:center" href="#gbox"><svg><use href="#i-heart"/></svg>تفاعل وعلّق</a>
+   ${isAdmin()?`<div class="cta"><button class="btn sm" data-em="${esc(id)}">تعديل</button><button class="btn sm red" data-xm="${esc(id)}">حذف</button></div>`:""}
+  </aside></div></div></section>`}
+function mountGiscus(id){
+ const g=CFG.giscus,box=$("#gbox");if(!box||!g||!g.repoId||!g.categoryId)return;
+ const s=document.createElement("script");s.src="https://giscus.app/client.js";s.async=true;s.crossOrigin="anonymous";
+ const at={repo:g.repo,"repo-id":g.repoId,category:g.category,"category-id":g.categoryId,mapping:"specific",term:"mod-"+id,strict:"1","reactions-enabled":"1","emit-metadata":"0","input-position":"top",theme:"dark",lang:"ar",loading:"lazy"};
+ for(const[k,v]of Object.entries(at))s.setAttribute("data-"+k,v);box.appendChild(s)}
+
+function vAbout(){return `<section class="band hero"><div class="wrap about">
+ <div class="badge" style="max-width:360px"><svg class="bg" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="#00a651" opacity=".18"/></svg><div class="wave" aria-hidden="true"><svg viewBox="0 0 900 600"><use href="#flag"/></svg></div><img src="${LOGO}" alt="شعار القناة"></div>
+ <div><span class="chip lat" style="--c:var(--g)">ABOUT US</span><h1 style="margin-top:12px">من نحن</h1>
+  <p><b class="lat">GTA MODDER DZ</b> مخصّصة لصناعة وعرض المودات الجزائرية للعبة GTA V، من سيارات وملابس الأمن والدرك الوطني إلى الإسعاف والحماية المدنية… هدفنا هو مشاركة محتوى إبداعي لمحبي التعديل (modding) في الجزائر والعالم العربي.</p>
+  <div class="tags">${CATS.map(c=>`<a class="chip lat" style="--c:${c.c};text-decoration:none" href="#${c.k}">${c.n}</a>`).join("")}</div>
+  <div class="contact">
+   <div><b>📧 للإعلانات والشراكات التجارية</b><code>${MAIL}</code><div class="tags"><a class="btn sm" href="mailto:${MAIL}">راسلنا</a><button class="btn sm" id="cpMail">نسخ البريد</button></div></div>
+   <div><b>انضم إلى مجتمعنا</b><span style="color:var(--mute)">سيرفر الديسكورد وقناة اليوتيوب</span><div class="tags"><a class="btn disc sm" href="${DISCORD}" target="_blank" rel="noopener"><svg><use href="#i-disc"/></svg>Discord</a><a class="btn red sm" href="${YT}" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg>YouTube</a></div></div>
+  </div></div></div></section>`}
+
+function vLogin(){return `<section class="pagehd band"><div class="wrap"><h1>دخول لوحة التحكم</h1><p style="color:var(--mute);margin:8px 0 0">خاص بصاحب الموقع فقط. المفتاح يُحفظ في هذا المتصفح فقط ولا يُرسل إلا إلى GitHub.</p></div></section>
+ <section class="band" style="padding-top:20px"><div class="wrap" style="max-width:720px"><form class="f" id="fLogin">
+  <div class="row2"><label>اسم حساب GitHub<input id="aOwner" dir="ltr" required value="${esc(A.owner)}"></label><label>اسم الـ repository<input id="aRepo" dir="ltr" required value="${esc(A.repo)}"></label><label>الفرع (branch)<input id="aBranch" dir="ltr" required value="${esc(A.branch)}"></label></div>
+  <label>GitHub Token (Fine-grained — Contents: Read and write)<input id="aToken" type="password" dir="ltr" required autocomplete="off" placeholder="github_pat_..."></label>
+  <button class="btn pri" style="justify-self:start">دخول</button>
+  <p class="note warn" style="margin:0">لا تُدخل المفتاح على جهاز عام أو جهاز شخص آخر.</p>
+ </form></div></section>`}
+
+function vAdmin(){
+ if(!isAdmin())return vLogin();
+ const e=S.edit||{};
+ return `<section class="pagehd band"><div class="wrap"><h1>لوحة التحكم</h1><p style="color:var(--mute);margin:8px 0 0">متصل بـ <span dir="ltr">${esc(A.owner)}/${esc(A.repo)}</span> — التغييرات تظهر للزوار بعد دقيقة أو دقيقتين. <button class="x" id="logout">تسجيل الخروج</button></p></div></section>
+ <section class="band" style="padding-top:20px"><div class="wrap" style="display:grid;gap:30px">
+  <div><h2 style="margin-bottom:14px">${e.id?"تعديل مود":"رفع مود جديد"}</h2>
+  <form class="f" id="fMod">
+   <label>اسم المود<input id="mTitle" required maxlength="120" value="${esc(e.title||"")}"></label>
+   <div class="row"><label>القسم<select id="mCat">${CATS.map(c=>`<option value="${c.k}" ${e.cat===c.k?"selected":""}>${c.n}</option>`).join("")}</select></label>
+    <label>صانع المود<input id="mCreator" maxlength="60" value="${esc(e.creator??"GTA MODDER DZ")}"></label>
+    <label>حجم الملف<input id="mSize" maxlength="20" placeholder="مثال: 45 MB" value="${esc(e.size||"")}"></label></div>
+   <div class="row"><label>الإصدار<input id="mVer" maxlength="20" value="${esc(e.version||"1.0")}"></label>
+    <label style="grid-column:span 2">رابط التحميل (https)<input id="mLink" type="url" dir="ltr" placeholder="https://www.mediafire.com/..." value="${esc(e.link||"")}"></label></div>
+   <label>التفاصيل والوصف وطريقة التثبيت<textarea id="mDesc" maxlength="5000">${esc(e.desc||"")}</textarea></label>
+   <label>صور المود (أول صورة = الغلاف)<input id="mImgs" type="file" accept="image/*" multiple></label>
+   <div class="pv" id="pv"></div>
+   <div class="cta"><button class="btn pri">${e.id?"حفظ التعديلات":"نشر المود"}</button>${e.id?`<button type="button" class="btn" id="mCancel">إلغاء التعديل</button>`:""}</div>
+  </form>
+  <div class="alist">${sorted(D.mods).map(m=>`<div><span class="chip lat" style="--c:${catOf(m.cat).c}">${catOf(m.cat).n}</span><b>${esc(m.title)}</b><button class="btn sm" data-em="${esc(m.id)}">تعديل</button><button class="btn sm red" data-xm="${esc(m.id)}">حذف</button></div>`).join("")}</div></div>
+  <div class="two">
+   <div><h2 style="margin-bottom:14px">نشر خبر</h2><form class="f" id="fNews"><label>العنوان<input id="nTitle" required maxlength="140"></label><label>النص<textarea id="nBody" maxlength="2000"></textarea></label><button class="btn pri" style="justify-self:start">نشر الخبر</button></form>
+    <div class="alist">${sorted(D.news).map(n=>`<div><b>${esc(n.title)}</b><button class="btn sm red" data-xn="${esc(n.id)}">حذف</button></div>`).join("")}</div></div>
+   <div><h2 style="margin-bottom:14px">إضافة فيديو</h2><form class="f" id="fVid"><label>عنوان الفيديو<input id="vTitle" required maxlength="140"></label><label>رابط YouTube<input id="vUrl" type="url" dir="ltr" required placeholder="https://youtu.be/..."></label><label>صورة مصغّرة (اختياري)<input id="vThumb" type="file" accept="image/*"></label><button class="btn pri" style="justify-self:start">إضافة الفيديو</button></form>
+    <div class="alist">${sorted(D.videos).map(v=>`<div><b>${esc(v.title)}</b><button class="btn sm red" data-xv="${esc(v.id)}">حذف</button></div>`).join("")}</div></div>
+  </div>
+ </div></section>`}
+function drawPv(){const p=$("#pv");if(!p)return;p.innerHTML=S.draftImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-rm="${i}" aria-label="إزالة">×</button></div>`).join("")}
+
+/* ===== router ===== */
+let lastH="";
+function render(){const h=location.hash.slice(1)||"home";
+ const r=h.startsWith("mod-")||CATS.some(c=>c.k===h)?"mods":h;
+ document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.r===r));
+ $("#navAdmin").hidden=!isAdmin();
+ if(h==="home")app.innerHTML=vHome();
+ else if(h==="about")app.innerHTML=vAbout();
+ else if(h==="admin"){app.innerHTML=vAdmin();drawPv()}
+ else if(h.startsWith("mod-")){app.innerHTML=vMod(h.slice(4));mountGiscus(h.slice(4))}
+ else{const cat=CATS.some(c=>c.k===h)?h:null;app.innerHTML=vMods(cat);fillList(cat)}
+ if(h!==lastH){scrollTo(0,0);lastH=h}
+}
+addEventListener("hashchange",()=>{S.edit=null;S.draftImgs=[];render()});
+function gal(d){const s=$("#sl");if(!s)return;const n=s.children.length,i=Math.max(0,Math.min(n-1,Math.round(Math.abs(s.scrollLeft)/s.clientWidth)+d));s.children[i].scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"});document.querySelectorAll(".thumbs button").forEach((x,j)=>x.classList.toggle("on",j===i))}
+addEventListener("keydown",e=>{if(!$("#sl")||e.target.closest("input,textarea,select"))return;if(e.key==="ArrowLeft")gal(1);if(e.key==="ArrowRight")gal(-1)});
+
+/* ===== events ===== */
+const curCat=()=>CATS.some(c=>c.k===lastH)?lastH:null;
+app.addEventListener("input",e=>{if(e.target.id==="q")fillList(curCat())});
+app.addEventListener("change",async e=>{
+ if(e.target.id==="sort")fillList(curCat());
+ if(e.target.id==="mImgs"){const files=[...e.target.files];e.target.value="";for(const f of files){const p=await uploadImg(f);if(p){S.draftImgs.push(p);drawPv()}}}
+});
+app.addEventListener("click",async e=>{
+ const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.g)gal(+b.dataset.g);
+ if(b.dataset.t)gal(+b.dataset.t-Math.round(Math.abs($("#sl").scrollLeft)/$("#sl").clientWidth));
+ if(b.id==="cpMail"){try{await navigator.clipboard.writeText(MAIL);toast("تم نسخ البريد")}catch{toast(MAIL)}}
+ if(b.id==="logout"){A.token="";A.ok=false;store.set("gmdz_admin",null);toast("تم تسجيل الخروج");await loadPublic();render()}
+ if(b.dataset.rm){S.draftImgs.splice(+b.dataset.rm,1);drawPv()}
+ if(b.dataset.em){const m=D.mods.find(x=>x.id===b.dataset.em);if(m){S.edit={...m};S.draftImgs=[...(m.imgs||[])];if(location.hash!=="#admin"){history.replaceState(null,"","#admin");lastH=""}render()}}
+ if(b.id==="mCancel"){S.edit=null;S.draftImgs=[];render()}
+ if(b.dataset.xm&&await ask("حذف المود؟","سيُحذف المود وصوره نهائياً من الموقع.")){const m=D.mods.find(x=>x.id===b.dataset.xm);await commit(()=>{D.mods=D.mods.filter(x=>x.id!==b.dataset.xm)},"حذف مود: "+(m?.title||""));for(const p of (m?.imgs||[]))if(okImg(p))await delFile(p);if(lastH.startsWith("mod-"))location.hash="#mods"}
+ if(b.dataset.xn&&await ask("حذف الخبر؟","لا يمكن التراجع عن الحذف."))await commit(()=>{D.news=D.news.filter(x=>x.id!==b.dataset.xn)},"حذف خبر");
+ if(b.dataset.xv&&await ask("حذف الفيديو؟","لا يمكن التراجع عن الحذف.")){const v=D.videos.find(x=>x.id===b.dataset.xv);await commit(()=>{D.videos=D.videos.filter(x=>x.id!==b.dataset.xv)},"حذف فيديو");if(okImg(v?.thumb))await delFile(v.thumb)}
+});
+async function commit(change,msg){
+ if(S.busy)return false;S.busy=true;const backup=JSON.stringify(D);
+ try{change();await saveData(msg);toast("تم الحفظ ✓ — سيظهر للزوار خلال دقيقة أو دقيقتين");S.busy=false;render();return true}
+ catch(e){if(!/أُعيد تحميلها/.test(e.message))Object.assign(D,JSON.parse(backup));toast(e.message||"تعذّر الحفظ",1);S.busy=false;render();return false}}
+app.addEventListener("submit",async e=>{e.preventDefault();const f=e.target,btn=f.querySelector("button.pri");btn.disabled=true;
+ try{
+  if(f.id==="fLogin"){Object.assign(A,{owner:$("#aOwner").value.trim(),repo:$("#aRepo").value.trim(),branch:$("#aBranch").value.trim()||"main",token:$("#aToken").value.trim()});
+   try{await adminLogin();store.set("gmdz_admin",JSON.stringify({owner:A.owner,repo:A.repo,branch:A.branch,token:A.token}));toast("مرحباً بك في لوحة التحكم");render()}
+   catch(err){A.token="";toast(err.status===401?"المفتاح غير صحيح":err.status===404?"لم يُعثر على الـ repository — تأكد من الاسم وصلاحيات المفتاح":err.message,1)}}
+  if(f.id==="fMod"){const link=$("#mLink").value.trim();if(link&&!safeUrl(link))throw new Error("الرابط يجب أن يبدأ بـ https://");
+   const id=S.edit?.id||("m"+uid()),isEdit=!!S.edit?.id;
+   const mod={id,title:$("#mTitle").value.trim(),cat:$("#mCat").value,creator:$("#mCreator").value.trim(),size:$("#mSize").value.trim(),version:$("#mVer").value.trim(),link,desc:$("#mDesc").value,imgs:[...S.draftImgs],t:S.edit?.t||Date.now()};
+   if(await commit(()=>{D.mods=isEdit?D.mods.map(x=>x.id===id?mod:x):[...D.mods,mod]},(isEdit?"تعديل مود: ":"مود جديد: ")+mod.title)){S.edit=null;S.draftImgs=[];location.hash="#mod-"+id}}
+  if(f.id==="fNews"){const n={id:"n"+uid(),title:$("#nTitle").value.trim(),body:$("#nBody").value,t:Date.now()};if(await commit(()=>{D.news=[...D.news,n]},"خبر: "+n.title))f.reset?.()}
+  if(f.id==="fVid"){const url=$("#vUrl").value.trim();if(!safeUrl(url))throw new Error("الرابط يجب أن يبدأ بـ https://");
+   const file=$("#vThumb").files[0],thumb=file?await uploadImg(file):"";const v={id:"v"+uid(),title:$("#vTitle").value.trim(),url,thumb,t:Date.now()};await commit(()=>{D.videos=[...D.videos,v]},"فيديو: "+v.title)}
+ }catch(err){toast(err.message||"خطأ",1)}
+ const nb=app.querySelector("form#"+f.id+" button.pri");if(nb)nb.disabled=false;
+});
+
+/* ===== boot ===== */
+render();
+(async()=>{
+ if(A.token){try{await adminLogin()}catch{A.ok=false;await loadPublic()}}else await loadPublic();
+ render();
+})();
+}
+</script>
+</body>
+</html>
