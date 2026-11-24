@@ -55,7 +55,7 @@ nav a.on,nav a:hover{color:var(--ink);background:var(--panel)}
 nav a.on{box-shadow:inset 0 -3px 0 var(--g)}
 .hdx{display:flex;gap:8px}
 /* hero */
-.hero{position:relative;overflow:hidden;background:radial-gradient(800px 420px at 20% 40%,rgba(0,166,81,.22),transparent 70%),radial-gradient(500px 300px at 85% 0,rgba(210,16,52,.16),transparent 70%),var(--bg)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(800px 420px at 20% 40%,rgba(0,166,81,.22),transparent 70%),radial-gradient(500px 300px at 85% 0,rgba(210,16,52,.16),transparent 70%)}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center}
 .hero p.lead{font-size:18px;color:#cfdad3;max-width:56ch;margin:18px 0 26px}
 .hero h1 em{font-style:normal;color:var(--g)}
@@ -103,7 +103,7 @@ nav a.on{box-shadow:inset 0 -3px 0 var(--g)}
 .vid .play i{width:58px;height:40px;border-radius:12px;background:#ff0033;display:grid;place-items:center}
 .empty{padding:28px;border:1px dashed var(--line);border-radius:14px;color:var(--mute);text-align:center}
 /* mods page */
-.pagehd{background:linear-gradient(180deg,var(--bg2),var(--bg));border-bottom:1px solid var(--line)}
+.pagehd{background:linear-gradient(180deg,rgba(16,24,19,.85),rgba(10,15,12,.35));border-bottom:1px solid var(--line)}
 .tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-top:18px}
 .tabs a{flex:none;padding:10px 16px;border-radius:10px;border:1px solid var(--line);text-decoration:none;font-family:"Russo One";font-size:14px;background:var(--panel)}
 .tabs a.on{background:var(--c,var(--g));border-color:var(--c,var(--g));color:#fff}
@@ -133,6 +133,11 @@ a.ni{display:block;text-decoration:none}a.ni:hover{border-color:var(--g)}a.ni.ha
 .nbig{max-width:860px;margin:0 auto}
 .nbig .desc{font-size:17px}
 @media(max-width:600px){.ni.has{grid-template-columns:84px minmax(0,1fr)}.ni.has img{width:84px}}
+#bgs{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--bg);pointer-events:none}
+#bgs i{position:absolute;inset:-3%;background-size:cover;background-position:center;opacity:0;transition:opacity 2.2s ease,transform 9s linear;transform:scale(1)}
+#bgs i.on{opacity:.55;transform:scale(1.04)}
+#bgs::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(10,15,12,.2),rgba(10,15,12,.6) 80%),linear-gradient(180deg,rgba(10,15,12,.3),rgba(10,15,12,.7))}
+@media(prefers-reduced-motion:reduce){#bgs i{transition:none;transform:none}#bgs i.on{transform:none}}
 .giscus-box{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
 .f .row2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 @media(max-width:600px){.f .row2{grid-template-columns:minmax(0,1fr)}}
@@ -225,6 +230,7 @@ footer small{color:var(--mute)}
  </div>
 </header>
 
+<div id="bgs" aria-hidden="true"></div>
 <main id="app"></main>
 
 <footer>
@@ -243,7 +249,7 @@ footer small{color:var(--mute)}
 
 <script>
 window.I18N={
-ar:{nav_news:"الأخبار",news_all:"كل الأخبار",news_all_p:"جديد القناة، المودات القادمة والتحديثات",read_more:"اقرأ المزيد",back_news:"العودة للأخبار",news_nf:"هذا الخبر غير موجود.",f_nimgs:"صور الخبر (اختياري — أول صورة = الغلاف)",news_edit:"تعديل الخبر",save_news:"حفظ الخبر",st_dl:"تحميل",spec_dl:"عدد التحميلات",sort_dl:"الأكثر تحميلاً",dir:"rtl",loc:"ar-DZ",
+ar:{bg_h:"خلفية الموقع",bg_p:"صور تظهر خلف الموقع بشفافية خفيفة وتتبدّل تلقائياً. إن لم تضف صوراً تُستعمل الصور الافتراضية.",f_bgs:"إضافة صور خلفية",bg_save:"حفظ الخلفية",bg_default:"تُستعمل حالياً الصور الافتراضية (bg1–bg4).",nav_news:"الأخبار",news_all:"كل الأخبار",news_all_p:"جديد القناة، المودات القادمة والتحديثات",read_more:"اقرأ المزيد",back_news:"العودة للأخبار",news_nf:"هذا الخبر غير موجود.",f_nimgs:"صور الخبر (اختياري — أول صورة = الغلاف)",news_edit:"تعديل الخبر",save_news:"حفظ الخبر",st_dl:"تحميل",spec_dl:"عدد التحميلات",sort_dl:"الأكثر تحميلاً",dir:"rtl",loc:"ar-DZ",
  nav_home:"الرئيسية",nav_mods:"المودات",nav_about:"من نحن",nav_admin:"لوحة التحكم",
  hero_h1:"مودات <em>جزائرية</em> 100%<br>لعالم GTA V",
  hero_lead:"سيارات الأمن الوطني والدرك الوطني، الأزياء الرسمية، الإسعاف والحماية المدنية… كل مودات قناة GTA MODDER DZ في مكان واحد، جاهزة للتحميل.",
@@ -274,7 +280,7 @@ ar:{nav_news:"الأخبار",news_all:"كل الأخبار",news_all_p:"جدي�
  t_copied:"تم نسخ البريد",t_file_up:"جارِ رفع الملف… {p}%",t_file_ok:"تم رفع الملف ✓",t_file_err:"تعذّر رفع الملف — جرّب مرة أخرى أو استعمل رابطاً خارجياً",t_file_big:"الملف أكبر من 95 MB — GitHub لا يقبله. ارفعه على MediaFire/Drive وضع الرابط.",t_need_dl:"أضف ملف المود أو رابط تحميل",t_wait_up:"انتظر حتى ينتهي رفع الملف",t_err:"تعذّر الحفظ",
  c_del_mod:"حذف المود؟",c_del_mod_b:"سيُحذف المود وصوره وملفه نهائياً من الموقع.",c_del:"تأكيد الحذف؟",c_del_b:"لا يمكن التراجع عن الحذف.",cancel:"إلغاء",confirm:"تأكيد",only_owner:"هذه الصفحة مخصّصة لصاحب الموقع فقط."},
 
-fr:{nav_news:"Actualités",news_all:"Toutes les actualités",news_all_p:"Nouveautés de la chaîne, mods à venir et mises à jour",read_more:"Lire la suite",back_news:"Retour aux actualités",news_nf:"Cette actualité n'existe pas.",f_nimgs:"Images (facultatif — la 1re = couverture)",news_edit:"Modifier l'actualité",save_news:"Enregistrer",st_dl:"téléchargements",spec_dl:"Téléchargements",sort_dl:"Plus téléchargés",dir:"ltr",loc:"fr-FR",
+fr:{bg_h:"Arrière-plan du site",bg_p:"Images affichées derrière le site, légèrement transparentes, qui défilent automatiquement. Sans images ajoutées, celles par défaut sont utilisées.",f_bgs:"Ajouter des images d'arrière-plan",bg_save:"Enregistrer l'arrière-plan",bg_default:"Images par défaut utilisées (bg1–bg4).",nav_news:"Actualités",news_all:"Toutes les actualités",news_all_p:"Nouveautés de la chaîne, mods à venir et mises à jour",read_more:"Lire la suite",back_news:"Retour aux actualités",news_nf:"Cette actualité n'existe pas.",f_nimgs:"Images (facultatif — la 1re = couverture)",news_edit:"Modifier l'actualité",save_news:"Enregistrer",st_dl:"téléchargements",spec_dl:"Téléchargements",sort_dl:"Plus téléchargés",dir:"ltr",loc:"fr-FR",
  nav_home:"Accueil",nav_mods:"Mods",nav_about:"À propos",nav_admin:"Administration",
  hero_h1:"Mods <em>algériens</em> 100%<br>pour GTA V",
  hero_lead:"Véhicules de la Sûreté nationale et de la Gendarmerie, uniformes officiels, ambulances et Protection civile… Tous les mods de la chaîne GTA MODDER DZ réunis au même endroit, prêts à télécharger.",
@@ -305,7 +311,7 @@ fr:{nav_news:"Actualités",news_all:"Toutes les actualités",news_all_p:"Nouveau
  t_copied:"E-mail copié",t_file_up:"Envoi du fichier… {p}%",t_file_ok:"Fichier envoyé ✓",t_file_err:"Échec de l'envoi — réessayez ou utilisez un lien externe",t_file_big:"Fichier > 95 MB — refusé par GitHub. Hébergez-le sur MediaFire/Drive et mettez le lien.",t_need_dl:"Ajoutez un fichier ou un lien de téléchargement",t_wait_up:"Attendez la fin de l'envoi du fichier",t_err:"Échec de l'enregistrement",
  c_del_mod:"Supprimer le mod ?",c_del_mod_b:"Le mod, ses images et son fichier seront supprimés définitivement.",c_del:"Confirmer la suppression ?",c_del_b:"Action irréversible.",cancel:"Annuler",confirm:"Confirmer",only_owner:"Page réservée au propriétaire du site."},
 
-en:{nav_news:"News",news_all:"All news",news_all_p:"Channel news, upcoming mods and updates",read_more:"Read more",back_news:"Back to news",news_nf:"This news post doesn't exist.",f_nimgs:"Images (optional — 1st = cover)",news_edit:"Edit news",save_news:"Save news",st_dl:"downloads",spec_dl:"Downloads",sort_dl:"Most downloaded",dir:"ltr",loc:"en-GB",
+en:{bg_h:"Site background",bg_p:"Images shown behind the site, slightly transparent, rotating automatically. If you add none, the default images are used.",f_bgs:"Add background images",bg_save:"Save background",bg_default:"Using the default images (bg1–bg4).",nav_news:"News",news_all:"All news",news_all_p:"Channel news, upcoming mods and updates",read_more:"Read more",back_news:"Back to news",news_nf:"This news post doesn't exist.",f_nimgs:"Images (optional — 1st = cover)",news_edit:"Edit news",save_news:"Save news",st_dl:"downloads",spec_dl:"Downloads",sort_dl:"Most downloaded",dir:"ltr",loc:"en-GB",
  nav_home:"Home",nav_mods:"Mods",nav_about:"About",nav_admin:"Admin panel",
  hero_h1:"100% <em>Algerian</em> mods<br>for GTA V",
  hero_lead:"National Police and Gendarmerie vehicles, official uniforms, ambulance and Civil Protection… Every GTA MODDER DZ mod in one place, ready to download.",
@@ -336,7 +342,7 @@ en:{nav_news:"News",news_all:"All news",news_all_p:"Channel news, upcoming mods 
  t_copied:"Email copied",t_file_up:"Uploading file… {p}%",t_file_ok:"File uploaded ✓",t_file_err:"Upload failed — retry or use an external link",t_file_big:"File is over 95 MB — GitHub won't accept it. Host it on MediaFire/Drive and paste the link.",t_need_dl:"Add a mod file or a download link",t_wait_up:"Wait for the file upload to finish",t_err:"Save failed",
  c_del_mod:"Delete this mod?",c_del_mod_b:"The mod, its images and file will be deleted permanently.",c_del:"Confirm delete?",c_del_b:"This can't be undone.",cancel:"Cancel",confirm:"Confirm",only_owner:"This page is for the site owner only."},
 
-tr:{nav_news:"Haberler",news_all:"Tüm haberler",news_all_p:"Kanal haberleri, yakında gelecek modlar ve güncellemeler",read_more:"Devamını oku",back_news:"Haberlere dön",news_nf:"Bu haber bulunamadı.",f_nimgs:"Görseller (isteğe bağlı — ilki = kapak)",news_edit:"Haberi düzenle",save_news:"Haberi kaydet",st_dl:"indirme",spec_dl:"İndirme sayısı",sort_dl:"En çok indirilen",dir:"ltr",loc:"tr-TR",
+tr:{bg_h:"Site arka planı",bg_p:"Sitenin arkasında hafif saydam görünen ve otomatik değişen görseller. Görsel eklemezsen varsayılanlar kullanılır.",f_bgs:"Arka plan görseli ekle",bg_save:"Arka planı kaydet",bg_default:"Varsayılan görseller kullanılıyor (bg1–bg4).",nav_news:"Haberler",news_all:"Tüm haberler",news_all_p:"Kanal haberleri, yakında gelecek modlar ve güncellemeler",read_more:"Devamını oku",back_news:"Haberlere dön",news_nf:"Bu haber bulunamadı.",f_nimgs:"Görseller (isteğe bağlı — ilki = kapak)",news_edit:"Haberi düzenle",save_news:"Haberi kaydet",st_dl:"indirme",spec_dl:"İndirme sayısı",sort_dl:"En çok indirilen",dir:"ltr",loc:"tr-TR",
  nav_home:"Ana sayfa",nav_mods:"Modlar",nav_about:"Hakkımızda",nav_admin:"Yönetim paneli",
  hero_h1:"%100 <em>Cezayir</em> modları<br>GTA V için",
  hero_lead:"Ulusal Emniyet ve Jandarma araçları, resmi üniformalar, ambulans ve Sivil Savunma… GTA MODDER DZ kanalının tüm modları tek yerde, indirmeye hazır.",
@@ -381,8 +387,8 @@ const CATS=[
  {k:"uniforms",n:"UNIFORMS",c:"#c49a5a",i:"i-uni"},
  {k:"other",n:"OTHER MODS",c:"#d21034",i:"i-other"}];
 const catOf=k=>CATS.find(c=>c.k===k)||CATS[3];
-const D={mods:[],news:[],videos:[]};
-const S={loaded:false,err:false,edit:null,draftImgs:[],draftFile:null,editNews:null,newsImgs:[],uploading:false,prev:{},sha:null,busy:false};
+const D={mods:[],news:[],videos:[],bgs:[]};
+const S={loaded:false,err:false,edit:null,draftImgs:[],draftFile:null,editNews:null,newsImgs:[],bgDraft:null,uploading:false,prev:{},sha:null,busy:false};
 const $=s=>document.querySelector(s), app=$("#app");
 /* ===== download counter (Abacus — free counting API) ===== */
 const ABA="https://abacus.jasoncameron.dev",NS="gtamodderdz-cmyk-site";
@@ -472,7 +478,7 @@ async function uploadModFile(file){
  finally{S.uploading=false;if(box)box.hidden=true}}
 
 /* ===== data ===== */
-function setData(j){D.mods=Array.isArray(j.mods)?j.mods:[];D.news=Array.isArray(j.news)?j.news:[];D.videos=Array.isArray(j.videos)?j.videos:[];S.loaded=true}
+function setData(j){D.bgs=Array.isArray(j.bgs)?j.bgs.filter(okImg):[];D.mods=Array.isArray(j.mods)?j.mods:[];D.news=Array.isArray(j.news)?j.news:[];D.videos=Array.isArray(j.videos)?j.videos:[];S.loaded=true}
 async function loadPublic(){try{const r=await fetch("data.json?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw 0;setData(await r.json())}catch{S.err=true;S.loaded=true}}
 
 /* ===== pieces ===== */
@@ -522,7 +528,7 @@ function vHome(){const mods=sorted(D.mods);
   <div class="cats">${CATS.map(c=>`<a class="cat" href="#${c.k}" style="--c:${c.c}"><svg><use href="#${c.i}"/></svg><b>${c.n}</b><span>${T("cat_"+c.k)} · ${T("cnt",{n:D.mods.filter(m=>m.cat===c.k).length})}</span></a>`).join("")}</div></div></section>
  <section class="band" style="padding-top:8px"><div class="wrap"><div class="sec-h"><div><h2>${T("sec_latest")}</h2><p>${T("sec_latest_p")}</p></div><a class="btn" href="#mods">${T("view_all")}</a></div>
   ${loadingNote()||(mods.length?`<div class="grid">${mods.slice(0,6).map(modCard).join("")}</div>`:emptyBox(T("empty_mods")))}</div></section>
- <section class="band" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap two">
+ <section class="band" style="background:rgba(16,24,19,.72);border-block:1px solid var(--line)"><div class="wrap two">
   <div><div class="sec-h"><div><h2>${T("sec_news")}</h2><p>${T("sec_news_p")}</p></div><a class="btn sm" href="#news">${T("view_all")}</a></div>
    ${loadingNote()||(D.news.length?`<div class="news">${sorted(D.news).slice(0,4).map(newsItem).join("")}</div>`:emptyBox(T("empty_news")))}</div>
   <div><div class="sec-h"><div><h2>${T("sec_videos")}</h2><p>${T("sec_videos_p")}</p></div><a class="btn red sm" href="${YT}" target="_blank" rel="noopener">${yt}${T("subscribe")}</a></div>
@@ -608,6 +614,8 @@ function vAdmin(){
    <div class="cta"><button class="btn pri">${e.id?T("save_mod"):T("publish_mod")}</button>${e.id?`<button type="button" class="btn" id="mCancel">${T("cancel_edit")}</button>`:""}</div>
   </form>
   <div class="alist">${sorted(D.mods).map(m=>`<div><span class="chip lat" style="--c:${catOf(m.cat).c}">${catOf(m.cat).n}</span><b>${esc(m.title)}</b><button class="btn sm" data-em="${esc(m.id)}">${T("edit")}</button><button class="btn sm red" data-xm="${esc(m.id)}">${T("del")}</button></div>`).join("")}</div></div>
+  <div><h2 style="margin-bottom:6px">${T("bg_h")}</h2><p style="color:var(--mute);margin:0 0 14px">${T("bg_p")}</p>
+   <form class="f" id="fBg"><label>${T("f_bgs")}<input id="bgImgs" type="file" accept="image/*" multiple></label><div class="pv" id="bgpv"></div>${(S.bgDraft??D.bgs).length?"":`<span style="color:var(--mute);font-size:14px">${T("bg_default")}</span>`}<button class="btn pri" style="justify-self:start">${T("bg_save")}</button></form></div>
   <div class="two">
    <div><h2 style="margin-bottom:14px" id="newsH">${S.editNews?T("news_edit"):T("news_h")}</h2><form class="f" id="fNews"><label>${T("f_ntitle")}<input id="nTitle" required maxlength="140" value="${esc(S.editNews?.title||"")}"></label><label>${T("f_nbody")}<textarea id="nBody" maxlength="6000">${esc(S.editNews?.body||"")}</textarea></label><label>${T("f_nimgs")}<input id="nImgs" type="file" accept="image/*" multiple></label><div class="pv" id="npv"></div><div class="cta"><button class="btn pri">${S.editNews?T("save_news"):T("publish_news")}</button>${S.editNews?`<button type="button" class="btn" id="nCancel">${T("cancel_edit")}</button>`:""}</div></form>
     <div class="alist">${sorted(D.news).map(n=>`<div><b>${esc(n.title)}</b><button class="btn sm" data-en="${esc(n.id)}">${T("edit")}</button><button class="btn sm red" data-xn="${esc(n.id)}">${T("del")}</button></div>`).join("")}</div></div>
@@ -615,9 +623,20 @@ function vAdmin(){
     <div class="alist">${sorted(D.videos).map(v=>`<div><b>${esc(v.title)}</b><button class="btn sm red" data-xv="${esc(v.id)}">${T("del")}</button></div>`).join("")}</div></div>
   </div>
  </div></section>`}
-function drawPv(){const np=$("#npv");if(np)np.innerHTML=S.newsImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-nrm="${i}" aria-label="x">×</button></div>`).join("");
+function drawPv(){const bp=$("#bgpv");if(bp)bp.innerHTML=(S.bgDraft??D.bgs).map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-brm="${i}" aria-label="x">×</button></div>`).join("");
+ const np=$("#npv");if(np)np.innerHTML=S.newsImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-nrm="${i}" aria-label="x">×</button></div>`).join("");
  const p=$("#pv");if(p)p.innerHTML=S.draftImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-rm="${i}" aria-label="x">×</button></div>`).join("");
  const fc=$("#fcur");if(fc)fc.innerHTML=S.draftFile?`<div class="filebox"><svg width="22" height="22"><use href="#i-dl"/></svg><span>${T("f_file_cur")}</span><b dir="ltr">${esc(S.draftFile.name)} · ${fmtSize(S.draftFile.size||0)}</b><button type="button" class="btn sm red" id="rmFile">${T("f_file_rm")}</button></div>`:""}
+
+/* ===== background slideshow ===== */
+const BG_DEFAULT=["bg1.jpg","bg2.jpg","bg3.jpg","bg4.jpg"];
+let bgTimer=null,bgSig="";
+function drawBg(){
+ const list=(D.bgs&&D.bgs.length?D.bgs.map(imgSrc).filter(Boolean):BG_DEFAULT),sig=list.join("|");
+ if(sig===bgSig)return;bgSig=sig;const box=$("#bgs");clearInterval(bgTimer);
+ box.innerHTML=list.map((u,i)=>`<i class="${i?"":"on"}" style="background-image:url('${String(u).replace(/['"()\\]/g,"")}')"></i>`).join("");
+ if(list.length<2||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ let k=0;bgTimer=setInterval(()=>{const L2=box.children;if(!L2.length)return;L2[k].classList.remove("on");k=(k+1)%L2.length;L2[k].classList.add("on")},8000)}
 
 /* ===== router ===== */
 let lastH="";
@@ -633,7 +652,7 @@ function render(){const h=location.hash.slice(1)||"home";
  else if(h.startsWith("news-"))app.innerHTML=vNewsOne(h.slice(5));
  else{const cat=CATS.some(c=>c.k===h)?h:null;app.innerHTML=vMods(cat);fillList(cat)}
  if(h!==lastH){scrollTo(0,0);lastH=h}
- refreshCounts();
+ refreshCounts();drawBg();
 }
 addEventListener("hashchange",()=>{if(S.uploading)return;S.edit=null;S.draftImgs=[];S.draftFile=null;S.editNews=null;S.newsImgs=[];render()});
 $("#langSel").addEventListener("change",e=>{
@@ -650,6 +669,7 @@ app.addEventListener("input",e=>{if(e.target.id==="q")fillList(curCat())});
 app.addEventListener("change",async e=>{
  if(e.target.id==="sort")fillList(curCat());
  if(e.target.id==="mImgs"){const files=[...e.target.files];e.target.value="";for(const f of files){const p=await uploadImg(f);if(p){S.draftImgs.push(p);drawPv()}}}
+ if(e.target.id==="bgImgs"){const files=[...e.target.files];e.target.value="";S.bgDraft=S.bgDraft??[...D.bgs];for(const f of files){const p=await uploadImg(f);if(p){S.bgDraft.push(p);drawPv()}}}
  if(e.target.id==="nImgs"){const files=[...e.target.files];e.target.value="";for(const f of files){const p=await uploadImg(f);if(p){S.newsImgs.push(p);drawPv()}}}
  if(e.target.id==="mFile"){const f=e.target.files[0];e.target.value="";if(!f||S.uploading)return;
   const r=await uploadModFile(f);if(r){const old=S.draftFile;S.draftFile=r;const sz=$("#mSize");if(sz&&!sz.value)sz.value=fmtSize(r.size);drawPv();if(old&&old!==S.edit?.file&&okFile(old.path))delFile(old.path)}}
@@ -657,6 +677,7 @@ app.addEventListener("change",async e=>{
 app.addEventListener("click",e=>{const a=e.target.closest("a[data-hit]");if(a)hitDl(a.dataset.hit)});
 app.addEventListener("click",async e=>{
  const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.brm){S.bgDraft=S.bgDraft??[...D.bgs];S.bgDraft.splice(+b.dataset.brm,1);drawPv()}
  if(b.dataset.nrm){S.newsImgs.splice(+b.dataset.nrm,1);drawPv()}
  if(b.id==="nCancel"){S.editNews=null;S.newsImgs=[];render()}
  if(b.dataset.en){const n=D.news.find(x=>x.id===b.dataset.en);if(n){S.editNews={...n};S.newsImgs=[...(n.imgs||[])];if(location.hash!=="#admin"){history.replaceState(null,"","#admin");lastH=""}render();setTimeout(()=>$("#newsH")?.scrollIntoView({block:"start"}),50)}}
@@ -691,6 +712,7 @@ app.addEventListener("submit",async e=>{e.preventDefault();const f=e.target,btn=
    if(await commit(()=>{D.mods=isEdit?D.mods.map(x=>x.id===id?mod:x):[...D.mods,mod]},(isEdit?"edit mod: ":"new mod: ")+mod.title)){
     if(oldFile&&okFile(oldFile.path)&&(!mod.file||mod.file.path!==oldFile.path))delFile(oldFile.path);
     S.edit=null;S.draftImgs=[];S.draftFile=null;location.hash="#mod-"+id}}
+  if(f.id==="fBg"){const nb=[...(S.bgDraft??D.bgs)],removed=D.bgs.filter(p=>!nb.includes(p));if(await commit(()=>{D.bgs=nb},"background")){for(const p of removed)if(okImg(p))delFile(p);S.bgDraft=null;drawBg()}}
   if(f.id==="fNews"){const ed=S.editNews,n={id:ed?.id||("n"+uid()),title:$("#nTitle").value.trim(),body:$("#nBody").value,imgs:[...S.newsImgs],t:ed?.t||Date.now()};
    const removed=(ed?.imgs||[]).filter(p=>!n.imgs.includes(p));
    if(await commit(()=>{D.news=ed?D.news.map(x=>x.id===n.id?n:x):[...D.news,n]},(ed?"edit news: ":"news: ")+n.title)){for(const p of removed)if(okImg(p))delFile(p);S.editNews=null;S.newsImgs=[];location.hash="#news-"+n.id}}
