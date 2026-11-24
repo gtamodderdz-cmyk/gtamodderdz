@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GTA MODDER DZ | مودات جزائرية لـ GTA V</title>
-<meta name="description" content="الموقع الرسمي لقناة GTA MODDER DZ — مودات جزائرية للعبة GTA V: الشرطة، الدرك الوطني، الأزياء والمزيد.">
+<title>GTA MODS ALGERIA | مودات جزائرية لـ GTA V</title>
+<meta name="description" content="GTA MODS ALGERIA — موقع قناتي GTA MODDER DZ و ADEM MNG — مودات جزائرية للعبة GTA V: الشرطة، الدرك الوطني، الأزياء والمزيد.">
 <link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=Cairo:wght@400;600;700&family=Russo+One&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@ nav a.on{box-shadow:inset 0 -3px 0 var(--g)}
 /* sections */
 .sec-h{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
 .sec-h p{margin:6px 0 0;color:var(--mute)}
-.cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
 .cat{position:relative;display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:14px;text-decoration:none;background:var(--panel);border:1px solid var(--line);overflow:hidden;min-height:150px}
 .cat:hover{border-color:var(--c)}
 .cat::before{content:"";position:absolute;inset:0 0 auto;height:8px;background:repeating-linear-gradient(90deg,var(--c) 0 22px,#fff 22px 44px)}
@@ -138,6 +138,18 @@ a.ni{display:block;text-decoration:none}a.ni:hover{border-color:var(--g)}a.ni.ha
 #bgs i.on{opacity:.55;transform:scale(1.04)}
 #bgs::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(10,15,12,.2),rgba(10,15,12,.6) 80%),linear-gradient(180deg,rgba(10,15,12,.3),rgba(10,15,12,.7))}
 @media(prefers-reduced-motion:reduce){#bgs i{transition:none;transform:none}#bgs i.on{transform:none}}
+.pub{position:absolute;bottom:10px;inset-inline-end:10px;display:inline-flex;align-items:center;gap:6px;padding:3px 9px 3px 4px;border-radius:20px;background:rgba(0,0,0,.65);font-size:12px;font-weight:700;color:#fff}
+.av2{width:22px;height:22px;border-radius:50%;display:inline-grid;place-items:center;overflow:hidden;background:var(--r);color:#fff;font:700 10px/1 "Russo One",sans-serif;flex:none;position:relative}
+.av2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.av2.lg{width:72px;height:72px;font-size:24px;border:3px solid var(--g)}
+.chs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:22px}
+.ch{display:flex;gap:16px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.ch h3{margin-bottom:4px}.ch p{margin:0 0 12px;color:#cfdad3;font-size:15px}
+.thx .av2.lg{border-color:var(--sand)}
+.thx-strip{display:flex;gap:12px;flex-wrap:wrap}
+.thx-strip a{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:30px;background:var(--panel);border:1px solid var(--line);text-decoration:none;font-weight:700}
+.thx-strip a:hover{border-color:var(--sand)}
+.thx-strip .av2{width:36px;height:36px;font-size:13px}
 .giscus-box{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
 .f .row2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 @media(max-width:600px){.f .row2{grid-template-columns:minmax(0,1fr)}}
@@ -205,6 +217,7 @@ footer small{color:var(--mute)}
  <symbol id="i-uni" viewBox="0 0 48 48"><path fill="currentColor" opacity=".25" d="M17 5h14l12 7-5 9-4-2v24H14V19l-4 2-5-9z"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" d="M17 5h14l12 7-5 9-4-2v24H14V19l-4 2-5-9zM17 5l7 8 7-8"/><rect x="27" y="22" width="5" height="4" fill="currentColor"/></symbol>
  <symbol id="i-other" viewBox="0 0 48 48"><path fill="currentColor" opacity=".25" d="M6 30h36v8H6z"/><path fill="none" stroke="currentColor" stroke-width="3" d="M6 30h36v8H6zM13 30a11 11 0 0 1 22 0"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M24 4v6M9 10l4 4M39 10l-4 4"/><path fill="currentColor" d="M22 20h4v4h4v4H18v-4h4z"/></symbol>
  <symbol id="flag" viewBox="0 0 900 600"><mask id="cres"><rect width="900" height="600" fill="#fff"/><circle cx="488" cy="300" r="120" fill="#000"/></mask><rect width="900" height="600" fill="#fff"/><rect width="450" height="600" fill="#006233"/><circle cx="450" cy="300" r="150" fill="#d21034" mask="url(#cres)"/><polygon fill="#d21034" points="448.0,300.0 497.7,283.8 497.8,231.5 528.5,273.8 578.2,257.7 547.5,300.0 578.2,342.3 528.5,326.2 497.8,368.5 497.7,316.2"/></symbol>
+ <symbol id="i-car" viewBox="0 0 48 48"><path fill="currentColor" opacity=".25" d="M6 26l5-11c1-2 3-3 5-3h16c2 0 4 1 5 3l5 11v10H6z"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" d="M6 26l5-11c1-2 3-3 5-3h16c2 0 4 1 5 3l5 11v10H6zM6 26h36"/><circle cx="14" cy="36" r="4" fill="currentColor"/><circle cx="34" cy="36" r="4" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="3" d="M13 20h22"/></symbol>
  <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/></symbol>
  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v12H8l-4 4z"/></symbol>
  <symbol id="i-dl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 3v12m-5-5 5 5 5-5M4 20h16"/></symbol>
@@ -215,7 +228,7 @@ footer small{color:var(--mute)}
 <header>
  <div class="flag"></div>
  <div class="hd">
-  <a class="brand" href="#home"><img src="logo.jpg" alt="شعار GTA MODDER DZ"><b class="lat">GTA MODDER <span>DZ</span></b><svg class="mini" viewBox="0 0 900 600" aria-label="علم الجزائر"><use href="#flag"/></svg></a>
+  <a class="brand" href="#home"><img src="logo.jpg" alt="GTA MODS ALGERIA"><b class="lat">GTA MODS <span>ALGERIA</span></b><svg class="mini" viewBox="0 0 900 600" aria-label="علم الجزائر"><use href="#flag"/></svg></a>
   <nav id="nav">
    <a href="#home" data-r="home" data-i="nav_home">الرئيسية</a>
    <a href="#mods" data-r="mods" data-i="nav_mods">المودات</a>
@@ -237,7 +250,7 @@ footer small{color:var(--mute)}
  <div class="fb"></div>
  <div class="band" style="padding-block:28px">
   <div class="wrap">
-   <a class="brand" href="#home" style="margin:0"><img src="logo.jpg" alt=""><b class="lat">GTA MODDER <span>DZ</span></b></a>
+   <a class="brand" href="#home" style="margin:0"><img src="logo.jpg" alt=""><b class="lat">GTA MODS <span>ALGERIA</span></b></a>
    <small><span data-i="footer_tag">مودات جزائرية للعبة GTA V — صُنعت بحب في الجزائر</span> <svg class="mini" style="width:21px;height:14px;vertical-align:-2px" viewBox="0 0 900 600"><use href="#flag"/></svg><br><span data-i="footer_ads">للإعلانات والشراكات:</span> <span dir="ltr">gtamodderdz@gmail.com</span></small>
    <div class="tags"><a class="btn disc sm" href="https://discord.gg/S57qpBeePT"><svg><use href="#i-disc"/></svg>Discord</a><a class="btn red sm" href="https://www.youtube.com/@GTAMODDERDZ"><svg><use href="#i-yt"/></svg>YouTube</a></div>
   </div>
@@ -278,7 +291,7 @@ ar:{bg_h:"خلفية الموقع",bg_p:"صور تظهر خلف الموقع ب�
  t_saved:"تم الحفظ ✓ — سيظهر للزوار خلال دقيقة أو دقيقتين",t_conflict:"تم تعديل البيانات من مكان آخر — أُعيد تحميلها، حاول مجدداً",t_img_up:"جارِ رفع الصورة…",t_img_ok:"تم رفع الصورة",t_img_err:"تعذّر رفع الصورة",t_https:"الرابط يجب أن يبدأ بـ https://",
  t_logout:"تم تسجيل الخروج",t_welcome:"مرحباً بك في لوحة التحكم",t_bad_token:"المفتاح غير صحيح",t_no_repo:"لم يُعثر على الـ repository — تأكد من الاسم وصلاحيات المفتاح",t_no_push:"المفتاح لا يملك صلاحية الكتابة على هذا الـ repository",
  t_copied:"تم نسخ البريد",t_file_up:"جارِ رفع الملف… {p}%",t_file_ok:"تم رفع الملف ✓",t_file_err:"تعذّر رفع الملف — جرّب مرة أخرى أو استعمل رابطاً خارجياً",t_file_big:"الملف أكبر من 95 MB — GitHub لا يقبله. ارفعه على MediaFire/Drive وضع الرابط.",t_need_dl:"أضف ملف المود أو رابط تحميل",t_wait_up:"انتظر حتى ينتهي رفع الملف",t_err:"تعذّر الحفظ",
- c_del_mod:"حذف المود؟",c_del_mod_b:"سيُحذف المود وصوره وملفه نهائياً من الموقع.",c_del:"تأكيد الحذف؟",c_del_b:"لا يمكن التراجع عن الحذف.",cancel:"إلغاء",confirm:"تأكيد",only_owner:"هذه الصفحة مخصّصة لصاحب الموقع فقط."},
+ c_del_mod:"حذف المود؟",c_del_mod_b:"سيُحذف المود وصوره وملفه نهائياً من الموقع.",c_del:"تأكيد الحذف؟",c_del_b:"لا يمكن التراجع عن الحذف.",cancel:"إلغاء",confirm:"تأكيد",hero_lead:"سيارات الأمن الوطني والدرك الوطني، السيارات المدنية، الأزياء الرسمية، الإسعاف والحماية المدنية… كل مودات قناتي GTA MODDER DZ و ADEM MNG في مكان واحد، جاهزة للتحميل.",footer_tag:"GTA MODS ALGERIA — مودات جزائرية للعبة GTA V، صُنعت بحب في الجزائر",cat_civil:"السيارات المدنية",about_p:"<b class=\"lat\">GTA MODS ALGERIA</b> هو الموقع الذي يجمع المودات الجزائرية للعبة GTA V من قناتي GTA MODDER DZ و ADEM MNG — من سيارات وملابس الأمن والدرك الوطني إلى السيارات المدنية، الإسعاف والحماية المدنية. هدفنا هو مشاركة محتوى إبداعي لمحبي التعديل (modding) في الجزائر والعالم العربي.",team_h:"قنواتنا",ch_gmdz:"قناة مخصّصة لصناعة وعرض المودات الجزائرية للعبة GTA V، من سيارات وملابس الأمن والدرك الوطني إلى الإسعاف والحماية المدنية.",ch_adem:"قناة مخصّصة في تصميم ونشر واستعراض مودات جزائرية مختلفة.",visit:"زيارة القناة",thanks_h:"شكر خاص",thanks_p:"شكراً لكل من ساهم ودعم المشروع",pub_by:"نشر بواسطة",f_pub:"النشر باسم",all_ch:"كل القنوات",th_h:"شكر خاص",th_p:"أضف قناة أو شخصاً تريد شكره — يظهر في صفحة «من نحن» وفي الرئيسية.",th_name:"الاسم",th_url:"الرابط (https)",th_desc:"التعريف",th_img:"الصورة",th_add:"إضافة",th_edit:"تعديل الشكر",th_save:"حفظ",only_owner:"هذه الصفحة مخصّصة لصاحب الموقع فقط."},
 
 fr:{bg_h:"Arrière-plan du site",bg_p:"Images affichées derrière le site, légèrement transparentes, qui défilent automatiquement. Sans images ajoutées, celles par défaut sont utilisées.",f_bgs:"Ajouter des images d'arrière-plan",bg_save:"Enregistrer l'arrière-plan",bg_default:"Images par défaut utilisées (bg1–bg4).",nav_news:"Actualités",news_all:"Toutes les actualités",news_all_p:"Nouveautés de la chaîne, mods à venir et mises à jour",read_more:"Lire la suite",back_news:"Retour aux actualités",news_nf:"Cette actualité n'existe pas.",f_nimgs:"Images (facultatif — la 1re = couverture)",news_edit:"Modifier l'actualité",save_news:"Enregistrer",st_dl:"téléchargements",spec_dl:"Téléchargements",sort_dl:"Plus téléchargés",dir:"ltr",loc:"fr-FR",
  nav_home:"Accueil",nav_mods:"Mods",nav_about:"À propos",nav_admin:"Administration",
@@ -309,7 +322,7 @@ fr:{bg_h:"Arrière-plan du site",bg_p:"Images affichées derrière le site, lég
  t_saved:"Enregistré ✓ — visible dans 1 à 2 minutes",t_conflict:"Les données ont changé ailleurs — rechargées, réessayez",t_img_up:"Envoi de l'image…",t_img_ok:"Image envoyée",t_img_err:"Échec de l'envoi de l'image",t_https:"Le lien doit commencer par https://",
  t_logout:"Déconnecté",t_welcome:"Bienvenue dans l'administration",t_bad_token:"Clé invalide",t_no_repo:"Repository introuvable — vérifiez le nom et les droits de la clé",t_no_push:"La clé n'a pas le droit d'écriture sur ce repository",
  t_copied:"E-mail copié",t_file_up:"Envoi du fichier… {p}%",t_file_ok:"Fichier envoyé ✓",t_file_err:"Échec de l'envoi — réessayez ou utilisez un lien externe",t_file_big:"Fichier > 95 MB — refusé par GitHub. Hébergez-le sur MediaFire/Drive et mettez le lien.",t_need_dl:"Ajoutez un fichier ou un lien de téléchargement",t_wait_up:"Attendez la fin de l'envoi du fichier",t_err:"Échec de l'enregistrement",
- c_del_mod:"Supprimer le mod ?",c_del_mod_b:"Le mod, ses images et son fichier seront supprimés définitivement.",c_del:"Confirmer la suppression ?",c_del_b:"Action irréversible.",cancel:"Annuler",confirm:"Confirmer",only_owner:"Page réservée au propriétaire du site."},
+ c_del_mod:"Supprimer le mod ?",c_del_mod_b:"Le mod, ses images et son fichier seront supprimés définitivement.",c_del:"Confirmer la suppression ?",c_del_b:"Action irréversible.",cancel:"Annuler",confirm:"Confirmer",hero_lead:"Véhicules de la Sûreté nationale et de la Gendarmerie, voitures civiles, uniformes, ambulances et Protection civile… Tous les mods des chaînes GTA MODDER DZ et ADEM MNG réunis au même endroit, prêts à télécharger.",footer_tag:"GTA MODS ALGERIA — mods algériens pour GTA V, faits avec passion en Algérie",cat_civil:"Voitures civiles",about_p:"<b class=\"lat\">GTA MODS ALGERIA</b> réunit les mods algériens pour GTA V des chaînes GTA MODDER DZ et ADEM MNG : véhicules et uniformes de la Sûreté nationale et de la Gendarmerie, voitures civiles, ambulances, Protection civile… Notre objectif est de partager du contenu créatif avec les passionnés de modding en Algérie et dans le monde arabe.",team_h:"Nos chaînes",ch_gmdz:"Chaîne dédiée à la création et à la présentation de mods algériens pour GTA V : véhicules et uniformes de la Sûreté nationale et de la Gendarmerie, ambulances, Protection civile.",ch_adem:"Chaîne spécialisée dans la conception, la publication et la présentation de divers mods algériens.",visit:"Voir la chaîne",thanks_h:"Remerciements",thanks_p:"Merci à tous ceux qui ont contribué et soutenu le projet",pub_by:"Publié par",f_pub:"Publier en tant que",all_ch:"Toutes les chaînes",th_h:"Remerciements",th_p:"Ajoutez une chaîne ou une personne à remercier — affichée dans « À propos » et sur l'accueil.",th_name:"Nom",th_url:"Lien (https)",th_desc:"Présentation",th_img:"Image",th_add:"Ajouter",th_edit:"Modifier",th_save:"Enregistrer",only_owner:"Page réservée au propriétaire du site."},
 
 en:{bg_h:"Site background",bg_p:"Images shown behind the site, slightly transparent, rotating automatically. If you add none, the default images are used.",f_bgs:"Add background images",bg_save:"Save background",bg_default:"Using the default images (bg1–bg4).",nav_news:"News",news_all:"All news",news_all_p:"Channel news, upcoming mods and updates",read_more:"Read more",back_news:"Back to news",news_nf:"This news post doesn't exist.",f_nimgs:"Images (optional — 1st = cover)",news_edit:"Edit news",save_news:"Save news",st_dl:"downloads",spec_dl:"Downloads",sort_dl:"Most downloaded",dir:"ltr",loc:"en-GB",
  nav_home:"Home",nav_mods:"Mods",nav_about:"About",nav_admin:"Admin panel",
@@ -340,7 +353,7 @@ en:{bg_h:"Site background",bg_p:"Images shown behind the site, slightly transpar
  t_saved:"Saved ✓ — live in 1–2 minutes",t_conflict:"Data changed elsewhere — reloaded, please retry",t_img_up:"Uploading image…",t_img_ok:"Image uploaded",t_img_err:"Image upload failed",t_https:"Link must start with https://",
  t_logout:"Logged out",t_welcome:"Welcome to the admin panel",t_bad_token:"Invalid key",t_no_repo:"Repository not found — check the name and key permissions",t_no_push:"This key can't write to the repository",
  t_copied:"Email copied",t_file_up:"Uploading file… {p}%",t_file_ok:"File uploaded ✓",t_file_err:"Upload failed — retry or use an external link",t_file_big:"File is over 95 MB — GitHub won't accept it. Host it on MediaFire/Drive and paste the link.",t_need_dl:"Add a mod file or a download link",t_wait_up:"Wait for the file upload to finish",t_err:"Save failed",
- c_del_mod:"Delete this mod?",c_del_mod_b:"The mod, its images and file will be deleted permanently.",c_del:"Confirm delete?",c_del_b:"This can't be undone.",cancel:"Cancel",confirm:"Confirm",only_owner:"This page is for the site owner only."},
+ c_del_mod:"Delete this mod?",c_del_mod_b:"The mod, its images and file will be deleted permanently.",c_del:"Confirm delete?",c_del_b:"This can't be undone.",cancel:"Cancel",confirm:"Confirm",hero_lead:"National Police and Gendarmerie vehicles, civilian cars, official uniforms, ambulance and Civil Protection… Every mod from the GTA MODDER DZ and ADEM MNG channels in one place, ready to download.",footer_tag:"GTA MODS ALGERIA — Algerian mods for GTA V, made with love in Algeria",cat_civil:"Civilian cars",about_p:"<b class=\"lat\">GTA MODS ALGERIA</b> brings together the Algerian GTA V mods of the GTA MODDER DZ and ADEM MNG channels — National Police and Gendarmerie vehicles and uniforms, civilian cars, ambulances and Civil Protection. Our goal is to share creative content with modding fans in Algeria and across the Arab world.",team_h:"Our channels",ch_gmdz:"Channel dedicated to creating and showcasing Algerian mods for GTA V — from National Police and Gendarmerie vehicles and uniforms to ambulances and Civil Protection.",ch_adem:"Channel specialised in designing, publishing and showcasing various Algerian mods.",visit:"Visit channel",thanks_h:"Special thanks",thanks_p:"Thanks to everyone who contributed to and supported the project",pub_by:"Published by",f_pub:"Publish as",all_ch:"All channels",th_h:"Special thanks",th_p:"Add a channel or person to thank — shown on the About page and the home page.",th_name:"Name",th_url:"Link (https)",th_desc:"Description",th_img:"Image",th_add:"Add",th_edit:"Edit thanks",th_save:"Save",only_owner:"This page is for the site owner only."},
 
 tr:{bg_h:"Site arka planı",bg_p:"Sitenin arkasında hafif saydam görünen ve otomatik değişen görseller. Görsel eklemezsen varsayılanlar kullanılır.",f_bgs:"Arka plan görseli ekle",bg_save:"Arka planı kaydet",bg_default:"Varsayılan görseller kullanılıyor (bg1–bg4).",nav_news:"Haberler",news_all:"Tüm haberler",news_all_p:"Kanal haberleri, yakında gelecek modlar ve güncellemeler",read_more:"Devamını oku",back_news:"Haberlere dön",news_nf:"Bu haber bulunamadı.",f_nimgs:"Görseller (isteğe bağlı — ilki = kapak)",news_edit:"Haberi düzenle",save_news:"Haberi kaydet",st_dl:"indirme",spec_dl:"İndirme sayısı",sort_dl:"En çok indirilen",dir:"ltr",loc:"tr-TR",
  nav_home:"Ana sayfa",nav_mods:"Modlar",nav_about:"Hakkımızda",nav_admin:"Yönetim paneli",
@@ -371,7 +384,7 @@ tr:{bg_h:"Site arka planı",bg_p:"Sitenin arkasında hafif saydam görünen ve o
  t_saved:"Kaydedildi ✓ — 1–2 dakika içinde yayında",t_conflict:"Veriler başka yerde değişti — yeniden yüklendi, tekrar dene",t_img_up:"Görsel yükleniyor…",t_img_ok:"Görsel yüklendi",t_img_err:"Görsel yüklenemedi",t_https:"Bağlantı https:// ile başlamalı",
  t_logout:"Çıkış yapıldı",t_welcome:"Yönetim paneline hoş geldin",t_bad_token:"Geçersiz anahtar",t_no_repo:"Repository bulunamadı — adı ve anahtar izinlerini kontrol et",t_no_push:"Bu anahtarın repository'ye yazma izni yok",
  t_copied:"E-posta kopyalandı",t_file_up:"Dosya yükleniyor… %{p}",t_file_ok:"Dosya yüklendi ✓",t_file_err:"Yükleme başarısız — tekrar dene ya da harici bağlantı kullan",t_file_big:"Dosya 95 MB'tan büyük — GitHub kabul etmez. MediaFire/Drive'a yükleyip bağlantıyı yapıştır.",t_need_dl:"Bir mod dosyası veya indirme bağlantısı ekle",t_wait_up:"Dosya yüklemesinin bitmesini bekle",t_err:"Kaydedilemedi",
- c_del_mod:"Mod silinsin mi?",c_del_mod_b:"Mod, görselleri ve dosyası kalıcı olarak silinecek.",c_del:"Silme onaylansın mı?",c_del_b:"Bu işlem geri alınamaz.",cancel:"İptal",confirm:"Onayla",only_owner:"Bu sayfa yalnızca site sahibi içindir."}
+ c_del_mod:"Mod silinsin mi?",c_del_mod_b:"Mod, görselleri ve dosyası kalıcı olarak silinecek.",c_del:"Silme onaylansın mı?",c_del_b:"Bu işlem geri alınamaz.",cancel:"İptal",confirm:"Onayla",hero_lead:"Ulusal Emniyet ve Jandarma araçları, sivil arabalar, resmi üniformalar, ambulans ve Sivil Savunma… GTA MODDER DZ ve ADEM MNG kanallarının tüm modları tek yerde, indirmeye hazır.",footer_tag:"GTA MODS ALGERIA — GTA V için Cezayir modları, Cezayir'de sevgiyle yapıldı",cat_civil:"Sivil arabalar",about_p:"<b class=\"lat\">GTA MODS ALGERIA</b>, GTA MODDER DZ ve ADEM MNG kanallarının GTA V için Cezayir modlarını bir araya getirir: Ulusal Emniyet ve Jandarma araçları ve üniformaları, sivil arabalar, ambulans ve Sivil Savunma. Amacımız Cezayir'deki ve Arap dünyasındaki mod tutkunlarıyla yaratıcı içerik paylaşmak.",team_h:"Kanallarımız",ch_gmdz:"GTA V için Cezayir modları üretip tanıtmaya adanmış kanal: Ulusal Emniyet ve Jandarma araçları ile üniformalarından ambulans ve Sivil Savunma'ya kadar.",ch_adem:"Çeşitli Cezayir modlarını tasarlayan, yayınlayan ve tanıtan kanal.",visit:"Kanala git",thanks_h:"Özel teşekkür",thanks_p:"Projeye katkı veren ve destekleyen herkese teşekkürler",pub_by:"Yayınlayan",f_pub:"Şu adla yayınla",all_ch:"Tüm kanallar",th_h:"Özel teşekkür",th_p:"Teşekkür etmek istediğin kanalı veya kişiyi ekle — «Hakkımızda» ve ana sayfada görünür.",th_name:"Ad",th_url:"Bağlantı (https)",th_desc:"Tanıtım",th_img:"Görsel",th_add:"Ekle",th_edit:"Teşekkürü düzenle",th_save:"Kaydet",only_owner:"Bu sayfa yalnızca site sahibi içindir."}
 };
 </script>
 <script src="config.js"></script>
@@ -385,10 +398,17 @@ const CATS=[
  {k:"police",n:"POLICE MODS",c:"#2f7bff",i:"i-police"},
  {k:"gendarmerie",n:"GENDARMERIE MODS",c:"#2e8b47",i:"i-gend"},
  {k:"uniforms",n:"UNIFORMS",c:"#c49a5a",i:"i-uni"},
+ {k:"civil",n:"CIVILIAN CARS",c:"#14b8c9",i:"i-car"},
  {k:"other",n:"OTHER MODS",c:"#d21034",i:"i-other"}];
-const catOf=k=>CATS.find(c=>c.k===k)||CATS[3];
-const D={mods:[],news:[],videos:[],bgs:[]};
-const S={loaded:false,err:false,edit:null,draftImgs:[],draftFile:null,editNews:null,newsImgs:[],bgDraft:null,uploading:false,prev:{},sha:null,busy:false};
+const catOf=k=>CATS.find(c=>c.k===k)||CATS[CATS.length-1];
+/* publishers (channels) */
+const CHANNELS=[
+ {k:"gmdz",name:"GTA MODDER DZ",url:"https://www.youtube.com/@GTAMODDERDZ",img:"logo.jpg",ini:"GM"},
+ {k:"adem",name:"ADEM MNG",url:"https://www.youtube.com/@adem7335",img:"adem.jpg",ini:"AM"}];
+const chOf=k=>CHANNELS.find(c=>c.k===k)||CHANNELS[0];
+const av=(img,ini,cls="")=>`<span class="av2 ${cls}">${esc(ini)}${img?`<img src="${esc(img)}" alt="" loading="lazy" onerror="this.remove()">`:""}</span>`;
+const D={mods:[],news:[],videos:[],bgs:[],thanks:[]};
+const S={loaded:false,err:false,edit:null,draftImgs:[],draftFile:null,editNews:null,newsImgs:[],bgDraft:null,editThx:null,thxImg:"",uploading:false,prev:{},sha:null,busy:false};
 const $=s=>document.querySelector(s), app=$("#app");
 /* ===== download counter (Abacus — free counting API) ===== */
 const ABA="https://abacus.jasoncameron.dev",NS="gtamodderdz-cmyk-site";
@@ -478,24 +498,24 @@ async function uploadModFile(file){
  finally{S.uploading=false;if(box)box.hidden=true}}
 
 /* ===== data ===== */
-function setData(j){D.bgs=Array.isArray(j.bgs)?j.bgs.filter(okImg):[];D.mods=Array.isArray(j.mods)?j.mods:[];D.news=Array.isArray(j.news)?j.news:[];D.videos=Array.isArray(j.videos)?j.videos:[];S.loaded=true}
+function setData(j){D.thanks=Array.isArray(j.thanks)?j.thanks:[];D.bgs=Array.isArray(j.bgs)?j.bgs.filter(okImg):[];D.mods=Array.isArray(j.mods)?j.mods:[];D.news=Array.isArray(j.news)?j.news:[];D.videos=Array.isArray(j.videos)?j.videos:[];S.loaded=true}
 async function loadPublic(){try{const r=await fetch("data.json?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw 0;setData(await r.json())}catch{S.err=true;S.loaded=true}}
 
 /* ===== pieces ===== */
-function cover(m){const c=catOf(m.cat),src=imgSrc((m.imgs||[])[0]);
- return `<div class="cover" style="--c:${c.c}">${src?`<img src="${esc(src)}" alt="" loading="lazy">`:`<div class="ph"><svg><use href="#${c.i}"/></svg></div>`}<span class="chip lat" style="--c:${c.c}">${c.n}</span></div>`}
+function cover(m,noPub){const c=catOf(m.cat),src=imgSrc((m.imgs||[])[0]),ch=chOf(m.pub);
+ return `<div class="cover" style="--c:${c.c}">${src?`<img src="${esc(src)}" alt="" loading="lazy">`:`<div class="ph"><svg><use href="#${c.i}"/></svg></div>`}<span class="chip lat" style="--c:${c.c}">${c.n}</span>${noPub?"":`<span class="pub">${av(ch.img,ch.ini)}${esc(ch.name)}</span>`}</div>`}
 const sizeOf=m=>m.size||(m.file&&m.file.size?fmtSize(m.file.size):"");
 function modCard(m){return `<a class="card" href="#mod-${esc(m.id)}">${cover(m)}<div class="cbody"><h3>${esc(m.title)}</h3><span style="color:var(--mute);font-size:14px">${T("by")} ${esc(m.creator||"GTA MODDER DZ")}</span><div class="meta"><span title="${esc(T("spec_dl"))}"><svg><use href="#i-dl"/></svg><b data-dl="${esc(m.id)}" style="font-weight:600">${dlTxt(m.id)}</b></span>${sizeOf(m)?`<span dir="ltr">${esc(sizeOf(m))}</span>`:""}<span>${esc(m.version?"v"+m.version:"")}</span><span>${fmtD(m.t)}</span></div></div></a>`}
 function vidCard(v){const u=safeUrl(v.url),th=imgSrc(v.thumb);return `<a class="card vid" href="${esc(u||YT)}" target="_blank" rel="noopener"><div class="cover">${th?`<img src="${esc(th)}" alt="" loading="lazy">`:`<div class="ph"></div>`}<div class="play"><i><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M8 5v14l11-7z"/></svg></i></div></div><div class="cbody"><h3 style="font-size:17px">${esc(v.title)}</h3><div class="meta"><span>${fmtD(v.t)}</span></div></div></a>`}
 function newsItem(n){const im=imgSrc((n.imgs||[])[0]),body=String(n.body||""),short=body.length>220?body.slice(0,220)+"…":body;
- return `<a class="ni${im?" has":""}" href="#news-${esc(n.id)}">${im?`<img src="${esc(im)}" alt="" loading="lazy">`:""}<div><time>${fmtD(n.t)}</time><h3>${esc(n.title)}</h3>${short?`<p>${esc(short)}</p>`:""}<span class="more">${T("read_more")}</span></div></a>`}
+ return `<a class="ni${im?" has":""}" href="#news-${esc(n.id)}">${im?`<img src="${esc(im)}" alt="" loading="lazy">`:""}<div><time>${fmtD(n.t)} · ${esc(chOf(n.pub).name)}</time><h3>${esc(n.title)}</h3>${short?`<p>${esc(short)}</p>`:""}<span class="more">${T("read_more")}</span></div></a>`}
 function vNews(){return `<section class="pagehd band"><div class="wrap"><h1>${T("news_all")}</h1><p style="color:var(--mute);margin:8px 0 0">${T("news_all_p")}</p></div></section>
  <section class="band" style="padding-top:20px"><div class="wrap nbig">${loadingNote()||(D.news.length?`<div class="news">${sorted(D.news).map(newsItem).join("")}</div>`:emptyBox(T("empty_news")))}</div></section>`}
 function vNewsOne(id){const n=D.news.find(x=>x.id===id);
  if(!n)return `<section class="band"><div class="wrap">${loadingNote()||`<div class="empty">${T("news_nf")} <a href="#news" style="color:var(--g)">${T("back_news")}</a></div>`}</div></section>`;
  const imgs=(n.imgs||[]).map(imgSrc).filter(Boolean);
  return `<section class="band"><div class="wrap nbig"><div class="bc"><a href="#news">${T("nav_news")}</a> / ${esc(n.title)}</div>
-  <time style="color:var(--mute)">${fmtD(n.t)}</time><h1 style="margin:6px 0 20px">${esc(n.title)}</h1>
+  <time style="color:var(--mute)">${fmtD(n.t)} · ${esc(chOf(n.pub).name)}</time><h1 style="margin:6px 0 20px">${esc(n.title)}</h1>
   ${imgs.length?`<div class="gal"><div class="slides" id="sl">${imgs.map(s=>`<div><img src="${esc(s)}" alt=""></div>`).join("")}</div>${imgs.length>1?`<button class="gnav p" data-g="-1" aria-label="prev">›</button><button class="gnav n" data-g="1" aria-label="next">‹</button>`:""}</div>
   ${imgs.length>1?`<div class="thumbs">${imgs.map((s,i)=>`<button data-t="${i}" class="${i?"":"on"}"><img src="${esc(s)}" alt=""></button>`).join("")}</div>`:""}`:""}
   ${n.body?`<div class="desc">${esc(n.body)}</div>`:""}
@@ -533,15 +553,17 @@ function vHome(){const mods=sorted(D.mods);
    ${loadingNote()||(D.news.length?`<div class="news">${sorted(D.news).slice(0,4).map(newsItem).join("")}</div>`:emptyBox(T("empty_news")))}</div>
   <div><div class="sec-h"><div><h2>${T("sec_videos")}</h2><p>${T("sec_videos_p")}</p></div><a class="btn red sm" href="${YT}" target="_blank" rel="noopener">${yt}${T("subscribe")}</a></div>
    ${loadingNote()||(D.videos.length?`<div class="vids">${sorted(D.videos).slice(0,4).map(vidCard).join("")}</div>`:emptyBox(T("empty_videos")))}</div>
- </div></section>`}
+ </div></section>
+ ${D.thanks.length?`<section class="band"><div class="wrap"><div class="sec-h"><div><h2>${T("thanks_h")}</h2><p>${T("thanks_p")}</p></div><a class="btn sm" href="#about">${T("view_all")}</a></div>
+  <div class="thx-strip">${sorted(D.thanks).reverse().map(t=>{const u=safeUrl(t.url);return `<a href="${esc(u||"#about")}" ${u?'target="_blank" rel="noopener"':""}>${av(imgSrc(t.img),String(t.name||"?").slice(0,2).toUpperCase())}${esc(t.name)}</a>`}).join("")}</div></div></section>`:""}`}
 
 function vMods(cat){const c=cat?catOf(cat):null;
  return `<section class="pagehd band"><div class="wrap"><h1>${c?`<span class="lat">${c.n}</span>`:T("all_mods")}</h1><p style="color:var(--mute);margin:8px 0 0">${c?T("cat_"+c.k):T("all_mods_p")}</p>
   <div class="tabs"><a href="#mods" class="${!c?"on":""}">ALL</a>${CATS.map(x=>`<a href="#${x.k}" class="${c&&c.k===x.k?"on":""}" style="--c:${x.c}">${x.n}</a>`).join("")}</div></div></section>
- <section class="band" style="padding-top:0"><div class="wrap"><div class="tools"><input id="q" type="search" placeholder="${esc(T("search_ph"))}" aria-label="${esc(T("search_ph"))}"><select id="sort" aria-label="sort"><option value="new">${T("sort_new")}</option><option value="old">${T("sort_old")}</option><option value="dl">${T("sort_dl")}</option><option value="az">${T("sort_az")}</option></select></div><div id="list"></div></div></section>`}
+ <section class="band" style="padding-top:0"><div class="wrap"><div class="tools"><input id="q" type="search" placeholder="${esc(T("search_ph"))}" aria-label="${esc(T("search_ph"))}"><select id="sort" aria-label="sort"><option value="new">${T("sort_new")}</option><option value="old">${T("sort_old")}</option><option value="dl">${T("sort_dl")}</option><option value="az">${T("sort_az")}</option></select><select id="pubF" aria-label="channel"><option value="">${T("all_ch")}</option>${CHANNELS.map(c=>`<option value="${c.k}">${esc(c.name)}</option>`).join("")}</select></div><div id="list"></div></div></section>`}
 function fillList(cat){
- const q=($("#q")?.value||"").trim().toLowerCase(),so=$("#sort")?.value||"new";
- let a=D.mods.filter(m=>(!cat||m.cat===cat)&&(!q||(m.title+" "+(m.creator||"")+" "+(m.desc||"")).toLowerCase().includes(q)));
+ const q=($("#q")?.value||"").trim().toLowerCase(),so=$("#sort")?.value||"new",pf=$("#pubF")?.value||"";
+ let a=D.mods.filter(m=>(!cat||m.cat===cat)&&(!pf||chOf(m.pub).k===pf)&&(!q||(m.title+" "+(m.creator||"")+" "+(m.desc||"")).toLowerCase().includes(q)));
  a=so==="dl"?a.sort((x,y)=>(DL[y.id]||0)-(DL[x.id]||0)):so==="az"?a.sort((x,y)=>String(x.title).localeCompare(String(y.title),lang)):so==="old"?sorted(a).reverse():sorted(a);
  $("#list").innerHTML=loadingNote()||(a.length?`<div class="grid">${a.map(modCard).join("")}</div>`:emptyBox(q?T("no_results"):T("empty_cat")));
 }
@@ -563,7 +585,7 @@ function vMod(id){
    <div class="giscus-box" id="gbox">${CFG.giscus&&CFG.giscus.repoId?"":`<div class="empty">${T("comments_off")}</div>`}</div>
   </div>
   <aside class="side"><span class="chip lat" style="--c:${c.c};align-self:start">${c.n}</span><h1 style="font-size:clamp(26px,3vw,36px)">${esc(m.title)}</h1>
-   <table class="spec"><tr><td>${T("spec_creator")}</td><td>${esc(m.creator||"GTA MODDER DZ")}</td></tr><tr><td>${T("spec_size")}</td><td dir="ltr" style="text-align:start">${esc(sizeOf(m)||"—")}</td></tr><tr><td>${T("spec_ver")}</td><td>${esc(m.version||"1.0")}</td></tr><tr><td>${T("spec_date")}</td><td>${fmtD(m.t)}</td></tr><tr><td>${T("spec_dl")}</td><td><b data-dl="${esc(m.id)}">${dlTxt(m.id)}</b></td></tr>${f?`<tr><td>${T("spec_file")}</td><td dir="ltr" style="text-align:start;overflow-wrap:anywhere">${esc(f.name)}</td></tr>`:""}</table>
+   <table class="spec"><tr><td>${T("pub_by")}</td><td><a href="${esc(chOf(m.pub).url)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:var(--ink)">${av(chOf(m.pub).img,chOf(m.pub).ini)}${esc(chOf(m.pub).name)}</a></td></tr><tr><td>${T("spec_creator")}</td><td>${esc(m.creator||"GTA MODDER DZ")}</td></tr><tr><td>${T("spec_size")}</td><td dir="ltr" style="text-align:start">${esc(sizeOf(m)||"—")}</td></tr><tr><td>${T("spec_ver")}</td><td>${esc(m.version||"1.0")}</td></tr><tr><td>${T("spec_date")}</td><td>${fmtD(m.t)}</td></tr><tr><td>${T("spec_dl")}</td><td><b data-dl="${esc(m.id)}">${dlTxt(m.id)}</b></td></tr>${f?`<tr><td>${T("spec_file")}</td><td dir="ltr" style="text-align:start;overflow-wrap:anywhere">${esc(f.name)}</td></tr>`:""}</table>
    ${dlBtn}
    <a class="btn" style="justify-content:center" href="#gbox"><svg><use href="#i-heart"/></svg>${T("react_btn")}</a>
    ${isAdmin()?`<div class="cta"><button class="btn sm" data-em="${esc(id)}">${T("edit")}</button><button class="btn sm red" data-xm="${esc(id)}">${T("del")}</button></div>`:""}
@@ -582,7 +604,11 @@ function vAbout(){return `<section class="band hero"><div class="wrap about">
   <div class="contact">
    <div><b>${T("contact_ads")}</b><code>${MAIL}</code><div class="tags"><a class="btn sm" href="mailto:${MAIL}">${T("mail_us")}</a><button class="btn sm" id="cpMail">${T("copy_mail")}</button></div></div>
    <div><b>${T("community")}</b><span style="color:var(--mute)">${T("community_p")}</span><div class="tags"><a class="btn disc sm" href="${DISCORD}" target="_blank" rel="noopener">${dc}Discord</a><a class="btn red sm" href="${YT}" target="_blank" rel="noopener">${yt}YouTube</a></div></div>
-  </div></div></div></section>`}
+  </div></div></div></section>
+ <section class="band" style="padding-top:8px"><div class="wrap"><h2>${T("team_h")}</h2>
+  <div class="chs">${CHANNELS.map(c=>`<div class="ch">${av(c.img,c.ini,"lg")}<div><h3 class="lat">${esc(c.name)}</h3><p>${T("ch_"+c.k)}</p><a class="btn red sm" href="${esc(c.url)}" target="_blank" rel="noopener">${yt}${T("visit")}</a></div></div>`).join("")}</div></div></section>
+ ${D.thanks.length?`<section class="band" style="padding-top:8px"><div class="wrap"><h2>${T("thanks_h")}</h2><p style="color:var(--mute);margin:6px 0 0">${T("thanks_p")}</p>
+  <div class="chs thx">${sorted(D.thanks).reverse().map(t=>{const u=safeUrl(t.url);return `<div class="ch">${av(imgSrc(t.img),String(t.name||"?").slice(0,2).toUpperCase(),"lg")}<div><h3>${esc(t.name)}</h3>${t.desc?`<p>${esc(t.desc)}</p>`:""}${u?`<a class="btn sm" href="${esc(u)}" target="_blank" rel="noopener">${T("visit")}</a>`:""}</div></div>`}).join("")}</div></div></section>`:""}`}
 
 function vLogin(){return `<section class="pagehd band"><div class="wrap"><h1>${T("login_h")}</h1><p style="color:var(--mute);margin:8px 0 0">${T("login_p")}</p></div></section>
  <section class="band" style="padding-top:20px"><div class="wrap" style="max-width:720px"><form class="f" id="fLogin">
@@ -599,7 +625,7 @@ function vAdmin(){
  <section class="band" style="padding-top:20px"><div class="wrap" style="display:grid;gap:30px">
   <div><h2 style="margin-bottom:14px">${e.id?T("mod_edit"):T("mod_new")}</h2>
   <form class="f" id="fMod">
-   <label>${T("f_title")}<input id="mTitle" required maxlength="120" value="${esc(e.title||"")}"></label>
+   <div class="row2"><label style="grid-column:span 2">${T("f_title")}<input id="mTitle" required maxlength="120" value="${esc(e.title||"")}"></label><label>${T("f_pub")}<select id="mPub">${CHANNELS.map(c=>`<option value="${c.k}" ${(e.pub||store.get("gmdz_pub")||"gmdz")===c.k?"selected":""}>${esc(c.name)}</option>`).join("")}</select></label></div>
    <div class="row"><label>${T("f_cat")}<select id="mCat">${CATS.map(c=>`<option value="${c.k}" ${e.cat===c.k?"selected":""}>${c.n}</option>`).join("")}</select></label>
     <label>${T("f_creator")}<input id="mCreator" maxlength="60" value="${esc(e.creator??"GTA MODDER DZ")}"></label>
     <label>${T("f_size")}<input id="mSize" maxlength="20" placeholder="${esc(T("f_size_ph"))}" value="${esc(e.size||"")}"></label></div>
@@ -616,14 +642,21 @@ function vAdmin(){
   <div class="alist">${sorted(D.mods).map(m=>`<div><span class="chip lat" style="--c:${catOf(m.cat).c}">${catOf(m.cat).n}</span><b>${esc(m.title)}</b><button class="btn sm" data-em="${esc(m.id)}">${T("edit")}</button><button class="btn sm red" data-xm="${esc(m.id)}">${T("del")}</button></div>`).join("")}</div></div>
   <div><h2 style="margin-bottom:6px">${T("bg_h")}</h2><p style="color:var(--mute);margin:0 0 14px">${T("bg_p")}</p>
    <form class="f" id="fBg"><label>${T("f_bgs")}<input id="bgImgs" type="file" accept="image/*" multiple></label><div class="pv" id="bgpv"></div>${(S.bgDraft??D.bgs).length?"":`<span style="color:var(--mute);font-size:14px">${T("bg_default")}</span>`}<button class="btn pri" style="justify-self:start">${T("bg_save")}</button></form></div>
+  <div><h2 style="margin-bottom:6px" id="thxH">${S.editThx?T("th_edit"):T("th_h")}</h2><p style="color:var(--mute);margin:0 0 14px">${T("th_p")}</p>
+   <form class="f" id="fThx"><div class="row2"><label>${T("th_name")}<input id="tName" required maxlength="60" value="${esc(S.editThx?.name||"")}"></label><label style="grid-column:span 2">${T("th_url")}<input id="tUrl" type="url" dir="ltr" placeholder="https://www.youtube.com/@..." value="${esc(S.editThx?.url||"")}"></label></div>
+    <label>${T("th_desc")}<textarea id="tDesc" maxlength="400" style="min-height:80px">${esc(S.editThx?.desc||"")}</textarea></label>
+    <label>${T("th_img")}<input id="tImg" type="file" accept="image/*"></label><div class="pv" id="tpv"></div>
+    <div class="cta"><button class="btn pri">${S.editThx?T("th_save"):T("th_add")}</button>${S.editThx?`<button type="button" class="btn" id="tCancel">${T("cancel_edit")}</button>`:""}</div></form>
+   <div class="alist">${sorted(D.thanks).map(t=>`<div>${av(imgSrc(t.img),String(t.name||"?").slice(0,2).toUpperCase())}<b>${esc(t.name)}</b><button class="btn sm" data-et="${esc(t.id)}">${T("edit")}</button><button class="btn sm red" data-xt="${esc(t.id)}">${T("del")}</button></div>`).join("")}</div></div>
   <div class="two">
-   <div><h2 style="margin-bottom:14px" id="newsH">${S.editNews?T("news_edit"):T("news_h")}</h2><form class="f" id="fNews"><label>${T("f_ntitle")}<input id="nTitle" required maxlength="140" value="${esc(S.editNews?.title||"")}"></label><label>${T("f_nbody")}<textarea id="nBody" maxlength="6000">${esc(S.editNews?.body||"")}</textarea></label><label>${T("f_nimgs")}<input id="nImgs" type="file" accept="image/*" multiple></label><div class="pv" id="npv"></div><div class="cta"><button class="btn pri">${S.editNews?T("save_news"):T("publish_news")}</button>${S.editNews?`<button type="button" class="btn" id="nCancel">${T("cancel_edit")}</button>`:""}</div></form>
+   <div><h2 style="margin-bottom:14px" id="newsH">${S.editNews?T("news_edit"):T("news_h")}</h2><form class="f" id="fNews"><label>${T("f_ntitle")}<input id="nTitle" required maxlength="140" value="${esc(S.editNews?.title||"")}"></label><label>${T("f_pub")}<select id="nPub">${CHANNELS.map(c=>`<option value="${c.k}" ${(S.editNews?.pub||store.get("gmdz_pub")||"gmdz")===c.k?"selected":""}>${esc(c.name)}</option>`).join("")}</select></label><label>${T("f_nbody")}<textarea id="nBody" maxlength="6000">${esc(S.editNews?.body||"")}</textarea></label><label>${T("f_nimgs")}<input id="nImgs" type="file" accept="image/*" multiple></label><div class="pv" id="npv"></div><div class="cta"><button class="btn pri">${S.editNews?T("save_news"):T("publish_news")}</button>${S.editNews?`<button type="button" class="btn" id="nCancel">${T("cancel_edit")}</button>`:""}</div></form>
     <div class="alist">${sorted(D.news).map(n=>`<div><b>${esc(n.title)}</b><button class="btn sm" data-en="${esc(n.id)}">${T("edit")}</button><button class="btn sm red" data-xn="${esc(n.id)}">${T("del")}</button></div>`).join("")}</div></div>
    <div><h2 style="margin-bottom:14px">${T("vid_h")}</h2><form class="f" id="fVid"><label>${T("f_vtitle")}<input id="vTitle" required maxlength="140"></label><label>${T("f_vurl")}<input id="vUrl" type="url" dir="ltr" required placeholder="https://youtu.be/..."></label><label>${T("f_vthumb")}<input id="vThumb" type="file" accept="image/*"></label><button class="btn pri" style="justify-self:start">${T("add_vid")}</button></form>
     <div class="alist">${sorted(D.videos).map(v=>`<div><b>${esc(v.title)}</b><button class="btn sm red" data-xv="${esc(v.id)}">${T("del")}</button></div>`).join("")}</div></div>
   </div>
  </div></section>`}
-function drawPv(){const bp=$("#bgpv");if(bp)bp.innerHTML=(S.bgDraft??D.bgs).map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-brm="${i}" aria-label="x">×</button></div>`).join("");
+function drawPv(){const tp=$("#tpv");if(tp)tp.innerHTML=S.thxImg?`<div><img src="${esc(imgSrc(S.thxImg))}" alt=""><button type="button" id="tRm" aria-label="x">×</button></div>`:"";
+ const bp=$("#bgpv");if(bp)bp.innerHTML=(S.bgDraft??D.bgs).map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-brm="${i}" aria-label="x">×</button></div>`).join("");
  const np=$("#npv");if(np)np.innerHTML=S.newsImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-nrm="${i}" aria-label="x">×</button></div>`).join("");
  const p=$("#pv");if(p)p.innerHTML=S.draftImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-rm="${i}" aria-label="x">×</button></div>`).join("");
  const fc=$("#fcur");if(fc)fc.innerHTML=S.draftFile?`<div class="filebox"><svg width="22" height="22"><use href="#i-dl"/></svg><span>${T("f_file_cur")}</span><b dir="ltr">${esc(S.draftFile.name)} · ${fmtSize(S.draftFile.size||0)}</b><button type="button" class="btn sm red" id="rmFile">${T("f_file_rm")}</button></div>`:""}
@@ -654,12 +687,12 @@ function render(){const h=location.hash.slice(1)||"home";
  if(h!==lastH){scrollTo(0,0);lastH=h}
  refreshCounts();drawBg();
 }
-addEventListener("hashchange",()=>{if(S.uploading)return;S.edit=null;S.draftImgs=[];S.draftFile=null;S.editNews=null;S.newsImgs=[];render()});
+addEventListener("hashchange",()=>{if(S.uploading)return;S.edit=null;S.draftImgs=[];S.draftFile=null;S.editNews=null;S.newsImgs=[];S.editThx=null;S.thxImg="";S.bgDraft=null;render()});
 $("#langSel").addEventListener("change",e=>{
  let keep=null;if(lastH==="admin"&&$("#fMod"))keep=formVals();
  lang=e.target.value;store.set("gmdz_lang",lang);applyLang();
  if(keep)S.edit={...(S.edit||{}),...keep};render()});
-function formVals(){return{title:$("#mTitle").value,cat:$("#mCat").value,creator:$("#mCreator").value,size:$("#mSize").value,version:$("#mVer").value,link:$("#mLink").value,desc:$("#mDesc").value}}
+function formVals(){return{pub:$("#mPub").value,title:$("#mTitle").value,cat:$("#mCat").value,creator:$("#mCreator").value,size:$("#mSize").value,version:$("#mVer").value,link:$("#mLink").value,desc:$("#mDesc").value}}
 function gal(d){const s=$("#sl");if(!s)return;const n=s.children.length,i=Math.max(0,Math.min(n-1,Math.round(Math.abs(s.scrollLeft)/s.clientWidth)+d));s.children[i].scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"});document.querySelectorAll(".thumbs button").forEach((x,j)=>x.classList.toggle("on",j===i))}
 addEventListener("keydown",e=>{if(!$("#sl")||e.target.closest("input,textarea,select"))return;const rtl=L[lang].dir==="rtl";if(e.key==="ArrowLeft")gal(rtl?1:-1);if(e.key==="ArrowRight")gal(rtl?-1:1)});
 
@@ -667,8 +700,9 @@ addEventListener("keydown",e=>{if(!$("#sl")||e.target.closest("input,textarea,se
 const curCat=()=>CATS.some(c=>c.k===lastH)?lastH:null;
 app.addEventListener("input",e=>{if(e.target.id==="q")fillList(curCat())});
 app.addEventListener("change",async e=>{
- if(e.target.id==="sort")fillList(curCat());
+ if(e.target.id==="sort"||e.target.id==="pubF")fillList(curCat());
  if(e.target.id==="mImgs"){const files=[...e.target.files];e.target.value="";for(const f of files){const p=await uploadImg(f);if(p){S.draftImgs.push(p);drawPv()}}}
+ if(e.target.id==="tImg"){const f=e.target.files[0];e.target.value="";if(f){const p=await uploadImg(f);if(p){S.thxImg=p;drawPv()}}}
  if(e.target.id==="bgImgs"){const files=[...e.target.files];e.target.value="";S.bgDraft=S.bgDraft??[...D.bgs];for(const f of files){const p=await uploadImg(f);if(p){S.bgDraft.push(p);drawPv()}}}
  if(e.target.id==="nImgs"){const files=[...e.target.files];e.target.value="";for(const f of files){const p=await uploadImg(f);if(p){S.newsImgs.push(p);drawPv()}}}
  if(e.target.id==="mFile"){const f=e.target.files[0];e.target.value="";if(!f||S.uploading)return;
@@ -677,6 +711,10 @@ app.addEventListener("change",async e=>{
 app.addEventListener("click",e=>{const a=e.target.closest("a[data-hit]");if(a)hitDl(a.dataset.hit)});
 app.addEventListener("click",async e=>{
  const b=e.target.closest("button");if(!b)return;
+ if(b.id==="tRm"){S.thxImg="";drawPv()}
+ if(b.id==="tCancel"){S.editThx=null;S.thxImg="";render()}
+ if(b.dataset.et){const t=D.thanks.find(x=>x.id===b.dataset.et);if(t){S.editThx={...t};S.thxImg=t.img||"";render();setTimeout(()=>$("#thxH")?.scrollIntoView({block:"start"}),50)}}
+ if(b.dataset.xt&&await ask(T("c_del"),T("c_del_b"))){const t=D.thanks.find(x=>x.id===b.dataset.xt);if(await commit(()=>{D.thanks=D.thanks.filter(x=>x.id!==b.dataset.xt)},"delete thanks")&&okImg(t?.img))delFile(t.img)}
  if(b.dataset.brm){S.bgDraft=S.bgDraft??[...D.bgs];S.bgDraft.splice(+b.dataset.brm,1);drawPv()}
  if(b.dataset.nrm){S.newsImgs.splice(+b.dataset.nrm,1);drawPv()}
  if(b.id==="nCancel"){S.editNews=null;S.newsImgs=[];render()}
@@ -708,12 +746,16 @@ app.addEventListener("submit",async e=>{e.preventDefault();const f=e.target,btn=
    const link=$("#mLink").value.trim();if(link&&!safeUrl(link))throw new Error(T("t_https"));
    if(!link&&!S.draftFile)throw new Error(T("t_need_dl"));
    const id=S.edit?.id||("m"+uid()),isEdit=!!S.edit?.id,oldFile=S.edit?.file;
-   const mod={id,title:$("#mTitle").value.trim(),cat:$("#mCat").value,creator:$("#mCreator").value.trim(),size:$("#mSize").value.trim(),version:$("#mVer").value.trim(),link,file:S.draftFile||null,desc:$("#mDesc").value,imgs:[...S.draftImgs],t:S.edit?.t||Date.now()};
+   const mod={id,pub:$("#mPub").value,title:$("#mTitle").value.trim(),cat:$("#mCat").value,creator:$("#mCreator").value.trim(),size:$("#mSize").value.trim(),version:$("#mVer").value.trim(),link,file:S.draftFile||null,desc:$("#mDesc").value,imgs:[...S.draftImgs],t:S.edit?.t||Date.now()};
+   store.set("gmdz_pub",mod.pub);
    if(await commit(()=>{D.mods=isEdit?D.mods.map(x=>x.id===id?mod:x):[...D.mods,mod]},(isEdit?"edit mod: ":"new mod: ")+mod.title)){
     if(oldFile&&okFile(oldFile.path)&&(!mod.file||mod.file.path!==oldFile.path))delFile(oldFile.path);
     S.edit=null;S.draftImgs=[];S.draftFile=null;location.hash="#mod-"+id}}
+  if(f.id==="fThx"){const url=$("#tUrl").value.trim();if(url&&!safeUrl(url))throw new Error(T("t_https"));
+   const ed=S.editThx,t={id:ed?.id||("t"+uid()),name:$("#tName").value.trim(),url,desc:$("#tDesc").value.trim(),img:S.thxImg||"",t:ed?.t||Date.now()};
+   if(await commit(()=>{D.thanks=ed?D.thanks.map(x=>x.id===t.id?t:x):[...D.thanks,t]},(ed?"edit thanks: ":"thanks: ")+t.name)){if(ed?.img&&ed.img!==t.img&&okImg(ed.img))delFile(ed.img);S.editThx=null;S.thxImg="";render()}}
   if(f.id==="fBg"){const nb=[...(S.bgDraft??D.bgs)],removed=D.bgs.filter(p=>!nb.includes(p));if(await commit(()=>{D.bgs=nb},"background")){for(const p of removed)if(okImg(p))delFile(p);S.bgDraft=null;drawBg()}}
-  if(f.id==="fNews"){const ed=S.editNews,n={id:ed?.id||("n"+uid()),title:$("#nTitle").value.trim(),body:$("#nBody").value,imgs:[...S.newsImgs],t:ed?.t||Date.now()};
+  if(f.id==="fNews"){const ed=S.editNews,n={id:ed?.id||("n"+uid()),pub:$("#nPub").value,title:$("#nTitle").value.trim(),body:$("#nBody").value,imgs:[...S.newsImgs],t:ed?.t||Date.now()};
    const removed=(ed?.imgs||[]).filter(p=>!n.imgs.includes(p));
    if(await commit(()=>{D.news=ed?D.news.map(x=>x.id===n.id?n:x):[...D.news,n]},(ed?"edit news: ":"news: ")+n.title)){for(const p of removed)if(okImg(p))delFile(p);S.editNews=null;S.newsImgs=[];location.hash="#news-"+n.id}}
   if(f.id==="fVid"){const url=$("#vUrl").value.trim();if(!safeUrl(url))throw new Error(T("t_https"));
