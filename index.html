@@ -5,7 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GTA MODS ALGERIA | مودات جزائرية لـ GTA V</title>
 <meta name="description" content="GTA MODS ALGERIA — موقع قناتي GTA MODDER DZ و ADEM MNG — مودات جزائرية للعبة GTA V: الشرطة، الدرك الوطني، الأزياء والمزيد.">
-<link rel="icon" href="logo.jpg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="site-logo.jpg">
+<meta name="theme-color" content="#0a0f0c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTA MODS ALGERIA">
+<meta property="og:title" content="GTA MODS ALGERIA — مودات جزائرية لـ GTA V">
+<meta property="og:description" content="مودات الشرطة، الدرك الوطني، السيارات المدنية والأزياء الجزائرية للعبة GTA V — من قناتي GTA MODDER DZ و ADEM MNG.">
+<meta property="og:image" content="https://gtamodderdz-cmyk.github.io/gtamodderdz/site-logo.jpg">
+<meta property="og:url" content="https://gtamodderdz-cmyk.github.io/gtamodderdz/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=Cairo:wght@400;600;700&family=Russo+One&display=swap" rel="stylesheet">
 <style>
@@ -41,7 +50,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(10,15,12,.88);backdrop-f
 .flag{height:4px;background:linear-gradient(90deg,var(--g) 0 50%,#fff 50% 100%)}
 .hd{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-inline-end:auto}
-.brand img{width:44px;height:44px;border-radius:10px;border:2px solid var(--g)}
+.brand img{width:46px;height:46px;border-radius:50%;border:2px solid var(--g);box-shadow:0 0 14px rgba(0,166,81,.45)}
 .brand b{font-family:"Russo One";font-size:19px;line-height:1}
 .brand b span{color:var(--g)}
 .mini{width:30px;height:20px;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.25);flex:none}
@@ -65,7 +74,7 @@ nav a.on{box-shadow:inset 0 -3px 0 var(--g)}
 .stats div span{color:var(--mute);font-size:14px}
 .badge{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin-inline:auto}
 .badge svg.bg{position:absolute;inset:0;width:100%;height:100%}
-.badge img{position:absolute;inset:18%;width:64%;height:64%;border-radius:22px;border:3px solid #fff;box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 8px rgba(0,166,81,.35)}
+.badge img{position:absolute;inset:14%;width:72%;height:72%;border-radius:50%;box-shadow:0 24px 60px rgba(0,0,0,.65),0 0 0 6px rgba(0,166,81,.35),0 0 70px rgba(210,16,52,.3)}
 .strobe{animation:st 1.2s steps(1) infinite}.strobe.b2{animation-delay:.6s}
 @keyframes st{0%{opacity:1}50%{opacity:.15}}
 @media(prefers-reduced-motion:reduce){.strobe{animation:none}}
@@ -150,6 +159,15 @@ a.ni{display:block;text-decoration:none}a.ni:hover{border-color:var(--g)}a.ni.ha
 .thx-strip a{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:30px;background:var(--panel);border:1px solid var(--line);text-decoration:none;font-weight:700}
 .thx-strip a:hover{border-color:var(--sand)}
 .thx-strip .av2{width:36px;height:36px;font-size:13px}
+.newb{position:absolute;top:10px;inset-inline-end:10px;font:700 11px/1 "Russo One",sans-serif;padding:5px 8px;border-radius:6px;background:#ffd400;color:#111;letter-spacing:.04em}
+.share{display:flex;gap:8px;flex-wrap:wrap}
+.share .btn{flex:1;justify-content:center}
+.btn.wa{background:#25d366;border-color:#25d366;color:#05210f}
+#vmodal{position:fixed;inset:0;z-index:70;display:none;place-items:center;background:rgba(0,0,0,.85);padding:16px}
+#vmodal.on{display:grid}
+#vmodal>div{width:min(1100px,100%);aspect-ratio:16/9;position:relative;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#vmodal iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#vmodal button{position:absolute;z-index:2;top:8px;inset-inline-end:8px;width:44px;height:44px;border-radius:50%;border:0;background:var(--r);color:#fff;font-size:24px;box-shadow:0 4px 14px rgba(0,0,0,.5)}
 .giscus-box{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
 .f .row2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 @media(max-width:600px){.f .row2{grid-template-columns:minmax(0,1fr)}}
@@ -228,7 +246,7 @@ footer small{color:var(--mute)}
 <header>
  <div class="flag"></div>
  <div class="hd">
-  <a class="brand" href="#home"><img src="logo.jpg" alt="GTA MODS ALGERIA"><b class="lat">GTA MODS <span>ALGERIA</span></b><svg class="mini" viewBox="0 0 900 600" aria-label="علم الجزائر"><use href="#flag"/></svg></a>
+  <a class="brand" href="#home"><img src="site-logo.jpg" alt="GTA MODS ALGERIA"><b class="lat">GTA MODS <span>ALGERIA</span></b><svg class="mini" viewBox="0 0 900 600" aria-label="علم الجزائر"><use href="#flag"/></svg></a>
   <nav id="nav">
    <a href="#home" data-r="home" data-i="nav_home">الرئيسية</a>
    <a href="#mods" data-r="mods" data-i="nav_mods">المودات</a>
@@ -250,19 +268,20 @@ footer small{color:var(--mute)}
  <div class="fb"></div>
  <div class="band" style="padding-block:28px">
   <div class="wrap">
-   <a class="brand" href="#home" style="margin:0"><img src="logo.jpg" alt=""><b class="lat">GTA MODS <span>ALGERIA</span></b></a>
+   <a class="brand" href="#home" style="margin:0"><img src="site-logo.jpg" alt=""><b class="lat">GTA MODS <span>ALGERIA</span></b></a>
    <small><span data-i="footer_tag">مودات جزائرية للعبة GTA V — صُنعت بحب في الجزائر</span> <svg class="mini" style="width:21px;height:14px;vertical-align:-2px" viewBox="0 0 900 600"><use href="#flag"/></svg><br><span data-i="footer_ads">للإعلانات والشراكات:</span> <span dir="ltr">gtamodderdz@gmail.com</span></small>
-   <div class="tags"><a class="btn disc sm" href="https://discord.gg/S57qpBeePT"><svg><use href="#i-disc"/></svg>Discord</a><a class="btn red sm" href="https://www.youtube.com/@GTAMODDERDZ"><svg><use href="#i-yt"/></svg>YouTube</a></div>
+   <div class="tags"><a class="btn disc sm" href="https://discord.gg/S57qpBeePT"><svg><use href="#i-disc"/></svg>Discord</a><a class="btn red sm" href="https://www.youtube.com/@GTAMODDERDZ"><svg><use href="#i-yt"/></svg>GTA MODDER DZ</a><a class="btn red sm" href="https://www.youtube.com/@adem7335" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg>ADEM MNG</a></div>
   </div>
  </div>
 </footer>
 
 <div class="modal" id="modal"><div><h3 id="mT"></h3><p id="mB" style="color:var(--mute)"></p><div class="cta"><button class="btn" id="mNo" data-i="cancel">إلغاء</button><button class="btn red" id="mYes" data-i="confirm">تأكيد</button></div></div></div>
+<div id="vmodal" role="dialog" aria-modal="true"><div><button type="button" id="vClose" aria-label="close">×</button><span id="vBox"></span></div></div>
 <div id="toast" role="status"></div>
 
 <script>
 window.I18N={
-ar:{bg_h:"خلفية الموقع",bg_p:"صور تظهر خلف الموقع بشفافية خفيفة وتتبدّل تلقائياً. إن لم تضف صوراً تُستعمل الصور الافتراضية.",f_bgs:"إضافة صور خلفية",bg_save:"حفظ الخلفية",bg_default:"تُستعمل حالياً الصور الافتراضية (bg1–bg4).",nav_news:"الأخبار",news_all:"كل الأخبار",news_all_p:"جديد القناة، المودات القادمة والتحديثات",read_more:"اقرأ المزيد",back_news:"العودة للأخبار",news_nf:"هذا الخبر غير موجود.",f_nimgs:"صور الخبر (اختياري — أول صورة = الغلاف)",news_edit:"تعديل الخبر",save_news:"حفظ الخبر",st_dl:"تحميل",spec_dl:"عدد التحميلات",sort_dl:"الأكثر تحميلاً",dir:"rtl",loc:"ar-DZ",
+ar:{share:"مشاركة",copy_link:"نسخ الرابط",t_link:"تم نسخ الرابط",new_b:"جديد",bg_h:"خلفية الموقع",bg_p:"صور تظهر خلف الموقع بشفافية خفيفة وتتبدّل تلقائياً. إن لم تضف صوراً تُستعمل الصور الافتراضية.",f_bgs:"إضافة صور خلفية",bg_save:"حفظ الخلفية",bg_default:"تُستعمل حالياً الصور الافتراضية (bg1–bg4).",nav_news:"الأخبار",news_all:"كل الأخبار",news_all_p:"جديد القناة، المودات القادمة والتحديثات",read_more:"اقرأ المزيد",back_news:"العودة للأخبار",news_nf:"هذا الخبر غير موجود.",f_nimgs:"صور الخبر (اختياري — أول صورة = الغلاف)",news_edit:"تعديل الخبر",save_news:"حفظ الخبر",st_dl:"تحميل",spec_dl:"عدد التحميلات",sort_dl:"الأكثر تحميلاً",dir:"rtl",loc:"ar-DZ",
  nav_home:"الرئيسية",nav_mods:"المودات",nav_about:"من نحن",nav_admin:"لوحة التحكم",
  hero_h1:"مودات <em>جزائرية</em> 100%<br>لعالم GTA V",
  hero_lead:"سيارات الأمن الوطني والدرك الوطني، الأزياء الرسمية، الإسعاف والحماية المدنية… كل مودات قناة GTA MODDER DZ في مكان واحد، جاهزة للتحميل.",
@@ -293,7 +312,7 @@ ar:{bg_h:"خلفية الموقع",bg_p:"صور تظهر خلف الموقع ب�
  t_copied:"تم نسخ البريد",t_file_up:"جارِ رفع الملف… {p}%",t_file_ok:"تم رفع الملف ✓",t_file_err:"تعذّر رفع الملف — جرّب مرة أخرى أو استعمل رابطاً خارجياً",t_file_big:"الملف أكبر من 95 MB — GitHub لا يقبله. ارفعه على MediaFire/Drive وضع الرابط.",t_need_dl:"أضف ملف المود أو رابط تحميل",t_wait_up:"انتظر حتى ينتهي رفع الملف",t_err:"تعذّر الحفظ",
  c_del_mod:"حذف المود؟",c_del_mod_b:"سيُحذف المود وصوره وملفه نهائياً من الموقع.",c_del:"تأكيد الحذف؟",c_del_b:"لا يمكن التراجع عن الحذف.",cancel:"إلغاء",confirm:"تأكيد",hero_lead:"سيارات الأمن الوطني والدرك الوطني، السيارات المدنية، الأزياء الرسمية، الإسعاف والحماية المدنية… كل مودات قناتي GTA MODDER DZ و ADEM MNG في مكان واحد، جاهزة للتحميل.",footer_tag:"GTA MODS ALGERIA — مودات جزائرية للعبة GTA V، صُنعت بحب في الجزائر",cat_civil:"السيارات المدنية",about_p:"<b class=\"lat\">GTA MODS ALGERIA</b> هو الموقع الذي يجمع المودات الجزائرية للعبة GTA V من قناتي GTA MODDER DZ و ADEM MNG — من سيارات وملابس الأمن والدرك الوطني إلى السيارات المدنية، الإسعاف والحماية المدنية. هدفنا هو مشاركة محتوى إبداعي لمحبي التعديل (modding) في الجزائر والعالم العربي.",team_h:"قنواتنا",ch_gmdz:"قناة مخصّصة لصناعة وعرض المودات الجزائرية للعبة GTA V، من سيارات وملابس الأمن والدرك الوطني إلى الإسعاف والحماية المدنية.",ch_adem:"قناة مخصّصة في تصميم ونشر واستعراض مودات جزائرية مختلفة.",visit:"زيارة القناة",thanks_h:"شكر خاص",thanks_p:"شكراً لكل من ساهم ودعم المشروع",pub_by:"نشر بواسطة",f_pub:"النشر باسم",all_ch:"كل القنوات",th_h:"شكر خاص",th_p:"أضف قناة أو شخصاً تريد شكره — يظهر في صفحة «من نحن» وفي الرئيسية.",th_name:"الاسم",th_url:"الرابط (https)",th_desc:"التعريف",th_img:"الصورة",th_add:"إضافة",th_edit:"تعديل الشكر",th_save:"حفظ",only_owner:"هذه الصفحة مخصّصة لصاحب الموقع فقط."},
 
-fr:{bg_h:"Arrière-plan du site",bg_p:"Images affichées derrière le site, légèrement transparentes, qui défilent automatiquement. Sans images ajoutées, celles par défaut sont utilisées.",f_bgs:"Ajouter des images d'arrière-plan",bg_save:"Enregistrer l'arrière-plan",bg_default:"Images par défaut utilisées (bg1–bg4).",nav_news:"Actualités",news_all:"Toutes les actualités",news_all_p:"Nouveautés de la chaîne, mods à venir et mises à jour",read_more:"Lire la suite",back_news:"Retour aux actualités",news_nf:"Cette actualité n'existe pas.",f_nimgs:"Images (facultatif — la 1re = couverture)",news_edit:"Modifier l'actualité",save_news:"Enregistrer",st_dl:"téléchargements",spec_dl:"Téléchargements",sort_dl:"Plus téléchargés",dir:"ltr",loc:"fr-FR",
+fr:{share:"Partager",copy_link:"Copier le lien",t_link:"Lien copié",new_b:"NOUVEAU",bg_h:"Arrière-plan du site",bg_p:"Images affichées derrière le site, légèrement transparentes, qui défilent automatiquement. Sans images ajoutées, celles par défaut sont utilisées.",f_bgs:"Ajouter des images d'arrière-plan",bg_save:"Enregistrer l'arrière-plan",bg_default:"Images par défaut utilisées (bg1–bg4).",nav_news:"Actualités",news_all:"Toutes les actualités",news_all_p:"Nouveautés de la chaîne, mods à venir et mises à jour",read_more:"Lire la suite",back_news:"Retour aux actualités",news_nf:"Cette actualité n'existe pas.",f_nimgs:"Images (facultatif — la 1re = couverture)",news_edit:"Modifier l'actualité",save_news:"Enregistrer",st_dl:"téléchargements",spec_dl:"Téléchargements",sort_dl:"Plus téléchargés",dir:"ltr",loc:"fr-FR",
  nav_home:"Accueil",nav_mods:"Mods",nav_about:"À propos",nav_admin:"Administration",
  hero_h1:"Mods <em>algériens</em> 100%<br>pour GTA V",
  hero_lead:"Véhicules de la Sûreté nationale et de la Gendarmerie, uniformes officiels, ambulances et Protection civile… Tous les mods de la chaîne GTA MODDER DZ réunis au même endroit, prêts à télécharger.",
@@ -324,7 +343,7 @@ fr:{bg_h:"Arrière-plan du site",bg_p:"Images affichées derrière le site, lég
  t_copied:"E-mail copié",t_file_up:"Envoi du fichier… {p}%",t_file_ok:"Fichier envoyé ✓",t_file_err:"Échec de l'envoi — réessayez ou utilisez un lien externe",t_file_big:"Fichier > 95 MB — refusé par GitHub. Hébergez-le sur MediaFire/Drive et mettez le lien.",t_need_dl:"Ajoutez un fichier ou un lien de téléchargement",t_wait_up:"Attendez la fin de l'envoi du fichier",t_err:"Échec de l'enregistrement",
  c_del_mod:"Supprimer le mod ?",c_del_mod_b:"Le mod, ses images et son fichier seront supprimés définitivement.",c_del:"Confirmer la suppression ?",c_del_b:"Action irréversible.",cancel:"Annuler",confirm:"Confirmer",hero_lead:"Véhicules de la Sûreté nationale et de la Gendarmerie, voitures civiles, uniformes, ambulances et Protection civile… Tous les mods des chaînes GTA MODDER DZ et ADEM MNG réunis au même endroit, prêts à télécharger.",footer_tag:"GTA MODS ALGERIA — mods algériens pour GTA V, faits avec passion en Algérie",cat_civil:"Voitures civiles",about_p:"<b class=\"lat\">GTA MODS ALGERIA</b> réunit les mods algériens pour GTA V des chaînes GTA MODDER DZ et ADEM MNG : véhicules et uniformes de la Sûreté nationale et de la Gendarmerie, voitures civiles, ambulances, Protection civile… Notre objectif est de partager du contenu créatif avec les passionnés de modding en Algérie et dans le monde arabe.",team_h:"Nos chaînes",ch_gmdz:"Chaîne dédiée à la création et à la présentation de mods algériens pour GTA V : véhicules et uniformes de la Sûreté nationale et de la Gendarmerie, ambulances, Protection civile.",ch_adem:"Chaîne spécialisée dans la conception, la publication et la présentation de divers mods algériens.",visit:"Voir la chaîne",thanks_h:"Remerciements",thanks_p:"Merci à tous ceux qui ont contribué et soutenu le projet",pub_by:"Publié par",f_pub:"Publier en tant que",all_ch:"Toutes les chaînes",th_h:"Remerciements",th_p:"Ajoutez une chaîne ou une personne à remercier — affichée dans « À propos » et sur l'accueil.",th_name:"Nom",th_url:"Lien (https)",th_desc:"Présentation",th_img:"Image",th_add:"Ajouter",th_edit:"Modifier",th_save:"Enregistrer",only_owner:"Page réservée au propriétaire du site."},
 
-en:{bg_h:"Site background",bg_p:"Images shown behind the site, slightly transparent, rotating automatically. If you add none, the default images are used.",f_bgs:"Add background images",bg_save:"Save background",bg_default:"Using the default images (bg1–bg4).",nav_news:"News",news_all:"All news",news_all_p:"Channel news, upcoming mods and updates",read_more:"Read more",back_news:"Back to news",news_nf:"This news post doesn't exist.",f_nimgs:"Images (optional — 1st = cover)",news_edit:"Edit news",save_news:"Save news",st_dl:"downloads",spec_dl:"Downloads",sort_dl:"Most downloaded",dir:"ltr",loc:"en-GB",
+en:{share:"Share",copy_link:"Copy link",t_link:"Link copied",new_b:"NEW",bg_h:"Site background",bg_p:"Images shown behind the site, slightly transparent, rotating automatically. If you add none, the default images are used.",f_bgs:"Add background images",bg_save:"Save background",bg_default:"Using the default images (bg1–bg4).",nav_news:"News",news_all:"All news",news_all_p:"Channel news, upcoming mods and updates",read_more:"Read more",back_news:"Back to news",news_nf:"This news post doesn't exist.",f_nimgs:"Images (optional — 1st = cover)",news_edit:"Edit news",save_news:"Save news",st_dl:"downloads",spec_dl:"Downloads",sort_dl:"Most downloaded",dir:"ltr",loc:"en-GB",
  nav_home:"Home",nav_mods:"Mods",nav_about:"About",nav_admin:"Admin panel",
  hero_h1:"100% <em>Algerian</em> mods<br>for GTA V",
  hero_lead:"National Police and Gendarmerie vehicles, official uniforms, ambulance and Civil Protection… Every GTA MODDER DZ mod in one place, ready to download.",
@@ -355,7 +374,7 @@ en:{bg_h:"Site background",bg_p:"Images shown behind the site, slightly transpar
  t_copied:"Email copied",t_file_up:"Uploading file… {p}%",t_file_ok:"File uploaded ✓",t_file_err:"Upload failed — retry or use an external link",t_file_big:"File is over 95 MB — GitHub won't accept it. Host it on MediaFire/Drive and paste the link.",t_need_dl:"Add a mod file or a download link",t_wait_up:"Wait for the file upload to finish",t_err:"Save failed",
  c_del_mod:"Delete this mod?",c_del_mod_b:"The mod, its images and file will be deleted permanently.",c_del:"Confirm delete?",c_del_b:"This can't be undone.",cancel:"Cancel",confirm:"Confirm",hero_lead:"National Police and Gendarmerie vehicles, civilian cars, official uniforms, ambulance and Civil Protection… Every mod from the GTA MODDER DZ and ADEM MNG channels in one place, ready to download.",footer_tag:"GTA MODS ALGERIA — Algerian mods for GTA V, made with love in Algeria",cat_civil:"Civilian cars",about_p:"<b class=\"lat\">GTA MODS ALGERIA</b> brings together the Algerian GTA V mods of the GTA MODDER DZ and ADEM MNG channels — National Police and Gendarmerie vehicles and uniforms, civilian cars, ambulances and Civil Protection. Our goal is to share creative content with modding fans in Algeria and across the Arab world.",team_h:"Our channels",ch_gmdz:"Channel dedicated to creating and showcasing Algerian mods for GTA V — from National Police and Gendarmerie vehicles and uniforms to ambulances and Civil Protection.",ch_adem:"Channel specialised in designing, publishing and showcasing various Algerian mods.",visit:"Visit channel",thanks_h:"Special thanks",thanks_p:"Thanks to everyone who contributed to and supported the project",pub_by:"Published by",f_pub:"Publish as",all_ch:"All channels",th_h:"Special thanks",th_p:"Add a channel or person to thank — shown on the About page and the home page.",th_name:"Name",th_url:"Link (https)",th_desc:"Description",th_img:"Image",th_add:"Add",th_edit:"Edit thanks",th_save:"Save",only_owner:"This page is for the site owner only."},
 
-tr:{bg_h:"Site arka planı",bg_p:"Sitenin arkasında hafif saydam görünen ve otomatik değişen görseller. Görsel eklemezsen varsayılanlar kullanılır.",f_bgs:"Arka plan görseli ekle",bg_save:"Arka planı kaydet",bg_default:"Varsayılan görseller kullanılıyor (bg1–bg4).",nav_news:"Haberler",news_all:"Tüm haberler",news_all_p:"Kanal haberleri, yakında gelecek modlar ve güncellemeler",read_more:"Devamını oku",back_news:"Haberlere dön",news_nf:"Bu haber bulunamadı.",f_nimgs:"Görseller (isteğe bağlı — ilki = kapak)",news_edit:"Haberi düzenle",save_news:"Haberi kaydet",st_dl:"indirme",spec_dl:"İndirme sayısı",sort_dl:"En çok indirilen",dir:"ltr",loc:"tr-TR",
+tr:{share:"Paylaş",copy_link:"Bağlantıyı kopyala",t_link:"Bağlantı kopyalandı",new_b:"YENİ",bg_h:"Site arka planı",bg_p:"Sitenin arkasında hafif saydam görünen ve otomatik değişen görseller. Görsel eklemezsen varsayılanlar kullanılır.",f_bgs:"Arka plan görseli ekle",bg_save:"Arka planı kaydet",bg_default:"Varsayılan görseller kullanılıyor (bg1–bg4).",nav_news:"Haberler",news_all:"Tüm haberler",news_all_p:"Kanal haberleri, yakında gelecek modlar ve güncellemeler",read_more:"Devamını oku",back_news:"Haberlere dön",news_nf:"Bu haber bulunamadı.",f_nimgs:"Görseller (isteğe bağlı — ilki = kapak)",news_edit:"Haberi düzenle",save_news:"Haberi kaydet",st_dl:"indirme",spec_dl:"İndirme sayısı",sort_dl:"En çok indirilen",dir:"ltr",loc:"tr-TR",
  nav_home:"Ana sayfa",nav_mods:"Modlar",nav_about:"Hakkımızda",nav_admin:"Yönetim paneli",
  hero_h1:"%100 <em>Cezayir</em> modları<br>GTA V için",
  hero_lead:"Ulusal Emniyet ve Jandarma araçları, resmi üniformalar, ambulans ve Sivil Savunma… GTA MODDER DZ kanalının tüm modları tek yerde, indirmeye hazır.",
@@ -391,7 +410,7 @@ tr:{bg_h:"Site arka planı",bg_p:"Sitenin arkasında hafif saydam görünen ve o
 <script>
 {
 const CFG=window.SITE||{};
-const LOGO="logo.jpg";
+const LOGO="site-logo.jpg";
 const DISCORD="https://discord.gg/S57qpBeePT", YT="https://www.youtube.com/@GTAMODDERDZ", MAIL="gtamodderdz@gmail.com";
 const MAXF=95*1024*1024;
 const CATS=[
@@ -503,10 +522,11 @@ async function loadPublic(){try{const r=await fetch("data.json?v="+Date.now(),{c
 
 /* ===== pieces ===== */
 function cover(m,noPub){const c=catOf(m.cat),src=imgSrc((m.imgs||[])[0]),ch=chOf(m.pub);
- return `<div class="cover" style="--c:${c.c}">${src?`<img src="${esc(src)}" alt="" loading="lazy">`:`<div class="ph"><svg><use href="#${c.i}"/></svg></div>`}<span class="chip lat" style="--c:${c.c}">${c.n}</span>${noPub?"":`<span class="pub">${av(ch.img,ch.ini)}${esc(ch.name)}</span>`}</div>`}
+ return `<div class="cover" style="--c:${c.c}">${src?`<img src="${esc(src)}" alt="" loading="lazy">`:`<div class="ph"><svg><use href="#${c.i}"/></svg></div>`}<span class="chip lat" style="--c:${c.c}">${c.n}</span>${Date.now()-(m.t||0)<7*864e5?`<span class="newb">${T("new_b")}</span>`:""}${noPub?"":`<span class="pub">${av(ch.img,ch.ini)}${esc(ch.name)}</span>`}</div>`}
 const sizeOf=m=>m.size||(m.file&&m.file.size?fmtSize(m.file.size):"");
 function modCard(m){return `<a class="card" href="#mod-${esc(m.id)}">${cover(m)}<div class="cbody"><h3>${esc(m.title)}</h3><span style="color:var(--mute);font-size:14px">${T("by")} ${esc(m.creator||"GTA MODDER DZ")}</span><div class="meta"><span title="${esc(T("spec_dl"))}"><svg><use href="#i-dl"/></svg><b data-dl="${esc(m.id)}" style="font-weight:600">${dlTxt(m.id)}</b></span>${sizeOf(m)?`<span dir="ltr">${esc(sizeOf(m))}</span>`:""}<span>${esc(m.version?"v"+m.version:"")}</span><span>${fmtD(m.t)}</span></div></div></a>`}
-function vidCard(v){const u=safeUrl(v.url),th=imgSrc(v.thumb);return `<a class="card vid" href="${esc(u||YT)}" target="_blank" rel="noopener"><div class="cover">${th?`<img src="${esc(th)}" alt="" loading="lazy">`:`<div class="ph"></div>`}<div class="play"><i><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M8 5v14l11-7z"/></svg></i></div></div><div class="cbody"><h3 style="font-size:17px">${esc(v.title)}</h3><div class="meta"><span>${fmtD(v.t)}</span></div></div></a>`}
+const ytId=u=>{const m=String(u||"").match(/(?:youtu\.be\/|[?&]v=|shorts\/|embed\/|live\/)([\w-]{11})/);return m?m[1]:""};
+function vidCard(v){const u=safeUrl(v.url),id=ytId(u),th=imgSrc(v.thumb)||(id?`https://i.ytimg.com/vi/${id}/hqdefault.jpg`:"");return `<a class="card vid" href="${esc(u||YT)}" target="_blank" rel="noopener"${id?` data-yt="${id}"`:""}><div class="cover">${th?`<img src="${esc(th)}" alt="" loading="lazy">`:`<div class="ph"></div>`}<div class="play"><i><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M8 5v14l11-7z"/></svg></i></div></div><div class="cbody"><h3 style="font-size:17px">${esc(v.title)}</h3><div class="meta"><span>${fmtD(v.t)}</span></div></div></a>`}
 function newsItem(n){const im=imgSrc((n.imgs||[])[0]),body=String(n.body||""),short=body.length>220?body.slice(0,220)+"…":body;
  return `<a class="ni${im?" has":""}" href="#news-${esc(n.id)}">${im?`<img src="${esc(im)}" alt="" loading="lazy">`:""}<div><time>${fmtD(n.t)} · ${esc(chOf(n.pub).name)}</time><h3>${esc(n.title)}</h3>${short?`<p>${esc(short)}</p>`:""}<span class="more">${T("read_more")}</span></div></a>`}
 function vNews(){return `<section class="pagehd band"><div class="wrap"><h1>${T("news_all")}</h1><p style="color:var(--mute);margin:8px 0 0">${T("news_all_p")}</p></div></section>
@@ -588,6 +608,7 @@ function vMod(id){
    <table class="spec"><tr><td>${T("pub_by")}</td><td><a href="${esc(chOf(m.pub).url)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:var(--ink)">${av(chOf(m.pub).img,chOf(m.pub).ini)}${esc(chOf(m.pub).name)}</a></td></tr><tr><td>${T("spec_creator")}</td><td>${esc(m.creator||"GTA MODDER DZ")}</td></tr><tr><td>${T("spec_size")}</td><td dir="ltr" style="text-align:start">${esc(sizeOf(m)||"—")}</td></tr><tr><td>${T("spec_ver")}</td><td>${esc(m.version||"1.0")}</td></tr><tr><td>${T("spec_date")}</td><td>${fmtD(m.t)}</td></tr><tr><td>${T("spec_dl")}</td><td><b data-dl="${esc(m.id)}">${dlTxt(m.id)}</b></td></tr>${f?`<tr><td>${T("spec_file")}</td><td dir="ltr" style="text-align:start;overflow-wrap:anywhere">${esc(f.name)}</td></tr>`:""}</table>
    ${dlBtn}
    <a class="btn" style="justify-content:center" href="#gbox"><svg><use href="#i-heart"/></svg>${T("react_btn")}</a>
+   <div class="share"><a class="btn wa sm" href="https://wa.me/?text=${encodeURIComponent(m.title+" — GTA MODS ALGERIA "+location.href)}" target="_blank" rel="noopener">WhatsApp</a><a class="btn sm" style="background:#1877f2;border-color:#1877f2;color:#fff" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(location.href)}" target="_blank" rel="noopener">Facebook</a><button class="btn sm" id="cpLink">${T("copy_link")}</button></div>
    ${isAdmin()?`<div class="cta"><button class="btn sm" data-em="${esc(id)}">${T("edit")}</button><button class="btn sm red" data-xm="${esc(id)}">${T("del")}</button></div>`:""}
   </aside></div></div></section>`}
 function mountGiscus(id){
@@ -685,6 +706,8 @@ function render(){const h=location.hash.slice(1)||"home";
  else if(h.startsWith("news-"))app.innerHTML=vNewsOne(h.slice(5));
  else{const cat=CATS.some(c=>c.k===h)?h:null;app.innerHTML=vMods(cat);fillList(cat)}
  if(h!==lastH){scrollTo(0,0);lastH=h}
+ {const B="GTA MODS ALGERIA",m=h.startsWith("mod-")&&D.mods.find(x=>x.id===h.slice(4)),n=h.startsWith("news-")&&D.news.find(x=>x.id===h.slice(5)),c=CATS.find(x=>x.k===h);
+  document.title=m?`${m.title} | ${B}`:n?`${n.title} | ${B}`:c?`${c.n} | ${B}`:h==="mods"?`${T("nav_mods")} | ${B}`:h==="news"?`${T("nav_news")} | ${B}`:h==="about"?`${T("nav_about")} | ${B}`:h==="admin"?`${T("nav_admin")} | ${B}`:`${B} | GTA V Algeria`}
  refreshCounts();drawBg();
 }
 addEventListener("hashchange",()=>{if(S.uploading)return;S.edit=null;S.draftImgs=[];S.draftFile=null;S.editNews=null;S.newsImgs=[];S.editThx=null;S.thxImg="";S.bgDraft=null;render()});
@@ -708,7 +731,11 @@ app.addEventListener("change",async e=>{
  if(e.target.id==="mFile"){const f=e.target.files[0];e.target.value="";if(!f||S.uploading)return;
   const r=await uploadModFile(f);if(r){const old=S.draftFile;S.draftFile=r;const sz=$("#mSize");if(sz&&!sz.value)sz.value=fmtSize(r.size);drawPv();if(old&&old!==S.edit?.file&&okFile(old.path))delFile(old.path)}}
 });
-app.addEventListener("click",e=>{const a=e.target.closest("a[data-hit]");if(a)hitDl(a.dataset.hit)});
+app.addEventListener("click",e=>{const a=e.target.closest("a[data-hit]");if(a)hitDl(a.dataset.hit);
+ const y=e.target.closest("a[data-yt]");if(y&&/^[\w-]{11}$/.test(y.dataset.yt)){e.preventDefault();$("#vBox").innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${y.dataset.yt}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="YouTube"></iframe>`;$("#vmodal").classList.add("on")}});
+const closeV=()=>{$("#vmodal").classList.remove("on");$("#vBox").innerHTML=""};
+$("#vmodal").addEventListener("click",e=>{if(e.target.id==="vmodal"||e.target.id==="vClose")closeV()});
+addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#vmodal").classList.contains("on"))closeV()});
 app.addEventListener("click",async e=>{
  const b=e.target.closest("button");if(!b)return;
  if(b.id==="tRm"){S.thxImg="";drawPv()}
@@ -721,6 +748,7 @@ app.addEventListener("click",async e=>{
  if(b.dataset.en){const n=D.news.find(x=>x.id===b.dataset.en);if(n){S.editNews={...n};S.newsImgs=[...(n.imgs||[])];if(location.hash!=="#admin"){history.replaceState(null,"","#admin");lastH=""}render();setTimeout(()=>$("#newsH")?.scrollIntoView({block:"start"}),50)}}
  if(b.dataset.g)gal(+b.dataset.g*(L[lang].dir==="rtl"?1:1));
  if(b.dataset.t)gal(+b.dataset.t-Math.round(Math.abs($("#sl").scrollLeft)/$("#sl").clientWidth));
+ if(b.id==="cpLink"){try{await navigator.clipboard.writeText(location.href);toast(T("t_link"))}catch{toast(location.href)}}
  if(b.id==="cpMail"){try{await navigator.clipboard.writeText(MAIL);toast(T("t_copied"))}catch{toast(MAIL)}}
  if(b.id==="logout"){A.token="";A.ok=false;store.set("gmdz_admin",null);toast(T("t_logout"));await loadPublic();render()}
  if(b.dataset.rm){S.draftImgs.splice(+b.dataset.rm,1);drawPv()}
