@@ -129,6 +129,15 @@ nav a.on{box-shadow:inset 0 -3px 0 var(--g)}
 .giscus-box{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
 .f .row2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 @media(max-width:600px){.f .row2{grid-template-columns:minmax(0,1fr)}}
+.lang{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.lang svg{width:18px;height:18px;color:var(--mute);flex:none}
+.lang select{background:transparent;border:0;font-size:15px;font-weight:700;min-height:34px;cursor:pointer}
+.lang option{background:var(--panel);color:var(--ink)}
+.prog{height:10px;border-radius:6px;background:var(--bg2);border:1px solid var(--line);overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--g);transition:width .2s}
+.filebox{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.filebox b{flex:1;overflow-wrap:anywhere}
+[dir=ltr] .gnav.p,[dir=ltr] .gnav.n{transform:scaleX(-1)}
 .desc{white-space:pre-wrap;color:#d7e1da;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:20px}
 .like.on{background:var(--r);border-color:var(--r);color:#fff}
 .cm{display:flex;flex-direction:column;gap:12px;margin-top:14px}
@@ -196,12 +205,12 @@ footer small{color:var(--mute)}
  <div class="hd">
   <a class="brand" href="#home"><img src="logo.jpg" alt="شعار GTA MODDER DZ"><b class="lat">GTA MODDER <span>DZ</span></b><svg class="mini" viewBox="0 0 900 600" aria-label="علم الجزائر"><use href="#flag"/></svg></a>
   <nav id="nav">
-   <a href="#home" data-r="home">الرئيسية</a>
-   <a href="#mods" data-r="mods">المودات</a>
-   <a href="#about" data-r="about">من نحن</a>
-   <a href="#admin" data-r="admin" id="navAdmin" hidden>لوحة التحكم</a>
+   <a href="#home" data-r="home" data-i="nav_home">الرئيسية</a>
+   <a href="#mods" data-r="mods" data-i="nav_mods">المودات</a>
+   <a href="#about" data-r="about" data-i="nav_about">من نحن</a>
+   <a href="#admin" data-r="admin" id="navAdmin" data-i="nav_admin" hidden>لوحة التحكم</a>
   </nav>
-  <div class="hdx">
+  <div class="hdx"><label class="lang"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><select id="langSel" aria-label="Language"><option value="ar">العربية</option><option value="fr">Français</option><option value="en">English</option><option value="tr">Türkçe</option></select></label>
    <a class="btn disc sm" href="https://discord.gg/S57qpBeePT"><svg><use href="#i-disc"/></svg><span>Discord</span></a>
    <a class="btn red sm" href="https://www.youtube.com/@GTAMODDERDZ"><svg><use href="#i-yt"/></svg><span>YouTube</span></a>
   </div>
@@ -215,67 +224,231 @@ footer small{color:var(--mute)}
  <div class="band" style="padding-block:28px">
   <div class="wrap">
    <a class="brand" href="#home" style="margin:0"><img src="logo.jpg" alt=""><b class="lat">GTA MODDER <span>DZ</span></b></a>
-   <small>مودات جزائرية للعبة GTA V — صُنعت بحب في الجزائر <svg class="mini" style="width:21px;height:14px;vertical-align:-2px" viewBox="0 0 900 600"><use href="#flag"/></svg><br>للإعلانات والشراكات: <span dir="ltr">gtamodderdz@gmail.com</span></small>
+   <small><span data-i="footer_tag">مودات جزائرية للعبة GTA V — صُنعت بحب في الجزائر</span> <svg class="mini" style="width:21px;height:14px;vertical-align:-2px" viewBox="0 0 900 600"><use href="#flag"/></svg><br><span data-i="footer_ads">للإعلانات والشراكات:</span> <span dir="ltr">gtamodderdz@gmail.com</span></small>
    <div class="tags"><a class="btn disc sm" href="https://discord.gg/S57qpBeePT"><svg><use href="#i-disc"/></svg>Discord</a><a class="btn red sm" href="https://www.youtube.com/@GTAMODDERDZ"><svg><use href="#i-yt"/></svg>YouTube</a></div>
   </div>
  </div>
 </footer>
 
-<div class="modal" id="modal"><div><h3 id="mT"></h3><p id="mB" style="color:var(--mute)"></p><div class="cta"><button class="btn" id="mNo">إلغاء</button><button class="btn red" id="mYes">تأكيد</button></div></div></div>
+<div class="modal" id="modal"><div><h3 id="mT"></h3><p id="mB" style="color:var(--mute)"></p><div class="cta"><button class="btn" id="mNo" data-i="cancel">إلغاء</button><button class="btn red" id="mYes" data-i="confirm">تأكيد</button></div></div></div>
 <div id="toast" role="status"></div>
 
+<script>
+window.I18N={
+ar:{dir:"rtl",loc:"ar-DZ",
+ nav_home:"الرئيسية",nav_mods:"المودات",nav_about:"من نحن",nav_admin:"لوحة التحكم",
+ hero_h1:"مودات <em>جزائرية</em> 100%<br>لعالم GTA V",
+ hero_lead:"سيارات الأمن الوطني والدرك الوطني، الأزياء الرسمية، الإسعاف والحماية المدنية… كل مودات قناة GTA MODDER DZ في مكان واحد، جاهزة للتحميل.",
+ btn_browse:"تصفّح المودات",btn_discord:"انضم للديسكورد",
+ st_mods:"مود منشور",st_videos:"فيديو",st_news:"خبر",st_cats:"أقسام",
+ sec_cats:"أقسام المودات",sec_cats_p:"اختر القسم الذي يهمك",cnt:"{n} مود",
+ sec_latest:"أحدث المودات",sec_latest_p:"آخر ما نزل على الموقع",view_all:"عرض الكل",empty_mods:"لا توجد مودات بعد — ترقّبوا أول مود قريباً!",
+ sec_news:"آخر الأخبار",sec_news_p:"جديد القناة والتحديثات",empty_news:"لا توجد أخبار حالياً.",
+ sec_videos:"آخر الفيديوهات",sec_videos_p:"من قناتنا على YouTube",subscribe:"اشترك",empty_videos:"لم تُضف فيديوهات بعد — شاهد القناة مباشرة على YouTube.",
+ add_now:"أضف الآن من لوحة التحكم",loading:"جارِ التحميل…",load_err:"تعذّر تحميل ملف data.json.",
+ all_mods:"كل المودات",all_mods_p:"مودات جزائرية للشرطة والدرك والأزياء وأكثر",search_ph:"ابحث عن مود أو صانع…",sort_new:"الأحدث",sort_old:"الأقدم",sort_az:"حسب الاسم",no_results:"لا نتائج لبحثك.",empty_cat:"لا توجد مودات في هذا القسم بعد.",
+ by:"بواسطة",not_found:"هذا المود غير موجود.",back_mods:"العودة للمودات",
+ reactions_h:"التفاعلات والتعليقات",reactions_p:"أعجبك المود؟ تفاعل بـ ❤️ 👍 🚀 أو اترك تعليقاً (يتطلب حساب GitHub مجاني).",comments_off:"التعليقات غير مفعّلة بعد — راجع إعداد Giscus في README.",
+ spec_creator:"صانع المود",spec_size:"حجم الملف",spec_ver:"الإصدار",spec_date:"تاريخ النشر",spec_file:"الملف",
+ download:"تحميل المود",download_mirror:"رابط بديل",no_link:"ملف التحميل غير متوفر بعد.",react_btn:"تفاعل وعلّق",edit:"تعديل",del:"حذف",no_desc:"لا يوجد وصف.",
+ about_h:"من نحن",about_p:"<b class=\"lat\">GTA MODDER DZ</b> مخصّصة لصناعة وعرض المودات الجزائرية للعبة GTA V، من سيارات وملابس الأمن والدرك الوطني إلى الإسعاف والحماية المدنية… هدفنا هو مشاركة محتوى إبداعي لمحبي التعديل (modding) في الجزائر والعالم العربي.",
+ contact_ads:"📧 للإعلانات والشراكات التجارية",mail_us:"راسلنا",copy_mail:"نسخ البريد",community:"انضم إلى مجتمعنا",community_p:"سيرفر الديسكورد وقناة اليوتيوب",
+ footer_tag:"مودات جزائرية للعبة GTA V — صُنعت بحب في الجزائر",footer_ads:"للإعلانات والشراكات:",
+ cat_police:"مودات الشرطة (الأمن الوطني)",cat_gendarmerie:"مودات الدرك الوطني",cat_uniforms:"الأزياء والملابس الرسمية",cat_other:"إسعاف، حماية مدنية وغيرها",
+ login_h:"دخول لوحة التحكم",login_p:"خاص بصاحب الموقع فقط. المفتاح يُحفظ في هذا المتصفح فقط ولا يُرسل إلا إلى GitHub.",gh_user:"اسم حساب GitHub",gh_repo:"اسم الـ repository",gh_branch:"الفرع (branch)",token_lbl:"GitHub Token (Fine-grained — Contents: Read and write)",login_btn:"دخول",token_warn:"لا تُدخل المفتاح على جهاز عام أو جهاز شخص آخر.",
+ admin_h:"لوحة التحكم",admin_conn:"متصل بـ {repo} — التغييرات تظهر للزوار بعد دقيقة أو دقيقتين.",logout:"تسجيل الخروج",
+ mod_new:"رفع مود جديد",mod_edit:"تعديل مود",f_title:"اسم المود",f_cat:"القسم",f_creator:"صانع المود",f_size:"حجم الملف",f_size_ph:"مثال: 45 MB",f_ver:"الإصدار",
+ f_file:"ملف المود (zip / rar / 7z / oiv) — حتى 95 MB",f_link:"أو رابط تحميل خارجي (للملفات الأكبر)",f_file_cur:"الملف المرفوع:",f_file_rm:"إزالة",
+ f_desc:"التفاصيل والوصف وطريقة التثبيت",f_imgs:"صور المود (أول صورة = الغلاف)",publish_mod:"نشر المود",save_mod:"حفظ التعديلات",cancel_edit:"إلغاء التعديل",
+ news_h:"نشر خبر",f_ntitle:"العنوان",f_nbody:"النص",publish_news:"نشر الخبر",vid_h:"إضافة فيديو",f_vtitle:"عنوان الفيديو",f_vurl:"رابط YouTube",f_vthumb:"صورة مصغّرة (اختياري)",add_vid:"إضافة الفيديو",
+ t_saved:"تم الحفظ ✓ — سيظهر للزوار خلال دقيقة أو دقيقتين",t_conflict:"تم تعديل البيانات من مكان آخر — أُعيد تحميلها، حاول مجدداً",t_img_up:"جارِ رفع الصورة…",t_img_ok:"تم رفع الصورة",t_img_err:"تعذّر رفع الصورة",t_https:"الرابط يجب أن يبدأ بـ https://",
+ t_logout:"تم تسجيل الخروج",t_welcome:"مرحباً بك في لوحة التحكم",t_bad_token:"المفتاح غير صحيح",t_no_repo:"لم يُعثر على الـ repository — تأكد من الاسم وصلاحيات المفتاح",t_no_push:"المفتاح لا يملك صلاحية الكتابة على هذا الـ repository",
+ t_copied:"تم نسخ البريد",t_file_up:"جارِ رفع الملف… {p}%",t_file_ok:"تم رفع الملف ✓",t_file_err:"تعذّر رفع الملف — جرّب مرة أخرى أو استعمل رابطاً خارجياً",t_file_big:"الملف أكبر من 95 MB — GitHub لا يقبله. ارفعه على MediaFire/Drive وضع الرابط.",t_need_dl:"أضف ملف المود أو رابط تحميل",t_wait_up:"انتظر حتى ينتهي رفع الملف",t_err:"تعذّر الحفظ",
+ c_del_mod:"حذف المود؟",c_del_mod_b:"سيُحذف المود وصوره وملفه نهائياً من الموقع.",c_del:"تأكيد الحذف؟",c_del_b:"لا يمكن التراجع عن الحذف.",cancel:"إلغاء",confirm:"تأكيد",only_owner:"هذه الصفحة مخصّصة لصاحب الموقع فقط."},
+
+fr:{dir:"ltr",loc:"fr-FR",
+ nav_home:"Accueil",nav_mods:"Mods",nav_about:"À propos",nav_admin:"Administration",
+ hero_h1:"Mods <em>algériens</em> 100%<br>pour GTA V",
+ hero_lead:"Véhicules de la Sûreté nationale et de la Gendarmerie, uniformes officiels, ambulances et Protection civile… Tous les mods de la chaîne GTA MODDER DZ réunis au même endroit, prêts à télécharger.",
+ btn_browse:"Voir les mods",btn_discord:"Rejoindre le Discord",
+ st_mods:"mods publiés",st_videos:"vidéos",st_news:"actualités",st_cats:"catégories",
+ sec_cats:"Catégories",sec_cats_p:"Choisissez la catégorie qui vous intéresse",cnt:"{n} mods",
+ sec_latest:"Derniers mods",sec_latest_p:"Les dernières sorties du site",view_all:"Tout voir",empty_mods:"Aucun mod pour l'instant — le premier arrive bientôt !",
+ sec_news:"Actualités",sec_news_p:"Nouveautés de la chaîne",empty_news:"Aucune actualité pour le moment.",
+ sec_videos:"Dernières vidéos",sec_videos_p:"Sur notre chaîne YouTube",subscribe:"S'abonner",empty_videos:"Aucune vidéo ajoutée — regardez directement la chaîne sur YouTube.",
+ add_now:"Ajouter depuis l'administration",loading:"Chargement…",load_err:"Impossible de charger data.json.",
+ all_mods:"Tous les mods",all_mods_p:"Mods algériens : police, gendarmerie, uniformes et plus",search_ph:"Rechercher un mod ou un créateur…",sort_new:"Plus récents",sort_old:"Plus anciens",sort_az:"Par nom",no_results:"Aucun résultat.",empty_cat:"Aucun mod dans cette catégorie pour l'instant.",
+ by:"par",not_found:"Ce mod n'existe pas.",back_mods:"Retour aux mods",
+ reactions_h:"Réactions et commentaires",reactions_p:"Le mod vous plaît ? Réagissez avec ❤️ 👍 🚀 ou laissez un commentaire (compte GitHub gratuit requis).",comments_off:"Commentaires pas encore activés — voir la configuration Giscus dans le README.",
+ spec_creator:"Créateur",spec_size:"Taille",spec_ver:"Version",spec_date:"Publié le",spec_file:"Fichier",
+ download:"Télécharger le mod",download_mirror:"Lien alternatif",no_link:"Fichier pas encore disponible.",react_btn:"Réagir et commenter",edit:"Modifier",del:"Supprimer",no_desc:"Aucune description.",
+ about_h:"À propos",about_p:"<b class=\"lat\">GTA MODDER DZ</b> est dédiée à la création et à la présentation de mods algériens pour GTA V : véhicules et uniformes de la Sûreté nationale et de la Gendarmerie, ambulances, Protection civile… Notre objectif est de partager du contenu créatif avec les passionnés de modding en Algérie et dans le monde arabe.",
+ contact_ads:"📧 Publicité et partenariats",mail_us:"Nous écrire",copy_mail:"Copier l'e-mail",community:"Rejoignez la communauté",community_p:"Serveur Discord et chaîne YouTube",
+ footer_tag:"Mods algériens pour GTA V — faits avec passion en Algérie",footer_ads:"Publicité et partenariats :",
+ cat_police:"Mods de police (Sûreté nationale)",cat_gendarmerie:"Mods de la Gendarmerie nationale",cat_uniforms:"Uniformes et tenues officielles",cat_other:"Ambulance, Protection civile et autres",
+ login_h:"Connexion administration",login_p:"Réservé au propriétaire du site. La clé reste dans ce navigateur et n'est envoyée qu'à GitHub.",gh_user:"Compte GitHub",gh_repo:"Repository",gh_branch:"Branche",token_lbl:"GitHub Token (Fine-grained — Contents: Read and write)",login_btn:"Connexion",token_warn:"N'entrez jamais la clé sur un ordinateur public ou partagé.",
+ admin_h:"Administration",admin_conn:"Connecté à {repo} — les changements sont visibles après 1 à 2 minutes.",logout:"Déconnexion",
+ mod_new:"Publier un nouveau mod",mod_edit:"Modifier le mod",f_title:"Nom du mod",f_cat:"Catégorie",f_creator:"Créateur",f_size:"Taille",f_size_ph:"ex. : 45 MB",f_ver:"Version",
+ f_file:"Fichier du mod (zip / rar / 7z / oiv) — jusqu'à 95 MB",f_link:"Ou lien de téléchargement externe (fichiers plus lourds)",f_file_cur:"Fichier envoyé :",f_file_rm:"Retirer",
+ f_desc:"Détails, description et installation",f_imgs:"Images du mod (la 1re = couverture)",publish_mod:"Publier le mod",save_mod:"Enregistrer",cancel_edit:"Annuler",
+ news_h:"Publier une actualité",f_ntitle:"Titre",f_nbody:"Texte",publish_news:"Publier",vid_h:"Ajouter une vidéo",f_vtitle:"Titre de la vidéo",f_vurl:"Lien YouTube",f_vthumb:"Miniature (facultatif)",add_vid:"Ajouter la vidéo",
+ t_saved:"Enregistré ✓ — visible dans 1 à 2 minutes",t_conflict:"Les données ont changé ailleurs — rechargées, réessayez",t_img_up:"Envoi de l'image…",t_img_ok:"Image envoyée",t_img_err:"Échec de l'envoi de l'image",t_https:"Le lien doit commencer par https://",
+ t_logout:"Déconnecté",t_welcome:"Bienvenue dans l'administration",t_bad_token:"Clé invalide",t_no_repo:"Repository introuvable — vérifiez le nom et les droits de la clé",t_no_push:"La clé n'a pas le droit d'écriture sur ce repository",
+ t_copied:"E-mail copié",t_file_up:"Envoi du fichier… {p}%",t_file_ok:"Fichier envoyé ✓",t_file_err:"Échec de l'envoi — réessayez ou utilisez un lien externe",t_file_big:"Fichier > 95 MB — refusé par GitHub. Hébergez-le sur MediaFire/Drive et mettez le lien.",t_need_dl:"Ajoutez un fichier ou un lien de téléchargement",t_wait_up:"Attendez la fin de l'envoi du fichier",t_err:"Échec de l'enregistrement",
+ c_del_mod:"Supprimer le mod ?",c_del_mod_b:"Le mod, ses images et son fichier seront supprimés définitivement.",c_del:"Confirmer la suppression ?",c_del_b:"Action irréversible.",cancel:"Annuler",confirm:"Confirmer",only_owner:"Page réservée au propriétaire du site."},
+
+en:{dir:"ltr",loc:"en-GB",
+ nav_home:"Home",nav_mods:"Mods",nav_about:"About",nav_admin:"Admin panel",
+ hero_h1:"100% <em>Algerian</em> mods<br>for GTA V",
+ hero_lead:"National Police and Gendarmerie vehicles, official uniforms, ambulance and Civil Protection… Every GTA MODDER DZ mod in one place, ready to download.",
+ btn_browse:"Browse mods",btn_discord:"Join the Discord",
+ st_mods:"mods",st_videos:"videos",st_news:"news",st_cats:"categories",
+ sec_cats:"Mod categories",sec_cats_p:"Pick the section you're into",cnt:"{n} mods",
+ sec_latest:"Latest mods",sec_latest_p:"Fresh releases on the site",view_all:"View all",empty_mods:"No mods yet — the first one is coming soon!",
+ sec_news:"Latest news",sec_news_p:"Channel news and updates",empty_news:"No news yet.",
+ sec_videos:"Latest videos",sec_videos_p:"From our YouTube channel",subscribe:"Subscribe",empty_videos:"No videos added yet — watch the channel directly on YouTube.",
+ add_now:"Add from the admin panel",loading:"Loading…",load_err:"Couldn't load data.json.",
+ all_mods:"All mods",all_mods_p:"Algerian police, gendarmerie, uniform mods and more",search_ph:"Search a mod or creator…",sort_new:"Newest",sort_old:"Oldest",sort_az:"By name",no_results:"No results.",empty_cat:"No mods in this category yet.",
+ by:"by",not_found:"This mod doesn't exist.",back_mods:"Back to mods",
+ reactions_h:"Reactions & comments",reactions_p:"Like the mod? React with ❤️ 👍 🚀 or leave a comment (free GitHub account required).",comments_off:"Comments not enabled yet — see Giscus setup in the README.",
+ spec_creator:"Creator",spec_size:"File size",spec_ver:"Version",spec_date:"Published",spec_file:"File",
+ download:"Download mod",download_mirror:"Mirror link",no_link:"Download not available yet.",react_btn:"React & comment",edit:"Edit",del:"Delete",no_desc:"No description.",
+ about_h:"About us",about_p:"<b class=\"lat\">GTA MODDER DZ</b> is dedicated to creating and showcasing Algerian mods for GTA V — from National Police and Gendarmerie vehicles and uniforms to ambulances and Civil Protection. Our goal is to share creative content with modding fans in Algeria and across the Arab world.",
+ contact_ads:"📧 Ads & business partnerships",mail_us:"Email us",copy_mail:"Copy email",community:"Join our community",community_p:"Discord server and YouTube channel",
+ footer_tag:"Algerian mods for GTA V — made with love in Algeria",footer_ads:"Ads & partnerships:",
+ cat_police:"Police mods (National Security)",cat_gendarmerie:"National Gendarmerie mods",cat_uniforms:"Official uniforms & outfits",cat_other:"Ambulance, Civil Protection & more",
+ login_h:"Admin login",login_p:"Site owner only. The key is stored in this browser only and is sent to GitHub alone.",gh_user:"GitHub username",gh_repo:"Repository",gh_branch:"Branch",token_lbl:"GitHub Token (Fine-grained — Contents: Read and write)",login_btn:"Log in",token_warn:"Never enter the key on a public or shared computer.",
+ admin_h:"Admin panel",admin_conn:"Connected to {repo} — changes go live in 1–2 minutes.",logout:"Log out",
+ mod_new:"Upload a new mod",mod_edit:"Edit mod",f_title:"Mod name",f_cat:"Category",f_creator:"Creator",f_size:"File size",f_size_ph:"e.g. 45 MB",f_ver:"Version",
+ f_file:"Mod file (zip / rar / 7z / oiv) — up to 95 MB",f_link:"Or external download link (for bigger files)",f_file_cur:"Uploaded file:",f_file_rm:"Remove",
+ f_desc:"Details, description & install steps",f_imgs:"Mod images (1st = cover)",publish_mod:"Publish mod",save_mod:"Save changes",cancel_edit:"Cancel",
+ news_h:"Post news",f_ntitle:"Title",f_nbody:"Text",publish_news:"Post",vid_h:"Add a video",f_vtitle:"Video title",f_vurl:"YouTube link",f_vthumb:"Thumbnail (optional)",add_vid:"Add video",
+ t_saved:"Saved ✓ — live in 1–2 minutes",t_conflict:"Data changed elsewhere — reloaded, please retry",t_img_up:"Uploading image…",t_img_ok:"Image uploaded",t_img_err:"Image upload failed",t_https:"Link must start with https://",
+ t_logout:"Logged out",t_welcome:"Welcome to the admin panel",t_bad_token:"Invalid key",t_no_repo:"Repository not found — check the name and key permissions",t_no_push:"This key can't write to the repository",
+ t_copied:"Email copied",t_file_up:"Uploading file… {p}%",t_file_ok:"File uploaded ✓",t_file_err:"Upload failed — retry or use an external link",t_file_big:"File is over 95 MB — GitHub won't accept it. Host it on MediaFire/Drive and paste the link.",t_need_dl:"Add a mod file or a download link",t_wait_up:"Wait for the file upload to finish",t_err:"Save failed",
+ c_del_mod:"Delete this mod?",c_del_mod_b:"The mod, its images and file will be deleted permanently.",c_del:"Confirm delete?",c_del_b:"This can't be undone.",cancel:"Cancel",confirm:"Confirm",only_owner:"This page is for the site owner only."},
+
+tr:{dir:"ltr",loc:"tr-TR",
+ nav_home:"Ana sayfa",nav_mods:"Modlar",nav_about:"Hakkımızda",nav_admin:"Yönetim paneli",
+ hero_h1:"%100 <em>Cezayir</em> modları<br>GTA V için",
+ hero_lead:"Ulusal Emniyet ve Jandarma araçları, resmi üniformalar, ambulans ve Sivil Savunma… GTA MODDER DZ kanalının tüm modları tek yerde, indirmeye hazır.",
+ btn_browse:"Modlara göz at",btn_discord:"Discord'a katıl",
+ st_mods:"mod",st_videos:"video",st_news:"haber",st_cats:"kategori",
+ sec_cats:"Mod kategorileri",sec_cats_p:"İlgilendiğin bölümü seç",cnt:"{n} mod",
+ sec_latest:"En yeni modlar",sec_latest_p:"Sitedeki son eklenenler",view_all:"Tümünü gör",empty_mods:"Henüz mod yok — ilki çok yakında!",
+ sec_news:"Son haberler",sec_news_p:"Kanal haberleri ve güncellemeler",empty_news:"Henüz haber yok.",
+ sec_videos:"Son videolar",sec_videos_p:"YouTube kanalımızdan",subscribe:"Abone ol",empty_videos:"Henüz video eklenmedi — kanalı doğrudan YouTube'da izle.",
+ add_now:"Yönetim panelinden ekle",loading:"Yükleniyor…",load_err:"data.json yüklenemedi.",
+ all_mods:"Tüm modlar",all_mods_p:"Cezayir polis, jandarma, üniforma modları ve daha fazlası",search_ph:"Mod veya yapımcı ara…",sort_new:"En yeni",sort_old:"En eski",sort_az:"İsme göre",no_results:"Sonuç bulunamadı.",empty_cat:"Bu kategoride henüz mod yok.",
+ by:"yapımcı:",not_found:"Bu mod bulunamadı.",back_mods:"Modlara dön",
+ reactions_h:"Tepkiler ve yorumlar",reactions_p:"Modu beğendin mi? ❤️ 👍 🚀 ile tepki ver ya da yorum bırak (ücretsiz GitHub hesabı gerekir).",comments_off:"Yorumlar henüz etkin değil — README'deki Giscus kurulumuna bak.",
+ spec_creator:"Yapımcı",spec_size:"Dosya boyutu",spec_ver:"Sürüm",spec_date:"Yayın tarihi",spec_file:"Dosya",
+ download:"Modu indir",download_mirror:"Alternatif bağlantı",no_link:"İndirme henüz mevcut değil.",react_btn:"Tepki ver ve yorum yap",edit:"Düzenle",del:"Sil",no_desc:"Açıklama yok.",
+ about_h:"Hakkımızda",about_p:"<b class=\"lat\">GTA MODDER DZ</b>, GTA V için Cezayir modları üretip tanıtmaya adanmıştır: Ulusal Emniyet ve Jandarma araçları ile üniformalarından ambulans ve Sivil Savunma'ya kadar… Amacımız Cezayir'deki ve Arap dünyasındaki mod tutkunlarıyla yaratıcı içerik paylaşmak.",
+ contact_ads:"📧 Reklam ve iş ortaklıkları",mail_us:"Bize yaz",copy_mail:"E-postayı kopyala",community:"Topluluğumuza katıl",community_p:"Discord sunucusu ve YouTube kanalı",
+ footer_tag:"GTA V için Cezayir modları — Cezayir'de sevgiyle yapıldı",footer_ads:"Reklam ve ortaklıklar:",
+ cat_police:"Polis modları (Ulusal Emniyet)",cat_gendarmerie:"Ulusal Jandarma modları",cat_uniforms:"Resmi üniformalar ve kıyafetler",cat_other:"Ambulans, Sivil Savunma ve diğerleri",
+ login_h:"Yönetim girişi",login_p:"Yalnızca site sahibi içindir. Anahtar sadece bu tarayıcıda saklanır ve yalnızca GitHub'a gönderilir.",gh_user:"GitHub kullanıcı adı",gh_repo:"Repository",gh_branch:"Dal (branch)",token_lbl:"GitHub Token (Fine-grained — Contents: Read and write)",login_btn:"Giriş",token_warn:"Anahtarı asla ortak veya başkasına ait bir bilgisayara girme.",
+ admin_h:"Yönetim paneli",admin_conn:"{repo} bağlı — değişiklikler 1–2 dakika içinde yayına girer.",logout:"Çıkış yap",
+ mod_new:"Yeni mod yükle",mod_edit:"Modu düzenle",f_title:"Mod adı",f_cat:"Kategori",f_creator:"Yapımcı",f_size:"Dosya boyutu",f_size_ph:"örn. 45 MB",f_ver:"Sürüm",
+ f_file:"Mod dosyası (zip / rar / 7z / oiv) — en fazla 95 MB",f_link:"Veya harici indirme bağlantısı (büyük dosyalar için)",f_file_cur:"Yüklenen dosya:",f_file_rm:"Kaldır",
+ f_desc:"Ayrıntılar, açıklama ve kurulum",f_imgs:"Mod görselleri (ilki = kapak)",publish_mod:"Modu yayınla",save_mod:"Değişiklikleri kaydet",cancel_edit:"İptal",
+ news_h:"Haber yayınla",f_ntitle:"Başlık",f_nbody:"Metin",publish_news:"Yayınla",vid_h:"Video ekle",f_vtitle:"Video başlığı",f_vurl:"YouTube bağlantısı",f_vthumb:"Küçük resim (isteğe bağlı)",add_vid:"Videoyu ekle",
+ t_saved:"Kaydedildi ✓ — 1–2 dakika içinde yayında",t_conflict:"Veriler başka yerde değişti — yeniden yüklendi, tekrar dene",t_img_up:"Görsel yükleniyor…",t_img_ok:"Görsel yüklendi",t_img_err:"Görsel yüklenemedi",t_https:"Bağlantı https:// ile başlamalı",
+ t_logout:"Çıkış yapıldı",t_welcome:"Yönetim paneline hoş geldin",t_bad_token:"Geçersiz anahtar",t_no_repo:"Repository bulunamadı — adı ve anahtar izinlerini kontrol et",t_no_push:"Bu anahtarın repository'ye yazma izni yok",
+ t_copied:"E-posta kopyalandı",t_file_up:"Dosya yükleniyor… %{p}",t_file_ok:"Dosya yüklendi ✓",t_file_err:"Yükleme başarısız — tekrar dene ya da harici bağlantı kullan",t_file_big:"Dosya 95 MB'tan büyük — GitHub kabul etmez. MediaFire/Drive'a yükleyip bağlantıyı yapıştır.",t_need_dl:"Bir mod dosyası veya indirme bağlantısı ekle",t_wait_up:"Dosya yüklemesinin bitmesini bekle",t_err:"Kaydedilemedi",
+ c_del_mod:"Mod silinsin mi?",c_del_mod_b:"Mod, görselleri ve dosyası kalıcı olarak silinecek.",c_del:"Silme onaylansın mı?",c_del_b:"Bu işlem geri alınamaz.",cancel:"İptal",confirm:"Onayla",only_owner:"Bu sayfa yalnızca site sahibi içindir."}
+};
+</script>
 <script src="config.js"></script>
 <script>
 {
 const CFG=window.SITE||{};
 const LOGO="logo.jpg";
 const DISCORD="https://discord.gg/S57qpBeePT", YT="https://www.youtube.com/@GTAMODDERDZ", MAIL="gtamodderdz@gmail.com";
+const MAXF=95*1024*1024;
 const CATS=[
- {k:"police",n:"POLICE MODS",ar:"مودات الشرطة (الأمن الوطني)",c:"#2f7bff",i:"i-police"},
- {k:"gendarmerie",n:"GENDARMERIE MODS",ar:"مودات الدرك الوطني",c:"#2e8b47",i:"i-gend"},
- {k:"uniforms",n:"UNIFORMS",ar:"الأزياء والملابس الرسمية",c:"#c49a5a",i:"i-uni"},
- {k:"other",n:"OTHER MODS",ar:"إسعاف، حماية مدنية وغيرها",c:"#d21034",i:"i-other"}];
+ {k:"police",n:"POLICE MODS",c:"#2f7bff",i:"i-police"},
+ {k:"gendarmerie",n:"GENDARMERIE MODS",c:"#2e8b47",i:"i-gend"},
+ {k:"uniforms",n:"UNIFORMS",c:"#c49a5a",i:"i-uni"},
+ {k:"other",n:"OTHER MODS",c:"#d21034",i:"i-other"}];
 const catOf=k=>CATS.find(c=>c.k===k)||CATS[3];
 const D={mods:[],news:[],videos:[]};
-const S={loaded:false,err:false,edit:null,draftImgs:[],prev:{},sha:null,busy:false};
+const S={loaded:false,err:false,edit:null,draftImgs:[],draftFile:null,uploading:false,prev:{},sha:null,busy:false};
 const $=s=>document.querySelector(s), app=$("#app");
+const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch{}}};
+
+/* ===== i18n ===== */
+const L=window.I18N;
+let lang=(()=>{const s=store.get("gmdz_lang");if(L[s])return s;const n=(navigator.language||"ar").slice(0,2);return L[n]?n:"ar"})();
+const T=(k,v)=>{let s=(L[lang]&&L[lang][k])??L.ar[k]??k;if(v)for(const[a,b]of Object.entries(v))s=s.replace("{"+a+"}",b);return s};
+function applyLang(){const d=L[lang];document.documentElement.lang=lang;document.documentElement.dir=d.dir;$("#langSel").value=lang;
+ document.querySelectorAll("[data-i]").forEach(el=>el.textContent=T(el.dataset.i))}
+
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl=u=>/^https:\/\//i.test(String(u||""))?String(u):"";
 const okImg=p=>/^images\/[\w-]+\.(jpg|jpeg|png|webp)$/i.test(String(p||""));
+const okFile=p=>/^files\/[\w.-]+$/.test(String(p||""))&&!/\.\./.test(p);
 const imgSrc=p=>okImg(p)?(S.prev[p]||p):"";
-const fmtD=t=>t?new Date(t).toLocaleDateString("ar-DZ",{year:"numeric",month:"long",day:"numeric"}):"";
+const fmtD=t=>t?new Date(t).toLocaleDateString(L[lang].loc,{year:"numeric",month:"long",day:"numeric"}):"";
+const fmtSize=b=>b>=1048576?(b/1048576).toFixed(1)+" MB":Math.max(1,Math.round(b/1024))+" KB";
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 const sorted=a=>[...a].sort((x,y)=>(y.t||0)-(x.t||0));
-function toast(m,bad){const t=$("#toast");t.textContent=m;t.style.background=bad?"var(--r)":"var(--g)";t.style.color=bad?"#fff":"#04140b";t.style.display="block";clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display="none",3200)}
+function toast(m,bad,stay){const t=$("#toast");t.textContent=m;t.style.background=bad?"var(--r)":"var(--g)";t.style.color=bad?"#fff":"#04140b";t.style.display="block";clearTimeout(toast.h);if(!stay)toast.h=setTimeout(()=>t.style.display="none",3400)}
 function ask(title,body){return new Promise(res=>{$("#mT").textContent=title;$("#mB").textContent=body;const m=$("#modal");m.classList.add("on");const done=v=>{m.classList.remove("on");$("#mYes").onclick=$("#mNo").onclick=null;res(v)};$("#mYes").onclick=()=>done(true);$("#mNo").onclick=()=>done(false)})}
 
 /* ===== GitHub API (admin only) ===== */
-const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch{}}};
 function guessRepo(){const h=location.hostname,m=h.match(/^([\w-]+)\.github\.io$/i);if(!m)return{owner:"",repo:""};const seg=location.pathname.split("/").filter(Boolean)[0];return{owner:m[1],repo:seg&&!/\.html$/.test(seg)?seg:h}}
 const A=(()=>{const g=guessRepo();let s={};try{s=JSON.parse(store.get("gmdz_admin")||"{}")}catch{}return{owner:s.owner||g.owner,repo:s.repo||g.repo,branch:s.branch||"main",token:s.token||""}})();
 const isAdmin=()=>!!(A.token&&A.ok);
+const API=()=>`https://api.github.com/repos/${encodeURIComponent(A.owner)}/${encodeURIComponent(A.repo)}`;
+const HDR=()=>({Authorization:"Bearer "+A.token,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"});
 const b64=s=>{const by=new TextEncoder().encode(s);let bin="";for(let i=0;i<by.length;i+=8192)bin+=String.fromCharCode(...by.subarray(i,i+8192));return btoa(bin)};
 const unb64=s=>new TextDecoder().decode(Uint8Array.from(atob(String(s).replace(/\s/g,"")),c=>c.charCodeAt(0)));
 async function gh(path,opt={}){
- const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(A.owner)}/${encodeURIComponent(A.repo)}${path}`,{...opt,cache:"no-store",headers:{Authorization:"Bearer "+A.token,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28",...(opt.body?{"Content-Type":"application/json"}:{})}});
+ const r=await fetch(API()+path,{...opt,cache:"no-store",headers:{...HDR(),...(opt.body?{"Content-Type":"application/json"}:{})}});
  if(!r.ok){const e=new Error("GitHub "+r.status);e.status=r.status;throw e}
  return r.status===204?null:r.json()}
+function ghXhr(path,body,onProg){return new Promise((res,rej)=>{const x=new XMLHttpRequest();x.open("POST",API()+path);
+ for(const[k,v]of Object.entries(HDR()))x.setRequestHeader(k,v);x.setRequestHeader("Content-Type","application/json");
+ x.upload.onprogress=e=>{if(e.lengthComputable&&onProg)onProg(e.loaded/e.total)};
+ x.onload=()=>{if(x.status>=200&&x.status<300){try{res(JSON.parse(x.responseText))}catch{rej(new Error("parse"))}}else{const e=new Error("GitHub "+x.status);e.status=x.status;rej(e)}};
+ x.onerror=()=>rej(new Error("network"));x.send(body)})}
 async function adminLogin(){
- const rp=await gh("");if(!rp.permissions||!rp.permissions.push)throw new Error("المفتاح لا يملك صلاحية الكتابة على هذا الـ repository");
- A.ok=true;A.branch=A.branch||rp.default_branch;await loadFromApi()}
+ const rp=await gh("");if(!rp.permissions||!rp.permissions.push){const e=new Error(T("t_no_push"));e.status=403;throw e}
+ A.ok=true;await loadFromApi()}
 async function loadFromApi(){
  try{const f=await gh(`/contents/data.json?ref=${encodeURIComponent(A.branch)}`);S.sha=f.sha;setData(JSON.parse(unb64(f.content)))}
  catch(e){if(e.status===404){S.sha=null;setData({})}else throw e}}
 async function saveData(msg){
  const body={message:msg,content:b64(JSON.stringify(D,null,1)),branch:A.branch};if(S.sha)body.sha=S.sha;
  try{const r=await gh("/contents/data.json",{method:"PUT",body:JSON.stringify(body)});S.sha=r.content.sha}
- catch(e){if(e.status===409||e.status===422){await loadFromApi();throw new Error("تم تعديل البيانات من مكان آخر — أُعيد تحميلها، حاول مجدداً")}throw e}}
-async function delFile(p){try{const f=await gh(`/contents/${p}?ref=${encodeURIComponent(A.branch)}`);await gh(`/contents/${p}`,{method:"DELETE",body:JSON.stringify({message:"حذف "+p,sha:f.sha,branch:A.branch})})}catch{}}
+ catch(e){if(e.status===409||e.status===422){await loadFromApi();throw new Error(T("t_conflict"))}throw e}}
+async function delFile(p){try{const f=await gh(`/contents/${p}?ref=${encodeURIComponent(A.branch)}`);await gh(`/contents/${p}`,{method:"DELETE",body:JSON.stringify({message:"delete "+p,sha:f.sha,branch:A.branch})})}catch{}}
 async function toJpeg(file){const bm=await createImageBitmap(file),r=Math.min(1,1600/Math.max(bm.width,bm.height)),c=document.createElement("canvas");c.width=Math.round(bm.width*r);c.height=Math.round(bm.height*r);c.getContext("2d").drawImage(bm,0,0,c.width,c.height);return c.toDataURL("image/jpeg",.85)}
 async function uploadImg(file){
- try{toast("جارِ رفع الصورة…");const d=await toJpeg(file),p="images/"+uid()+".jpg";
-  await gh("/contents/"+p,{method:"PUT",body:JSON.stringify({message:"رفع صورة "+p,content:d.split(",")[1],branch:A.branch})});
-  S.prev[p]=d;toast("تم رفع الصورة");return p}catch(e){toast("تعذّر رفع الصورة ("+(e.status||e.message)+")",1);return""}}
+ try{toast(T("t_img_up"),0,1);const d=await toJpeg(file),p="images/"+uid()+".jpg";
+  await gh("/contents/"+p,{method:"PUT",body:JSON.stringify({message:"image "+p,content:d.split(",")[1],branch:A.branch})});
+  S.prev[p]=d;toast(T("t_img_ok"));return p}catch(e){toast(T("t_img_err")+" ("+(e.status||e.message)+")",1);return""}}
+const readB64=f=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(",")[1]||"");r.onerror=()=>rej(r.error);r.readAsDataURL(f)});
+/* big files: Git Data API (blob → tree → commit → ref) with upload progress */
+async function uploadModFile(file){
+ if(file.size>MAXF){toast(T("t_file_big"),1);return null}
+ S.uploading=true;const bar=$("#fprog i"),box=$("#fprog");if(box)box.hidden=false;
+ const prog=p=>{const pc=Math.round(p*100);if(bar)bar.style.width=pc+"%";toast(T("t_file_up",{p:pc}),0,1)};
+ try{prog(0);
+  const safe=file.name.normalize("NFKD").replace(/[^\w.-]+/g,"_").replace(/_+/g,"_").slice(-80)||"mod.zip";
+  const path="files/"+uid()+"-"+safe;
+  const content=await readB64(file);
+  const blob=await ghXhr("/git/blobs",JSON.stringify({content,encoding:"base64"}),p=>prog(p*.95));
+  const ref=await gh(`/git/ref/heads/${encodeURIComponent(A.branch)}`);
+  const cm=await gh(`/git/commits/${ref.object.sha}`);
+  const tree=await gh("/git/trees",{method:"POST",body:JSON.stringify({base_tree:cm.tree.sha,tree:[{path,mode:"100644",type:"blob",sha:blob.sha}]})});
+  const nc=await gh("/git/commits",{method:"POST",body:JSON.stringify({message:"mod file "+path,tree:tree.sha,parents:[ref.object.sha]})});
+  await gh(`/git/refs/heads/${encodeURIComponent(A.branch)}`,{method:"PATCH",body:JSON.stringify({sha:nc.sha})});
+  prog(1);toast(T("t_file_ok"));return{path,name:file.name.slice(0,120),size:file.size}}
+ catch(e){toast(T("t_file_err")+" ("+(e.status||e.message)+")",1);return null}
+ finally{S.uploading=false;if(box)box.hidden=true}}
 
 /* ===== data ===== */
 function setData(j){D.mods=Array.isArray(j.mods)?j.mods:[];D.news=Array.isArray(j.news)?j.news:[];D.videos=Array.isArray(j.videos)?j.videos:[];S.loaded=true}
@@ -284,20 +457,22 @@ async function loadPublic(){try{const r=await fetch("data.json?v="+Date.now(),{c
 /* ===== pieces ===== */
 function cover(m){const c=catOf(m.cat),src=imgSrc((m.imgs||[])[0]);
  return `<div class="cover" style="--c:${c.c}">${src?`<img src="${esc(src)}" alt="" loading="lazy">`:`<div class="ph"><svg><use href="#${c.i}"/></svg></div>`}<span class="chip lat" style="--c:${c.c}">${c.n}</span></div>`}
-function modCard(m){return `<a class="card" href="#mod-${esc(m.id)}">${cover(m)}<div class="cbody"><h3>${esc(m.title)}</h3><span style="color:var(--mute);font-size:14px">بواسطة ${esc(m.creator||"GTA MODDER DZ")}</span><div class="meta">${m.size?`<span dir="ltr">${esc(m.size)}</span>`:""}<span>${esc(m.version?"v"+m.version:"")}</span><span>${fmtD(m.t)}</span></div></div></a>`}
+const sizeOf=m=>m.size||(m.file&&m.file.size?fmtSize(m.file.size):"");
+function modCard(m){return `<a class="card" href="#mod-${esc(m.id)}">${cover(m)}<div class="cbody"><h3>${esc(m.title)}</h3><span style="color:var(--mute);font-size:14px">${T("by")} ${esc(m.creator||"GTA MODDER DZ")}</span><div class="meta">${sizeOf(m)?`<span dir="ltr">${esc(sizeOf(m))}</span>`:""}<span>${esc(m.version?"v"+m.version:"")}</span><span>${fmtD(m.t)}</span></div></div></a>`}
 function vidCard(v){const u=safeUrl(v.url),th=imgSrc(v.thumb);return `<a class="card vid" href="${esc(u||YT)}" target="_blank" rel="noopener"><div class="cover">${th?`<img src="${esc(th)}" alt="" loading="lazy">`:`<div class="ph"></div>`}<div class="play"><i><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M8 5v14l11-7z"/></svg></i></div></div><div class="cbody"><h3 style="font-size:17px">${esc(v.title)}</h3><div class="meta"><span>${fmtD(v.t)}</span></div></div></a>`}
 function newsItem(n){return `<article class="ni"><time>${fmtD(n.t)}</time><h3>${esc(n.title)}</h3>${n.body?`<p>${esc(n.body)}</p>`:""}</article>`}
-const loadingNote=()=>!S.loaded?`<div class="empty">جارِ التحميل…</div>`:S.err?`<div class="empty">تعذّر تحميل ملف data.json.</div>`:"";
-const emptyBox=t=>`<div class="empty">${t}${isAdmin()?`<br><a class="btn pri sm" style="margin-top:12px" href="#admin">أضف الآن من لوحة التحكم</a>`:""}</div>`;
+const loadingNote=()=>!S.loaded?`<div class="empty">${T("loading")}</div>`:S.err?`<div class="empty">${T("load_err")}</div>`:"";
+const emptyBox=t=>`<div class="empty">${t}${isAdmin()?`<br><a class="btn pri sm" style="margin-top:12px" href="#admin">${T("add_now")}</a>`:""}</div>`;
+const yt=`<svg><use href="#i-yt"/></svg>`,dc=`<svg><use href="#i-disc"/></svg>`;
 
 /* ===== views ===== */
 function vHome(){const mods=sorted(D.mods);
  return `<section class="hero band"><div class="wrap">
   <div><span class="chip lat" style="--c:var(--r);display:inline-flex;align-items:center;gap:8px"><svg class="mini" style="width:24px;height:16px" viewBox="0 0 900 600"><use href="#flag"/></svg>GTA V · ALGERIA</span>
-   <h1 style="margin-top:14px">مودات <em>جزائرية</em> 100%<br>لعالم GTA V</h1>
-   <p class="lead">سيارات الأمن الوطني والدرك الوطني، الأزياء الرسمية، الإسعاف والحماية المدنية… كل مودات قناة GTA MODDER DZ في مكان واحد، جاهزة للتحميل.</p>
-   <div class="cta"><a class="btn pri" href="#mods">تصفّح المودات</a><a class="btn disc" href="${DISCORD}" target="_blank" rel="noopener"><svg><use href="#i-disc"/></svg>انضم للديسكورد</a></div>
-   <div class="stats"><div><b>${D.mods.length}</b><span>مود منشور</span></div><div><b>${D.videos.length}</b><span>فيديو</span></div><div><b>${D.news.length}</b><span>خبر</span></div><div><b>4</b><span>أقسام</span></div></div>
+   <h1 style="margin-top:14px">${T("hero_h1")}</h1>
+   <p class="lead">${esc(T("hero_lead"))}</p>
+   <div class="cta"><a class="btn pri" href="#mods">${T("btn_browse")}</a><a class="btn disc" href="${DISCORD}" target="_blank" rel="noopener">${dc}${T("btn_discord")}</a></div>
+   <div class="stats"><div><b>${D.mods.length}</b><span>${T("st_mods")}</span></div><div><b>${D.videos.length}</b><span>${T("st_videos")}</span></div><div><b>${D.news.length}</b><span>${T("st_news")}</span></div><div><b>4</b><span>${T("st_cats")}</span></div></div>
   </div>
   <div class="badge"><svg class="bg" viewBox="0 0 400 400" aria-hidden="true">
    <defs><radialGradient id="gl"><stop offset="0" stop-color="#00a651" stop-opacity=".55"/><stop offset="1" stop-color="#00a651" stop-opacity="0"/></radialGradient></defs>
@@ -307,101 +482,107 @@ function vHome(){const mods=sorted(D.mods);
    <rect class="strobe b2" x="205" y="28" width="115" height="22" rx="11" fill="#ff1f45"/>
    <g opacity=".5"><rect class="strobe" x="40" y="10" width="160" height="58" rx="29" fill="#2f7bff" style="filter:blur(18px)"/><rect class="strobe b2" x="200" y="10" width="160" height="58" rx="29" fill="#ff1f45" style="filter:blur(18px)"/></g>
    <g fill="none" stroke="#fff" stroke-opacity=".12">${[0,1,2,3,4,5].map(i=>`<path d="M${30+i*14} 380 L200 240 L${370-i*14} 380"/>`).join("")}</g>
-  </svg><div class="wave" aria-hidden="true"><svg viewBox="0 0 900 600"><use href="#flag"/></svg></div><img src="${LOGO}" alt="شعار القناة GTA MODDER DZ"></div>
+  </svg><div class="wave" aria-hidden="true"><svg viewBox="0 0 900 600"><use href="#flag"/></svg></div><img src="${LOGO}" alt="GTA MODDER DZ"></div>
  </div></section>
- <section class="band" style="padding-top:8px"><div class="wrap"><div class="sec-h"><div><h2>أقسام المودات</h2><p>اختر القسم الذي يهمك</p></div></div>
-  <div class="cats">${CATS.map(c=>`<a class="cat" href="#${c.k}" style="--c:${c.c}"><svg><use href="#${c.i}"/></svg><b>${c.n}</b><span>${c.ar} · ${D.mods.filter(m=>m.cat===c.k).length} مود</span></a>`).join("")}</div></div></section>
- <section class="band" style="padding-top:8px"><div class="wrap"><div class="sec-h"><div><h2>أحدث المودات</h2><p>آخر ما نزل على الموقع</p></div><a class="btn" href="#mods">عرض الكل</a></div>
-  ${loadingNote()||(mods.length?`<div class="grid">${mods.slice(0,6).map(modCard).join("")}</div>`:emptyBox("لا توجد مودات بعد — ترقّبوا أول مود قريباً!"))}</div></section>
+ <section class="band" style="padding-top:8px"><div class="wrap"><div class="sec-h"><div><h2>${T("sec_cats")}</h2><p>${T("sec_cats_p")}</p></div></div>
+  <div class="cats">${CATS.map(c=>`<a class="cat" href="#${c.k}" style="--c:${c.c}"><svg><use href="#${c.i}"/></svg><b>${c.n}</b><span>${T("cat_"+c.k)} · ${T("cnt",{n:D.mods.filter(m=>m.cat===c.k).length})}</span></a>`).join("")}</div></div></section>
+ <section class="band" style="padding-top:8px"><div class="wrap"><div class="sec-h"><div><h2>${T("sec_latest")}</h2><p>${T("sec_latest_p")}</p></div><a class="btn" href="#mods">${T("view_all")}</a></div>
+  ${loadingNote()||(mods.length?`<div class="grid">${mods.slice(0,6).map(modCard).join("")}</div>`:emptyBox(T("empty_mods")))}</div></section>
  <section class="band" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap two">
-  <div><div class="sec-h"><div><h2>آخر الأخبار</h2><p>جديد القناة والتحديثات</p></div></div>
-   ${loadingNote()||(D.news.length?`<div class="news">${sorted(D.news).slice(0,5).map(newsItem).join("")}</div>`:emptyBox("لا توجد أخبار حالياً."))}</div>
-  <div><div class="sec-h"><div><h2>آخر الفيديوهات</h2><p>من قناتنا على YouTube</p></div><a class="btn red sm" href="${YT}" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg>اشترك</a></div>
-   ${loadingNote()||(D.videos.length?`<div class="vids">${sorted(D.videos).slice(0,4).map(vidCard).join("")}</div>`:emptyBox("لم تُضف فيديوهات بعد — شاهد القناة مباشرة على YouTube."))}</div>
+  <div><div class="sec-h"><div><h2>${T("sec_news")}</h2><p>${T("sec_news_p")}</p></div></div>
+   ${loadingNote()||(D.news.length?`<div class="news">${sorted(D.news).slice(0,5).map(newsItem).join("")}</div>`:emptyBox(T("empty_news")))}</div>
+  <div><div class="sec-h"><div><h2>${T("sec_videos")}</h2><p>${T("sec_videos_p")}</p></div><a class="btn red sm" href="${YT}" target="_blank" rel="noopener">${yt}${T("subscribe")}</a></div>
+   ${loadingNote()||(D.videos.length?`<div class="vids">${sorted(D.videos).slice(0,4).map(vidCard).join("")}</div>`:emptyBox(T("empty_videos")))}</div>
  </div></section>`}
 
 function vMods(cat){const c=cat?catOf(cat):null;
- return `<section class="pagehd band"><div class="wrap"><h1>${c?`<span class="lat">${c.n}</span>`:"كل المودات"}</h1><p style="color:var(--mute);margin:8px 0 0">${c?c.ar:"مودات جزائرية للشرطة والدرك والأزياء وأكثر"}</p>
+ return `<section class="pagehd band"><div class="wrap"><h1>${c?`<span class="lat">${c.n}</span>`:T("all_mods")}</h1><p style="color:var(--mute);margin:8px 0 0">${c?T("cat_"+c.k):T("all_mods_p")}</p>
   <div class="tabs"><a href="#mods" class="${!c?"on":""}">ALL</a>${CATS.map(x=>`<a href="#${x.k}" class="${c&&c.k===x.k?"on":""}" style="--c:${x.c}">${x.n}</a>`).join("")}</div></div></section>
- <section class="band" style="padding-top:0"><div class="wrap"><div class="tools"><input id="q" type="search" placeholder="ابحث عن مود أو صانع…" aria-label="بحث"><select id="sort" aria-label="ترتيب"><option value="new">الأحدث</option><option value="old">الأقدم</option><option value="az">حسب الاسم</option></select></div><div id="list"></div></div></section>`}
+ <section class="band" style="padding-top:0"><div class="wrap"><div class="tools"><input id="q" type="search" placeholder="${esc(T("search_ph"))}" aria-label="${esc(T("search_ph"))}"><select id="sort" aria-label="sort"><option value="new">${T("sort_new")}</option><option value="old">${T("sort_old")}</option><option value="az">${T("sort_az")}</option></select></div><div id="list"></div></div></section>`}
 function fillList(cat){
  const q=($("#q")?.value||"").trim().toLowerCase(),so=$("#sort")?.value||"new";
  let a=D.mods.filter(m=>(!cat||m.cat===cat)&&(!q||(m.title+" "+(m.creator||"")+" "+(m.desc||"")).toLowerCase().includes(q)));
- a=so==="az"?a.sort((x,y)=>String(x.title).localeCompare(String(y.title),"ar")):so==="old"?sorted(a).reverse():sorted(a);
- $("#list").innerHTML=loadingNote()||(a.length?`<div class="grid">${a.map(modCard).join("")}</div>`:emptyBox(q?"لا نتائج لبحثك.":"لا توجد مودات في هذا القسم بعد."));
+ a=so==="az"?a.sort((x,y)=>String(x.title).localeCompare(String(y.title),lang)):so==="old"?sorted(a).reverse():sorted(a);
+ $("#list").innerHTML=loadingNote()||(a.length?`<div class="grid">${a.map(modCard).join("")}</div>`:emptyBox(q?T("no_results"):T("empty_cat")));
 }
 
 function vMod(id){
  const m=D.mods.find(x=>x.id===id);
- if(!m)return `<section class="band"><div class="wrap">${loadingNote()||`<div class="empty">هذا المود غير موجود. <a href="#mods" style="color:var(--g)">العودة للمودات</a></div>`}</div></section>`;
- const c=catOf(m.cat),imgs=(m.imgs||[]).map(imgSrc).filter(Boolean),dl=safeUrl(m.link);
+ if(!m)return `<section class="band"><div class="wrap">${loadingNote()||`<div class="empty">${T("not_found")} <a href="#mods" style="color:var(--g)">${T("back_mods")}</a></div>`}</div></section>`;
+ const c=catOf(m.cat),imgs=(m.imgs||[]).map(imgSrc).filter(Boolean),dl=safeUrl(m.link),f=m.file&&okFile(m.file.path)?m.file:null;
+ const dlBtn=f?`<a class="btn pri" style="justify-content:center" href="${esc(f.path)}" download="${esc(f.name||"")}"><svg><use href="#i-dl"/></svg>${T("download")}</a>${dl?`<a class="btn" style="justify-content:center" href="${esc(dl)}" target="_blank" rel="noopener">${T("download_mirror")}</a>`:""}`
+  :dl?`<a class="btn pri" style="justify-content:center" href="${esc(dl)}" target="_blank" rel="noopener"><svg><use href="#i-dl"/></svg>${T("download")}</a>`:`<span class="note warn">${T("no_link")}</span>`;
  return `<section class="band"><div class="wrap">
-  <div class="bc"><a href="#mods">المودات</a> / <a href="#${c.k}">${c.n}</a> / ${esc(m.title)}</div>
+  <div class="bc"><a href="#mods">${T("nav_mods")}</a> / <a href="#${c.k}">${c.n}</a> / ${esc(m.title)}</div>
   <div class="det"><div>
-   ${imgs.length?`<div class="gal"><div class="slides" id="sl">${imgs.map(s=>`<div><img src="${esc(s)}" alt=""></div>`).join("")}</div>${imgs.length>1?`<button class="gnav p" data-g="-1" aria-label="السابق">›</button><button class="gnav n" data-g="1" aria-label="التالي">‹</button>`:""}</div>
+   ${imgs.length?`<div class="gal"><div class="slides" id="sl">${imgs.map(s=>`<div><img src="${esc(s)}" alt=""></div>`).join("")}</div>${imgs.length>1?`<button class="gnav p" data-g="-1" aria-label="prev">›</button><button class="gnav n" data-g="1" aria-label="next">‹</button>`:""}</div>
    ${imgs.length>1?`<div class="thumbs">${imgs.map((s,i)=>`<button data-t="${i}" class="${i?"":"on"}"><img src="${esc(s)}" alt=""></button>`).join("")}</div>`:""}`:`<div style="--c:${c.c}">${cover(m)}</div>`}
-   <div class="desc">${esc(m.desc||"لا يوجد وصف.")}</div>
-   <h2 style="margin-top:34px">التفاعلات والتعليقات</h2>
-   <p style="color:var(--mute);margin:6px 0 0">أعجبك المود؟ تفاعل بـ ❤️ 👍 🚀 أو اترك تعليقاً (يتطلب حساب GitHub مجاني).</p>
-   <div class="giscus-box" id="gbox">${CFG.giscus&&CFG.giscus.repoId?"":`<div class="empty">التعليقات غير مفعّلة بعد — راجع إعداد Giscus في README.</div>`}</div>
+   <div class="desc">${esc(m.desc||T("no_desc"))}</div>
+   <h2 style="margin-top:34px">${T("reactions_h")}</h2>
+   <p style="color:var(--mute);margin:6px 0 0">${T("reactions_p")}</p>
+   <div class="giscus-box" id="gbox">${CFG.giscus&&CFG.giscus.repoId?"":`<div class="empty">${T("comments_off")}</div>`}</div>
   </div>
   <aside class="side"><span class="chip lat" style="--c:${c.c};align-self:start">${c.n}</span><h1 style="font-size:clamp(26px,3vw,36px)">${esc(m.title)}</h1>
-   <table class="spec"><tr><td>صانع المود</td><td>${esc(m.creator||"GTA MODDER DZ")}</td></tr><tr><td>حجم الملف</td><td dir="ltr" style="text-align:start">${esc(m.size||"—")}</td></tr><tr><td>الإصدار</td><td>${esc(m.version||"1.0")}</td></tr><tr><td>تاريخ النشر</td><td>${fmtD(m.t)}</td></tr></table>
-   ${dl?`<a class="btn pri" style="justify-content:center" href="${esc(dl)}" target="_blank" rel="noopener"><svg><use href="#i-dl"/></svg>تحميل المود</a>`:`<span class="note warn">رابط التحميل غير متوفر بعد.</span>`}
-   <a class="btn" style="justify-content:center" href="#gbox"><svg><use href="#i-heart"/></svg>تفاعل وعلّق</a>
-   ${isAdmin()?`<div class="cta"><button class="btn sm" data-em="${esc(id)}">تعديل</button><button class="btn sm red" data-xm="${esc(id)}">حذف</button></div>`:""}
+   <table class="spec"><tr><td>${T("spec_creator")}</td><td>${esc(m.creator||"GTA MODDER DZ")}</td></tr><tr><td>${T("spec_size")}</td><td dir="ltr" style="text-align:start">${esc(sizeOf(m)||"—")}</td></tr><tr><td>${T("spec_ver")}</td><td>${esc(m.version||"1.0")}</td></tr><tr><td>${T("spec_date")}</td><td>${fmtD(m.t)}</td></tr>${f?`<tr><td>${T("spec_file")}</td><td dir="ltr" style="text-align:start;overflow-wrap:anywhere">${esc(f.name)}</td></tr>`:""}</table>
+   ${dlBtn}
+   <a class="btn" style="justify-content:center" href="#gbox"><svg><use href="#i-heart"/></svg>${T("react_btn")}</a>
+   ${isAdmin()?`<div class="cta"><button class="btn sm" data-em="${esc(id)}">${T("edit")}</button><button class="btn sm red" data-xm="${esc(id)}">${T("del")}</button></div>`:""}
   </aside></div></div></section>`}
 function mountGiscus(id){
  const g=CFG.giscus,box=$("#gbox");if(!box||!g||!g.repoId||!g.categoryId)return;
  const s=document.createElement("script");s.src="https://giscus.app/client.js";s.async=true;s.crossOrigin="anonymous";
- const at={repo:g.repo,"repo-id":g.repoId,category:g.category,"category-id":g.categoryId,mapping:"specific",term:"mod-"+id,strict:"1","reactions-enabled":"1","emit-metadata":"0","input-position":"top",theme:"dark",lang:"ar",loading:"lazy"};
+ const at={repo:g.repo,"repo-id":g.repoId,category:g.category,"category-id":g.categoryId,mapping:"specific",term:"mod-"+id,strict:"1","reactions-enabled":"1","emit-metadata":"0","input-position":"top",theme:"dark",lang,loading:"lazy"};
  for(const[k,v]of Object.entries(at))s.setAttribute("data-"+k,v);box.appendChild(s)}
 
 function vAbout(){return `<section class="band hero"><div class="wrap about">
- <div class="badge" style="max-width:360px"><svg class="bg" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="#00a651" opacity=".18"/></svg><div class="wave" aria-hidden="true"><svg viewBox="0 0 900 600"><use href="#flag"/></svg></div><img src="${LOGO}" alt="شعار القناة"></div>
- <div><span class="chip lat" style="--c:var(--g)">ABOUT US</span><h1 style="margin-top:12px">من نحن</h1>
-  <p><b class="lat">GTA MODDER DZ</b> مخصّصة لصناعة وعرض المودات الجزائرية للعبة GTA V، من سيارات وملابس الأمن والدرك الوطني إلى الإسعاف والحماية المدنية… هدفنا هو مشاركة محتوى إبداعي لمحبي التعديل (modding) في الجزائر والعالم العربي.</p>
+ <div class="badge" style="max-width:360px"><svg class="bg" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="190" fill="#00a651" opacity=".18"/></svg><div class="wave" aria-hidden="true"><svg viewBox="0 0 900 600"><use href="#flag"/></svg></div><img src="${LOGO}" alt="GTA MODDER DZ"></div>
+ <div><span class="chip lat" style="--c:var(--g)">ABOUT US</span><h1 style="margin-top:12px">${T("about_h")}</h1>
+  <p>${T("about_p")}</p>
   <div class="tags">${CATS.map(c=>`<a class="chip lat" style="--c:${c.c};text-decoration:none" href="#${c.k}">${c.n}</a>`).join("")}</div>
   <div class="contact">
-   <div><b>📧 للإعلانات والشراكات التجارية</b><code>${MAIL}</code><div class="tags"><a class="btn sm" href="mailto:${MAIL}">راسلنا</a><button class="btn sm" id="cpMail">نسخ البريد</button></div></div>
-   <div><b>انضم إلى مجتمعنا</b><span style="color:var(--mute)">سيرفر الديسكورد وقناة اليوتيوب</span><div class="tags"><a class="btn disc sm" href="${DISCORD}" target="_blank" rel="noopener"><svg><use href="#i-disc"/></svg>Discord</a><a class="btn red sm" href="${YT}" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg>YouTube</a></div></div>
+   <div><b>${T("contact_ads")}</b><code>${MAIL}</code><div class="tags"><a class="btn sm" href="mailto:${MAIL}">${T("mail_us")}</a><button class="btn sm" id="cpMail">${T("copy_mail")}</button></div></div>
+   <div><b>${T("community")}</b><span style="color:var(--mute)">${T("community_p")}</span><div class="tags"><a class="btn disc sm" href="${DISCORD}" target="_blank" rel="noopener">${dc}Discord</a><a class="btn red sm" href="${YT}" target="_blank" rel="noopener">${yt}YouTube</a></div></div>
   </div></div></div></section>`}
 
-function vLogin(){return `<section class="pagehd band"><div class="wrap"><h1>دخول لوحة التحكم</h1><p style="color:var(--mute);margin:8px 0 0">خاص بصاحب الموقع فقط. المفتاح يُحفظ في هذا المتصفح فقط ولا يُرسل إلا إلى GitHub.</p></div></section>
+function vLogin(){return `<section class="pagehd band"><div class="wrap"><h1>${T("login_h")}</h1><p style="color:var(--mute);margin:8px 0 0">${T("login_p")}</p></div></section>
  <section class="band" style="padding-top:20px"><div class="wrap" style="max-width:720px"><form class="f" id="fLogin">
-  <div class="row2"><label>اسم حساب GitHub<input id="aOwner" dir="ltr" required value="${esc(A.owner)}"></label><label>اسم الـ repository<input id="aRepo" dir="ltr" required value="${esc(A.repo)}"></label><label>الفرع (branch)<input id="aBranch" dir="ltr" required value="${esc(A.branch)}"></label></div>
-  <label>GitHub Token (Fine-grained — Contents: Read and write)<input id="aToken" type="password" dir="ltr" required autocomplete="off" placeholder="github_pat_..."></label>
-  <button class="btn pri" style="justify-self:start">دخول</button>
-  <p class="note warn" style="margin:0">لا تُدخل المفتاح على جهاز عام أو جهاز شخص آخر.</p>
+  <div class="row2"><label>${T("gh_user")}<input id="aOwner" dir="ltr" required value="${esc(A.owner)}"></label><label>${T("gh_repo")}<input id="aRepo" dir="ltr" required value="${esc(A.repo)}"></label><label>${T("gh_branch")}<input id="aBranch" dir="ltr" required value="${esc(A.branch)}"></label></div>
+  <label>${T("token_lbl")}<input id="aToken" type="password" dir="ltr" required autocomplete="off" placeholder="github_pat_..."></label>
+  <button class="btn pri" style="justify-self:start">${T("login_btn")}</button>
+  <p class="note warn" style="margin:0">${T("token_warn")}</p>
  </form></div></section>`}
 
 function vAdmin(){
  if(!isAdmin())return vLogin();
  const e=S.edit||{};
- return `<section class="pagehd band"><div class="wrap"><h1>لوحة التحكم</h1><p style="color:var(--mute);margin:8px 0 0">متصل بـ <span dir="ltr">${esc(A.owner)}/${esc(A.repo)}</span> — التغييرات تظهر للزوار بعد دقيقة أو دقيقتين. <button class="x" id="logout">تسجيل الخروج</button></p></div></section>
+ return `<section class="pagehd band"><div class="wrap"><h1>${T("admin_h")}</h1><p style="color:var(--mute);margin:8px 0 0">${esc(T("admin_conn",{repo:A.owner+"/"+A.repo}))} <button class="x" id="logout">${T("logout")}</button></p></div></section>
  <section class="band" style="padding-top:20px"><div class="wrap" style="display:grid;gap:30px">
-  <div><h2 style="margin-bottom:14px">${e.id?"تعديل مود":"رفع مود جديد"}</h2>
+  <div><h2 style="margin-bottom:14px">${e.id?T("mod_edit"):T("mod_new")}</h2>
   <form class="f" id="fMod">
-   <label>اسم المود<input id="mTitle" required maxlength="120" value="${esc(e.title||"")}"></label>
-   <div class="row"><label>القسم<select id="mCat">${CATS.map(c=>`<option value="${c.k}" ${e.cat===c.k?"selected":""}>${c.n}</option>`).join("")}</select></label>
-    <label>صانع المود<input id="mCreator" maxlength="60" value="${esc(e.creator??"GTA MODDER DZ")}"></label>
-    <label>حجم الملف<input id="mSize" maxlength="20" placeholder="مثال: 45 MB" value="${esc(e.size||"")}"></label></div>
-   <div class="row"><label>الإصدار<input id="mVer" maxlength="20" value="${esc(e.version||"1.0")}"></label>
-    <label style="grid-column:span 2">رابط التحميل (https)<input id="mLink" type="url" dir="ltr" placeholder="https://www.mediafire.com/..." value="${esc(e.link||"")}"></label></div>
-   <label>التفاصيل والوصف وطريقة التثبيت<textarea id="mDesc" maxlength="5000">${esc(e.desc||"")}</textarea></label>
-   <label>صور المود (أول صورة = الغلاف)<input id="mImgs" type="file" accept="image/*" multiple></label>
+   <label>${T("f_title")}<input id="mTitle" required maxlength="120" value="${esc(e.title||"")}"></label>
+   <div class="row"><label>${T("f_cat")}<select id="mCat">${CATS.map(c=>`<option value="${c.k}" ${e.cat===c.k?"selected":""}>${c.n}</option>`).join("")}</select></label>
+    <label>${T("f_creator")}<input id="mCreator" maxlength="60" value="${esc(e.creator??"GTA MODDER DZ")}"></label>
+    <label>${T("f_size")}<input id="mSize" maxlength="20" placeholder="${esc(T("f_size_ph"))}" value="${esc(e.size||"")}"></label></div>
+   <label>${T("f_file")}<input id="mFile" type="file" accept=".zip,.rar,.7z,.oiv,.rpf,.ytd,.yft,.asi,.dll,.lua,.cs,.xml,.meta"></label>
+   <div class="prog" id="fprog" hidden><i></i></div>
+   <div id="fcur"></div>
+   <div class="row"><label>${T("f_ver")}<input id="mVer" maxlength="20" value="${esc(e.version||"1.0")}"></label>
+    <label style="grid-column:span 2">${T("f_link")}<input id="mLink" type="url" dir="ltr" placeholder="https://www.mediafire.com/..." value="${esc(e.link||"")}"></label></div>
+   <label>${T("f_desc")}<textarea id="mDesc" maxlength="5000">${esc(e.desc||"")}</textarea></label>
+   <label>${T("f_imgs")}<input id="mImgs" type="file" accept="image/*" multiple></label>
    <div class="pv" id="pv"></div>
-   <div class="cta"><button class="btn pri">${e.id?"حفظ التعديلات":"نشر المود"}</button>${e.id?`<button type="button" class="btn" id="mCancel">إلغاء التعديل</button>`:""}</div>
+   <div class="cta"><button class="btn pri">${e.id?T("save_mod"):T("publish_mod")}</button>${e.id?`<button type="button" class="btn" id="mCancel">${T("cancel_edit")}</button>`:""}</div>
   </form>
-  <div class="alist">${sorted(D.mods).map(m=>`<div><span class="chip lat" style="--c:${catOf(m.cat).c}">${catOf(m.cat).n}</span><b>${esc(m.title)}</b><button class="btn sm" data-em="${esc(m.id)}">تعديل</button><button class="btn sm red" data-xm="${esc(m.id)}">حذف</button></div>`).join("")}</div></div>
+  <div class="alist">${sorted(D.mods).map(m=>`<div><span class="chip lat" style="--c:${catOf(m.cat).c}">${catOf(m.cat).n}</span><b>${esc(m.title)}</b><button class="btn sm" data-em="${esc(m.id)}">${T("edit")}</button><button class="btn sm red" data-xm="${esc(m.id)}">${T("del")}</button></div>`).join("")}</div></div>
   <div class="two">
-   <div><h2 style="margin-bottom:14px">نشر خبر</h2><form class="f" id="fNews"><label>العنوان<input id="nTitle" required maxlength="140"></label><label>النص<textarea id="nBody" maxlength="2000"></textarea></label><button class="btn pri" style="justify-self:start">نشر الخبر</button></form>
-    <div class="alist">${sorted(D.news).map(n=>`<div><b>${esc(n.title)}</b><button class="btn sm red" data-xn="${esc(n.id)}">حذف</button></div>`).join("")}</div></div>
-   <div><h2 style="margin-bottom:14px">إضافة فيديو</h2><form class="f" id="fVid"><label>عنوان الفيديو<input id="vTitle" required maxlength="140"></label><label>رابط YouTube<input id="vUrl" type="url" dir="ltr" required placeholder="https://youtu.be/..."></label><label>صورة مصغّرة (اختياري)<input id="vThumb" type="file" accept="image/*"></label><button class="btn pri" style="justify-self:start">إضافة الفيديو</button></form>
-    <div class="alist">${sorted(D.videos).map(v=>`<div><b>${esc(v.title)}</b><button class="btn sm red" data-xv="${esc(v.id)}">حذف</button></div>`).join("")}</div></div>
+   <div><h2 style="margin-bottom:14px">${T("news_h")}</h2><form class="f" id="fNews"><label>${T("f_ntitle")}<input id="nTitle" required maxlength="140"></label><label>${T("f_nbody")}<textarea id="nBody" maxlength="2000"></textarea></label><button class="btn pri" style="justify-self:start">${T("publish_news")}</button></form>
+    <div class="alist">${sorted(D.news).map(n=>`<div><b>${esc(n.title)}</b><button class="btn sm red" data-xn="${esc(n.id)}">${T("del")}</button></div>`).join("")}</div></div>
+   <div><h2 style="margin-bottom:14px">${T("vid_h")}</h2><form class="f" id="fVid"><label>${T("f_vtitle")}<input id="vTitle" required maxlength="140"></label><label>${T("f_vurl")}<input id="vUrl" type="url" dir="ltr" required placeholder="https://youtu.be/..."></label><label>${T("f_vthumb")}<input id="vThumb" type="file" accept="image/*"></label><button class="btn pri" style="justify-self:start">${T("add_vid")}</button></form>
+    <div class="alist">${sorted(D.videos).map(v=>`<div><b>${esc(v.title)}</b><button class="btn sm red" data-xv="${esc(v.id)}">${T("del")}</button></div>`).join("")}</div></div>
   </div>
  </div></section>`}
-function drawPv(){const p=$("#pv");if(!p)return;p.innerHTML=S.draftImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-rm="${i}" aria-label="إزالة">×</button></div>`).join("")}
+function drawPv(){const p=$("#pv");if(p)p.innerHTML=S.draftImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-rm="${i}" aria-label="x">×</button></div>`).join("");
+ const fc=$("#fcur");if(fc)fc.innerHTML=S.draftFile?`<div class="filebox"><svg width="22" height="22"><use href="#i-dl"/></svg><span>${T("f_file_cur")}</span><b dir="ltr">${esc(S.draftFile.name)} · ${fmtSize(S.draftFile.size||0)}</b><button type="button" class="btn sm red" id="rmFile">${T("f_file_rm")}</button></div>`:""}
 
 /* ===== router ===== */
 let lastH="";
@@ -416,9 +597,14 @@ function render(){const h=location.hash.slice(1)||"home";
  else{const cat=CATS.some(c=>c.k===h)?h:null;app.innerHTML=vMods(cat);fillList(cat)}
  if(h!==lastH){scrollTo(0,0);lastH=h}
 }
-addEventListener("hashchange",()=>{S.edit=null;S.draftImgs=[];render()});
+addEventListener("hashchange",()=>{if(S.uploading)return;S.edit=null;S.draftImgs=[];S.draftFile=null;render()});
+$("#langSel").addEventListener("change",e=>{
+ let keep=null;if(lastH==="admin"&&$("#fMod"))keep=formVals();
+ lang=e.target.value;store.set("gmdz_lang",lang);applyLang();
+ if(keep)S.edit={...(S.edit||{}),...keep};render()});
+function formVals(){return{title:$("#mTitle").value,cat:$("#mCat").value,creator:$("#mCreator").value,size:$("#mSize").value,version:$("#mVer").value,link:$("#mLink").value,desc:$("#mDesc").value}}
 function gal(d){const s=$("#sl");if(!s)return;const n=s.children.length,i=Math.max(0,Math.min(n-1,Math.round(Math.abs(s.scrollLeft)/s.clientWidth)+d));s.children[i].scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"});document.querySelectorAll(".thumbs button").forEach((x,j)=>x.classList.toggle("on",j===i))}
-addEventListener("keydown",e=>{if(!$("#sl")||e.target.closest("input,textarea,select"))return;if(e.key==="ArrowLeft")gal(1);if(e.key==="ArrowRight")gal(-1)});
+addEventListener("keydown",e=>{if(!$("#sl")||e.target.closest("input,textarea,select"))return;const rtl=L[lang].dir==="rtl";if(e.key==="ArrowLeft")gal(rtl?1:-1);if(e.key==="ArrowRight")gal(rtl?-1:1)});
 
 /* ===== events ===== */
 const curCat=()=>CATS.some(c=>c.k===lastH)?lastH:null;
@@ -426,42 +612,52 @@ app.addEventListener("input",e=>{if(e.target.id==="q")fillList(curCat())});
 app.addEventListener("change",async e=>{
  if(e.target.id==="sort")fillList(curCat());
  if(e.target.id==="mImgs"){const files=[...e.target.files];e.target.value="";for(const f of files){const p=await uploadImg(f);if(p){S.draftImgs.push(p);drawPv()}}}
+ if(e.target.id==="mFile"){const f=e.target.files[0];e.target.value="";if(!f||S.uploading)return;
+  const r=await uploadModFile(f);if(r){const old=S.draftFile;S.draftFile=r;const sz=$("#mSize");if(sz&&!sz.value)sz.value=fmtSize(r.size);drawPv();if(old&&old!==S.edit?.file&&okFile(old.path))delFile(old.path)}}
 });
 app.addEventListener("click",async e=>{
  const b=e.target.closest("button");if(!b)return;
- if(b.dataset.g)gal(+b.dataset.g);
+ if(b.dataset.g)gal(+b.dataset.g*(L[lang].dir==="rtl"?1:1));
  if(b.dataset.t)gal(+b.dataset.t-Math.round(Math.abs($("#sl").scrollLeft)/$("#sl").clientWidth));
- if(b.id==="cpMail"){try{await navigator.clipboard.writeText(MAIL);toast("تم نسخ البريد")}catch{toast(MAIL)}}
- if(b.id==="logout"){A.token="";A.ok=false;store.set("gmdz_admin",null);toast("تم تسجيل الخروج");await loadPublic();render()}
+ if(b.id==="cpMail"){try{await navigator.clipboard.writeText(MAIL);toast(T("t_copied"))}catch{toast(MAIL)}}
+ if(b.id==="logout"){A.token="";A.ok=false;store.set("gmdz_admin",null);toast(T("t_logout"));await loadPublic();render()}
  if(b.dataset.rm){S.draftImgs.splice(+b.dataset.rm,1);drawPv()}
- if(b.dataset.em){const m=D.mods.find(x=>x.id===b.dataset.em);if(m){S.edit={...m};S.draftImgs=[...(m.imgs||[])];if(location.hash!=="#admin"){history.replaceState(null,"","#admin");lastH=""}render()}}
- if(b.id==="mCancel"){S.edit=null;S.draftImgs=[];render()}
- if(b.dataset.xm&&await ask("حذف المود؟","سيُحذف المود وصوره نهائياً من الموقع.")){const m=D.mods.find(x=>x.id===b.dataset.xm);await commit(()=>{D.mods=D.mods.filter(x=>x.id!==b.dataset.xm)},"حذف مود: "+(m?.title||""));for(const p of (m?.imgs||[]))if(okImg(p))await delFile(p);if(lastH.startsWith("mod-"))location.hash="#mods"}
- if(b.dataset.xn&&await ask("حذف الخبر؟","لا يمكن التراجع عن الحذف."))await commit(()=>{D.news=D.news.filter(x=>x.id!==b.dataset.xn)},"حذف خبر");
- if(b.dataset.xv&&await ask("حذف الفيديو؟","لا يمكن التراجع عن الحذف.")){const v=D.videos.find(x=>x.id===b.dataset.xv);await commit(()=>{D.videos=D.videos.filter(x=>x.id!==b.dataset.xv)},"حذف فيديو");if(okImg(v?.thumb))await delFile(v.thumb)}
+ if(b.id==="rmFile"){S.draftFile=null;drawPv()}
+ if(b.dataset.em){const m=D.mods.find(x=>x.id===b.dataset.em);if(m){S.edit={...m};S.draftImgs=[...(m.imgs||[])];S.draftFile=m.file||null;if(location.hash!=="#admin"){history.replaceState(null,"","#admin");lastH=""}render()}}
+ if(b.id==="mCancel"){S.edit=null;S.draftImgs=[];S.draftFile=null;render()}
+ if(b.dataset.xm&&await ask(T("c_del_mod"),T("c_del_mod_b"))){const m=D.mods.find(x=>x.id===b.dataset.xm);
+  if(await commit(()=>{D.mods=D.mods.filter(x=>x.id!==b.dataset.xm)},"delete mod: "+(m?.title||""))){for(const p of (m?.imgs||[]))if(okImg(p))await delFile(p);if(m?.file&&okFile(m.file.path))await delFile(m.file.path);if(lastH.startsWith("mod-"))location.hash="#mods"}}
+ if(b.dataset.xn&&await ask(T("c_del"),T("c_del_b")))await commit(()=>{D.news=D.news.filter(x=>x.id!==b.dataset.xn)},"delete news");
+ if(b.dataset.xv&&await ask(T("c_del"),T("c_del_b"))){const v=D.videos.find(x=>x.id===b.dataset.xv);if(await commit(()=>{D.videos=D.videos.filter(x=>x.id!==b.dataset.xv)},"delete video")&&okImg(v?.thumb))await delFile(v.thumb)}
 });
 async function commit(change,msg){
  if(S.busy)return false;S.busy=true;const backup=JSON.stringify(D);
- try{change();await saveData(msg);toast("تم الحفظ ✓ — سيظهر للزوار خلال دقيقة أو دقيقتين");S.busy=false;render();return true}
- catch(e){if(!/أُعيد تحميلها/.test(e.message))Object.assign(D,JSON.parse(backup));toast(e.message||"تعذّر الحفظ",1);S.busy=false;render();return false}}
+ try{change();await saveData(msg);toast(T("t_saved"));S.busy=false;render();return true}
+ catch(e){if(e.message!==T("t_conflict"))Object.assign(D,JSON.parse(backup));toast(e.message||T("t_err"),1);S.busy=false;render();return false}}
 app.addEventListener("submit",async e=>{e.preventDefault();const f=e.target,btn=f.querySelector("button.pri");btn.disabled=true;
  try{
   if(f.id==="fLogin"){Object.assign(A,{owner:$("#aOwner").value.trim(),repo:$("#aRepo").value.trim(),branch:$("#aBranch").value.trim()||"main",token:$("#aToken").value.trim()});
-   try{await adminLogin();store.set("gmdz_admin",JSON.stringify({owner:A.owner,repo:A.repo,branch:A.branch,token:A.token}));toast("مرحباً بك في لوحة التحكم");render()}
-   catch(err){A.token="";toast(err.status===401?"المفتاح غير صحيح":err.status===404?"لم يُعثر على الـ repository — تأكد من الاسم وصلاحيات المفتاح":err.message,1)}}
-  if(f.id==="fMod"){const link=$("#mLink").value.trim();if(link&&!safeUrl(link))throw new Error("الرابط يجب أن يبدأ بـ https://");
-   const id=S.edit?.id||("m"+uid()),isEdit=!!S.edit?.id;
-   const mod={id,title:$("#mTitle").value.trim(),cat:$("#mCat").value,creator:$("#mCreator").value.trim(),size:$("#mSize").value.trim(),version:$("#mVer").value.trim(),link,desc:$("#mDesc").value,imgs:[...S.draftImgs],t:S.edit?.t||Date.now()};
-   if(await commit(()=>{D.mods=isEdit?D.mods.map(x=>x.id===id?mod:x):[...D.mods,mod]},(isEdit?"تعديل مود: ":"مود جديد: ")+mod.title)){S.edit=null;S.draftImgs=[];location.hash="#mod-"+id}}
-  if(f.id==="fNews"){const n={id:"n"+uid(),title:$("#nTitle").value.trim(),body:$("#nBody").value,t:Date.now()};if(await commit(()=>{D.news=[...D.news,n]},"خبر: "+n.title))f.reset?.()}
-  if(f.id==="fVid"){const url=$("#vUrl").value.trim();if(!safeUrl(url))throw new Error("الرابط يجب أن يبدأ بـ https://");
-   const file=$("#vThumb").files[0],thumb=file?await uploadImg(file):"";const v={id:"v"+uid(),title:$("#vTitle").value.trim(),url,thumb,t:Date.now()};await commit(()=>{D.videos=[...D.videos,v]},"فيديو: "+v.title)}
- }catch(err){toast(err.message||"خطأ",1)}
+   try{await adminLogin();store.set("gmdz_admin",JSON.stringify({owner:A.owner,repo:A.repo,branch:A.branch,token:A.token}));toast(T("t_welcome"));render()}
+   catch(err){A.token="";toast(err.status===401?T("t_bad_token"):err.status===404?T("t_no_repo"):err.message,1)}}
+  if(f.id==="fMod"){
+   if(S.uploading)throw new Error(T("t_wait_up"));
+   const link=$("#mLink").value.trim();if(link&&!safeUrl(link))throw new Error(T("t_https"));
+   if(!link&&!S.draftFile)throw new Error(T("t_need_dl"));
+   const id=S.edit?.id||("m"+uid()),isEdit=!!S.edit?.id,oldFile=S.edit?.file;
+   const mod={id,title:$("#mTitle").value.trim(),cat:$("#mCat").value,creator:$("#mCreator").value.trim(),size:$("#mSize").value.trim(),version:$("#mVer").value.trim(),link,file:S.draftFile||null,desc:$("#mDesc").value,imgs:[...S.draftImgs],t:S.edit?.t||Date.now()};
+   if(await commit(()=>{D.mods=isEdit?D.mods.map(x=>x.id===id?mod:x):[...D.mods,mod]},(isEdit?"edit mod: ":"new mod: ")+mod.title)){
+    if(oldFile&&okFile(oldFile.path)&&(!mod.file||mod.file.path!==oldFile.path))delFile(oldFile.path);
+    S.edit=null;S.draftImgs=[];S.draftFile=null;location.hash="#mod-"+id}}
+  if(f.id==="fNews"){const n={id:"n"+uid(),title:$("#nTitle").value.trim(),body:$("#nBody").value,t:Date.now()};await commit(()=>{D.news=[...D.news,n]},"news: "+n.title)}
+  if(f.id==="fVid"){const url=$("#vUrl").value.trim();if(!safeUrl(url))throw new Error(T("t_https"));
+   const file=$("#vThumb").files[0],thumb=file?await uploadImg(file):"";const v={id:"v"+uid(),title:$("#vTitle").value.trim(),url,thumb,t:Date.now()};await commit(()=>{D.videos=[...D.videos,v]},"video: "+v.title)}
+ }catch(err){toast(err.message||T("t_err"),1)}
  const nb=app.querySelector("form#"+f.id+" button.pri");if(nb)nb.disabled=false;
 });
+addEventListener("beforeunload",e=>{if(S.uploading){e.preventDefault();e.returnValue=""}});
 
 /* ===== boot ===== */
-render();
+applyLang();render();
 (async()=>{
  if(A.token){try{await adminLogin()}catch{A.ok=false;await loadPublic()}}else await loadPublic();
  render();
