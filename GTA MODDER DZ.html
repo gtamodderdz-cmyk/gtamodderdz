@@ -81,7 +81,7 @@ nav a.on{box-shadow:inset 0 -3px 0 var(--g)}
 /* sections */
 .sec-h{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
 .sec-h p{margin:6px 0 0;color:var(--mute)}
-.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
 .cat{position:relative;display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:14px;text-decoration:none;background:var(--panel);border:1px solid var(--line);overflow:hidden;min-height:150px}
 .cat:hover{border-color:var(--c)}
 .cat::before{content:"";position:absolute;inset:0 0 auto;height:8px;background:repeating-linear-gradient(90deg,var(--c) 0 22px,#fff 22px 44px)}
@@ -168,6 +168,50 @@ a.ni{display:block;text-decoration:none}a.ni:hover{border-color:var(--g)}a.ni.ha
 #vmodal>div{width:min(1100px,100%);aspect-ratio:16/9;position:relative;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 #vmodal iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 #vmodal button{position:absolute;z-index:2;top:8px;inset-inline-end:8px;width:44px;height:44px;border-radius:50%;border:0;background:var(--r);color:#fff;font-size:24px;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+/* --- motion --- */
+.btn{transition:transform .15s ease,background-color .2s,border-color .2s,box-shadow .2s}
+.btn:hover{box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.btn:active{transform:scale(.95)}
+.btn.pri:hover{box-shadow:0 6px 22px rgba(0,166,81,.45)}
+.snd{padding:0 10px}.snd svg{width:20px;height:20px}
+header{transition:box-shadow .3s,background .3s}
+header.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.5);background:rgba(8,12,10,.94)}
+nav a{transition:color .2s,background .2s}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.75,.2,1)!important}
+.rv.in{opacity:1;transform:none}
+#app.enter{animation:pageIn .45s cubic-bezier(.2,.75,.2,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}}
+.hero h1,.hero .lead,.hero .cta,.hero .stats,.hero .chip{animation:up .8s cubic-bezier(.2,.75,.2,1) both}
+.hero .lead{animation-delay:.1s}.hero .cta{animation-delay:.2s}.hero .stats{animation-delay:.3s}
+@keyframes up{from{opacity:0;transform:translateY(26px)}}
+.badge{animation:zoomIn 1s cubic-bezier(.2,.75,.2,1) both}
+@keyframes zoomIn{from{opacity:0;transform:scale(.85) rotate(-4deg)}}
+.badge img{animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.wave{animation:wave 5s ease-in-out infinite}
+@keyframes wave{50%{transform:rotate(-4deg) translateY(-4px)}}
+.card{position:relative;transition:transform .25s cubic-bezier(.2,.75,.2,1),border-color .2s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.13) 46%,transparent 62%);transform:translateX(-130%);transition:transform .8s ease}
+.card:hover::after{transform:translateX(130%)}
+.cover img{transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+.card:hover .cover img{transform:scale(1.06)}
+.cat{transition:transform .25s cubic-bezier(.2,.75,.2,1),border-color .2s,box-shadow .25s}
+.cat:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(0,0,0,.4)}
+.cat:hover svg{animation:pop .5s ease}
+@keyframes pop{40%{transform:scale(1.2) rotate(-6deg)}}
+.cat::after{content:"";position:absolute;inset:auto 0 0;height:3px;background:var(--c);transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
+.cat:hover::after{transform:scaleX(1)}
+.ni,.ch{transition:transform .25s ease,border-color .2s}
+a.ni:hover,.ch:hover{transform:translateY(-3px)}
+.chip{transition:transform .2s}.tags a.chip:hover{transform:translateY(-2px)}
+#toast{animation:none}#toast.show{animation:toastIn .35s cubic-bezier(.2,.75,.2,1)}
+@keyframes toastIn{from{opacity:0;transform:translate(0,16px)}}
+#vmodal.on>div{animation:zoomIn .4s cubic-bezier(.2,.75,.2,1)}
+.modal.on>div{animation:zoomIn .3s cubic-bezier(.2,.75,.2,1)}
+.like-burst{position:fixed;pointer-events:none;z-index:80;width:8px;height:8px;border-radius:50%;animation:burst .7s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--x),var(--y)) scale(.2);opacity:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 .giscus-box{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
 .f .row2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 @media(max-width:600px){.f .row2{grid-template-columns:minmax(0,1fr)}}
@@ -235,6 +279,7 @@ footer small{color:var(--mute)}
  <symbol id="i-uni" viewBox="0 0 48 48"><path fill="currentColor" opacity=".25" d="M17 5h14l12 7-5 9-4-2v24H14V19l-4 2-5-9z"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" d="M17 5h14l12 7-5 9-4-2v24H14V19l-4 2-5-9zM17 5l7 8 7-8"/><rect x="27" y="22" width="5" height="4" fill="currentColor"/></symbol>
  <symbol id="i-other" viewBox="0 0 48 48"><path fill="currentColor" opacity=".25" d="M6 30h36v8H6z"/><path fill="none" stroke="currentColor" stroke-width="3" d="M6 30h36v8H6zM13 30a11 11 0 0 1 22 0"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M24 4v6M9 10l4 4M39 10l-4 4"/><path fill="currentColor" d="M22 20h4v4h4v4H18v-4h4z"/></symbol>
  <symbol id="flag" viewBox="0 0 900 600"><mask id="cres"><rect width="900" height="600" fill="#fff"/><circle cx="488" cy="300" r="120" fill="#000"/></mask><rect width="900" height="600" fill="#fff"/><rect width="450" height="600" fill="#006233"/><circle cx="450" cy="300" r="150" fill="#d21034" mask="url(#cres)"/><polygon fill="#d21034" points="448.0,300.0 497.7,283.8 497.8,231.5 528.5,273.8 578.2,257.7 547.5,300.0 578.2,342.3 528.5,326.2 497.8,368.5 497.7,316.2"/></symbol>
+ <symbol id="i-misc" viewBox="0 0 48 48"><rect x="7" y="7" width="15" height="15" rx="3" fill="currentColor" opacity=".25"/><rect x="26" y="26" width="15" height="15" rx="3" fill="currentColor" opacity=".25"/><g fill="none" stroke="currentColor" stroke-width="3"><rect x="7" y="7" width="15" height="15" rx="3"/><rect x="26" y="7" width="15" height="15" rx="3"/><rect x="7" y="26" width="15" height="15" rx="3"/><rect x="26" y="26" width="15" height="15" rx="3"/></g></symbol>
  <symbol id="i-car" viewBox="0 0 48 48"><path fill="currentColor" opacity=".25" d="M6 26l5-11c1-2 3-3 5-3h16c2 0 4 1 5 3l5 11v10H6z"/><path fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" d="M6 26l5-11c1-2 3-3 5-3h16c2 0 4 1 5 3l5 11v10H6zM6 26h36"/><circle cx="14" cy="36" r="4" fill="currentColor"/><circle cx="34" cy="36" r="4" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="3" d="M13 20h22"/></symbol>
  <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-8-5.3-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.7-8 11-8 11z"/></symbol>
  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v12H8l-4 4z"/></symbol>
@@ -254,7 +299,7 @@ footer small{color:var(--mute)}
    <a href="#about" data-r="about" data-i="nav_about">من نحن</a>
    <a href="#admin" data-r="admin" id="navAdmin" data-i="nav_admin" hidden>لوحة التحكم</a>
   </nav>
-  <div class="hdx"><label class="lang"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><select id="langSel" aria-label="Language"><option value="ar">العربية</option><option value="fr">Français</option><option value="en">English</option><option value="tr">Türkçe</option></select></label>
+  <div class="hdx"><button type="button" class="btn sm snd" id="sndB" aria-label="sound"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h4l5-4v14l-5-4H4z"/><path id="sndW" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path id="sndX" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 9l5 6M21 9l-5 6" style="display:none"/></svg></button><label class="lang"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><select id="langSel" aria-label="Language"><option value="ar">العربية</option><option value="fr">Français</option><option value="en">English</option><option value="tr">Türkçe</option></select></label>
    <a class="btn disc sm" href="https://discord.gg/S57qpBeePT"><svg><use href="#i-disc"/></svg><span>Discord</span></a>
    <a class="btn red sm" href="https://www.youtube.com/@GTAMODDERDZ"><svg><use href="#i-yt"/></svg><span>YouTube</span></a>
   </div>
@@ -300,7 +345,7 @@ ar:{share:"مشاركة",copy_link:"نسخ الرابط",t_link:"تم نسخ ا�
  about_h:"من نحن",about_p:"<b class=\"lat\">GTA MODDER DZ</b> مخصّصة لصناعة وعرض المودات الجزائرية للعبة GTA V، من سيارات وملابس الأمن والدرك الوطني إلى الإسعاف والحماية المدنية… هدفنا هو مشاركة محتوى إبداعي لمحبي التعديل (modding) في الجزائر والعالم العربي.",
  contact_ads:"📧 للإعلانات والشراكات التجارية",mail_us:"راسلنا",copy_mail:"نسخ البريد",community:"انضم إلى مجتمعنا",community_p:"سيرفر الديسكورد وقناة اليوتيوب",
  footer_tag:"مودات جزائرية للعبة GTA V — صُنعت بحب في الجزائر",footer_ads:"للإعلانات والشراكات:",
- cat_police:"مودات الشرطة (الأمن الوطني)",cat_gendarmerie:"مودات الدرك الوطني",cat_uniforms:"الأزياء والملابس الرسمية",cat_other:"إسعاف، حماية مدنية وغيرها",
+ cat_police:"مودات الشرطة (الأمن الوطني)",cat_gendarmerie:"مودات الدرك الوطني",cat_uniforms:"الأزياء والملابس الرسمية",cat_other:"مودات متنوعة أخرى",cat_emergency:"الإسعاف، الحماية المدنية والإطفاء",snd_on:"الصوت مفعّل",snd_off:"الصوت مكتوم",
  login_h:"دخول لوحة التحكم",login_p:"خاص بصاحب الموقع فقط. المفتاح يُحفظ في هذا المتصفح فقط ولا يُرسل إلا إلى GitHub.",gh_user:"اسم حساب GitHub",gh_repo:"اسم الـ repository",gh_branch:"الفرع (branch)",token_lbl:"GitHub Token (Fine-grained — Contents: Read and write)",login_btn:"دخول",token_warn:"لا تُدخل المفتاح على جهاز عام أو جهاز شخص آخر.",
  admin_h:"لوحة التحكم",admin_conn:"متصل بـ {repo} — التغييرات تظهر للزوار بعد دقيقة أو دقيقتين.",logout:"تسجيل الخروج",
  mod_new:"رفع مود جديد",mod_edit:"تعديل مود",f_title:"اسم المود",f_cat:"القسم",f_creator:"صانع المود",f_size:"حجم الملف",f_size_ph:"مثال: 45 MB",f_ver:"الإصدار",
@@ -331,7 +376,7 @@ fr:{share:"Partager",copy_link:"Copier le lien",t_link:"Lien copié",new_b:"NOUV
  about_h:"À propos",about_p:"<b class=\"lat\">GTA MODDER DZ</b> est dédiée à la création et à la présentation de mods algériens pour GTA V : véhicules et uniformes de la Sûreté nationale et de la Gendarmerie, ambulances, Protection civile… Notre objectif est de partager du contenu créatif avec les passionnés de modding en Algérie et dans le monde arabe.",
  contact_ads:"📧 Publicité et partenariats",mail_us:"Nous écrire",copy_mail:"Copier l'e-mail",community:"Rejoignez la communauté",community_p:"Serveur Discord et chaîne YouTube",
  footer_tag:"Mods algériens pour GTA V — faits avec passion en Algérie",footer_ads:"Publicité et partenariats :",
- cat_police:"Mods de police (Sûreté nationale)",cat_gendarmerie:"Mods de la Gendarmerie nationale",cat_uniforms:"Uniformes et tenues officielles",cat_other:"Ambulance, Protection civile et autres",
+ cat_police:"Mods de police (Sûreté nationale)",cat_gendarmerie:"Mods de la Gendarmerie nationale",cat_uniforms:"Uniformes et tenues officielles",cat_other:"Autres mods divers",cat_emergency:"Ambulance, Protection civile et pompiers",snd_on:"Son activé",snd_off:"Son coupé",
  login_h:"Connexion administration",login_p:"Réservé au propriétaire du site. La clé reste dans ce navigateur et n'est envoyée qu'à GitHub.",gh_user:"Compte GitHub",gh_repo:"Repository",gh_branch:"Branche",token_lbl:"GitHub Token (Fine-grained — Contents: Read and write)",login_btn:"Connexion",token_warn:"N'entrez jamais la clé sur un ordinateur public ou partagé.",
  admin_h:"Administration",admin_conn:"Connecté à {repo} — les changements sont visibles après 1 à 2 minutes.",logout:"Déconnexion",
  mod_new:"Publier un nouveau mod",mod_edit:"Modifier le mod",f_title:"Nom du mod",f_cat:"Catégorie",f_creator:"Créateur",f_size:"Taille",f_size_ph:"ex. : 45 MB",f_ver:"Version",
@@ -362,7 +407,7 @@ en:{share:"Share",copy_link:"Copy link",t_link:"Link copied",new_b:"NEW",bg_h:"S
  about_h:"About us",about_p:"<b class=\"lat\">GTA MODDER DZ</b> is dedicated to creating and showcasing Algerian mods for GTA V — from National Police and Gendarmerie vehicles and uniforms to ambulances and Civil Protection. Our goal is to share creative content with modding fans in Algeria and across the Arab world.",
  contact_ads:"📧 Ads & business partnerships",mail_us:"Email us",copy_mail:"Copy email",community:"Join our community",community_p:"Discord server and YouTube channel",
  footer_tag:"Algerian mods for GTA V — made with love in Algeria",footer_ads:"Ads & partnerships:",
- cat_police:"Police mods (National Security)",cat_gendarmerie:"National Gendarmerie mods",cat_uniforms:"Official uniforms & outfits",cat_other:"Ambulance, Civil Protection & more",
+ cat_police:"Police mods (National Security)",cat_gendarmerie:"National Gendarmerie mods",cat_uniforms:"Official uniforms & outfits",cat_other:"Various other mods",cat_emergency:"Ambulance, Civil Protection & fire",snd_on:"Sound on",snd_off:"Sound off",
  login_h:"Admin login",login_p:"Site owner only. The key is stored in this browser only and is sent to GitHub alone.",gh_user:"GitHub username",gh_repo:"Repository",gh_branch:"Branch",token_lbl:"GitHub Token (Fine-grained — Contents: Read and write)",login_btn:"Log in",token_warn:"Never enter the key on a public or shared computer.",
  admin_h:"Admin panel",admin_conn:"Connected to {repo} — changes go live in 1–2 minutes.",logout:"Log out",
  mod_new:"Upload a new mod",mod_edit:"Edit mod",f_title:"Mod name",f_cat:"Category",f_creator:"Creator",f_size:"File size",f_size_ph:"e.g. 45 MB",f_ver:"Version",
@@ -393,7 +438,7 @@ tr:{share:"Paylaş",copy_link:"Bağlantıyı kopyala",t_link:"Bağlantı kopyala
  about_h:"Hakkımızda",about_p:"<b class=\"lat\">GTA MODDER DZ</b>, GTA V için Cezayir modları üretip tanıtmaya adanmıştır: Ulusal Emniyet ve Jandarma araçları ile üniformalarından ambulans ve Sivil Savunma'ya kadar… Amacımız Cezayir'deki ve Arap dünyasındaki mod tutkunlarıyla yaratıcı içerik paylaşmak.",
  contact_ads:"📧 Reklam ve iş ortaklıkları",mail_us:"Bize yaz",copy_mail:"E-postayı kopyala",community:"Topluluğumuza katıl",community_p:"Discord sunucusu ve YouTube kanalı",
  footer_tag:"GTA V için Cezayir modları — Cezayir'de sevgiyle yapıldı",footer_ads:"Reklam ve ortaklıklar:",
- cat_police:"Polis modları (Ulusal Emniyet)",cat_gendarmerie:"Ulusal Jandarma modları",cat_uniforms:"Resmi üniformalar ve kıyafetler",cat_other:"Ambulans, Sivil Savunma ve diğerleri",
+ cat_police:"Polis modları (Ulusal Emniyet)",cat_gendarmerie:"Ulusal Jandarma modları",cat_uniforms:"Resmi üniformalar ve kıyafetler",cat_other:"Diğer çeşitli modlar",cat_emergency:"Ambulans, Sivil Savunma ve itfaiye",snd_on:"Ses açık",snd_off:"Ses kapalı",
  login_h:"Yönetim girişi",login_p:"Yalnızca site sahibi içindir. Anahtar sadece bu tarayıcıda saklanır ve yalnızca GitHub'a gönderilir.",gh_user:"GitHub kullanıcı adı",gh_repo:"Repository",gh_branch:"Dal (branch)",token_lbl:"GitHub Token (Fine-grained — Contents: Read and write)",login_btn:"Giriş",token_warn:"Anahtarı asla ortak veya başkasına ait bir bilgisayara girme.",
  admin_h:"Yönetim paneli",admin_conn:"{repo} bağlı — değişiklikler 1–2 dakika içinde yayına girer.",logout:"Çıkış yap",
  mod_new:"Yeni mod yükle",mod_edit:"Modu düzenle",f_title:"Mod adı",f_cat:"Kategori",f_creator:"Yapımcı",f_size:"Dosya boyutu",f_size_ph:"örn. 45 MB",f_ver:"Sürüm",
@@ -417,8 +462,9 @@ const CATS=[
  {k:"police",n:"POLICE MODS",c:"#2f7bff",i:"i-police"},
  {k:"gendarmerie",n:"GENDARMERIE MODS",c:"#2e8b47",i:"i-gend"},
  {k:"uniforms",n:"UNIFORMS",c:"#c49a5a",i:"i-uni"},
+ {k:"emergency",n:"EMERGENCY MODS",c:"#ff5a1f",i:"i-other"},
  {k:"civil",n:"CIVILIAN CARS",c:"#14b8c9",i:"i-car"},
- {k:"other",n:"OTHER MODS",c:"#d21034",i:"i-other"}];
+ {k:"other",n:"OTHER MODS",c:"#8b98a8",i:"i-misc"}];
 const catOf=k=>CATS.find(c=>c.k===k)||CATS[CATS.length-1];
 /* publishers (channels) */
 const CHANNELS=[
@@ -460,7 +506,21 @@ const fmtD=t=>t?new Date(t).toLocaleDateString(L[lang].loc,{year:"numeric",month
 const fmtSize=b=>b>=1048576?(b/1048576).toFixed(1)+" MB":Math.max(1,Math.round(b/1024))+" KB";
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 const sorted=a=>[...a].sort((x,y)=>(y.t||0)-(x.t||0));
-function toast(m,bad,stay){const t=$("#toast");t.textContent=m;t.style.background=bad?"var(--r)":"var(--g)";t.style.color=bad?"#fff":"#04140b";t.style.display="block";clearTimeout(toast.h);if(!stay)toast.h=setTimeout(()=>t.style.display="none",3400)}
+/* ===== sounds (Web Audio, generated — no files) ===== */
+const SND={on:store.get("gmdz_snd")!=="0",ctx:null,last:0};
+function ac(){try{if(!SND.ctx){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;SND.ctx=new C()}if(SND.ctx.state==="suspended")SND.ctx.resume();return SND.ctx}catch{return null}}
+function tone(f,d,type,v,w,to){const c=ac();if(!c)return;const t=c.currentTime+(w||0),o=c.createOscillator(),g=c.createGain();o.type=type||"sine";o.frequency.setValueAtTime(f,t);if(to)o.frequency.exponentialRampToValueAtTime(to,t+d);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+d+.03)}
+const SFX={
+ click(){tone(900,.05,"sine",.03,0,700)},
+ nav(){tone(480,.09,"triangle",.035,0,760)},
+ ok(){tone(660,.12,"sine",.04);tone(990,.16,"sine",.035,.09)},
+ err(){tone(240,.2,"triangle",.045,0,170)},
+ dl(){tone(720,.13,"sine",.03,0,980);tone(980,.13,"sine",.03,.13,720);tone(720,.13,"sine",.025,.26,980)},
+ toggle(){tone(1250,.06,"sine",.03)},
+ open(){tone(380,.18,"sine",.035,0,620)}};
+function play(n){if(!SND.on)return;const now=performance.now();if(now-SND.last<40)return;SND.last=now;try{SFX[n]()}catch{}}
+function drawSnd(){const b=$("#sndB");if(!b)return;$("#sndW").style.display=SND.on?"":"none";$("#sndX").style.display=SND.on?"none":"";b.title=T(SND.on?"snd_on":"snd_off");b.setAttribute("aria-pressed",SND.on?"true":"false")}
+function toast(m,bad,stay){if(!stay)play(bad?"err":"ok");const t=$("#toast");t.classList.remove("show");void t.offsetWidth;t.classList.add("show");t.textContent=m;t.style.background=bad?"var(--r)":"var(--g)";t.style.color=bad?"#fff":"#04140b";t.style.display="block";clearTimeout(toast.h);if(!stay)toast.h=setTimeout(()=>t.style.display="none",3400)}
 function ask(title,body){return new Promise(res=>{$("#mT").textContent=title;$("#mB").textContent=body;const m=$("#modal");m.classList.add("on");const done=v=>{m.classList.remove("on");$("#mYes").onclick=$("#mNo").onclick=null;res(v)};$("#mYes").onclick=()=>done(true);$("#mNo").onclick=()=>done(false)})}
 
 /* ===== GitHub API (admin only) ===== */
@@ -708,12 +768,34 @@ function render(){const h=location.hash.slice(1)||"home";
  if(h!==lastH){scrollTo(0,0);lastH=h}
  {const B="GTA MODS ALGERIA",m=h.startsWith("mod-")&&D.mods.find(x=>x.id===h.slice(4)),n=h.startsWith("news-")&&D.news.find(x=>x.id===h.slice(5)),c=CATS.find(x=>x.k===h);
   document.title=m?`${m.title} | ${B}`:n?`${n.title} | ${B}`:c?`${c.n} | ${B}`:h==="mods"?`${T("nav_mods")} | ${B}`:h==="news"?`${T("nav_news")} | ${B}`:h==="about"?`${T("nav_about")} | ${B}`:h==="admin"?`${T("nav_admin")} | ${B}`:`${B} | GTA V Algeria`}
- refreshCounts();drawBg();
+ refreshCounts();drawBg();motion();
 }
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let revIO=null;
+function motion(){
+ app.classList.remove("enter");void app.offsetWidth;app.classList.add("enter");
+ if(RM||!("IntersectionObserver" in window))return;
+ revIO=revIO||new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){const el=e.target;el.classList.add("in");revIO.unobserve(el);setTimeout(()=>{el.classList.remove("rv","in");el.style.transitionDelay=""},1300)}},{rootMargin:"0px 0px -8% 0px"});
+ app.querySelectorAll(".card,.cat,.ni,.ch,.sec-h,.side,.desc,.thx-strip a,.contact>div,.empty,.alist>div").forEach(el=>{if(el.classList.contains("rv"))return;
+  const sib=el.parentElement?[...el.parentElement.children].indexOf(el):0;el.style.transitionDelay=Math.min(sib,6)*70+"ms";el.classList.add("rv");revIO.observe(el)});
+ app.querySelectorAll(".stats b:not([data-dltotal])").forEach(el=>{const n=+el.textContent;if(!(n>1))return;const t0=performance.now();
+  const step=t=>{const k=Math.min(1,(t-t0)/900);el.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)})}
+addEventListener("scroll",()=>{document.querySelector("header").classList.toggle("scrolled",scrollY>10)},{passive:true});
+/* click sounds (capture, so every link/button plays) */
+document.addEventListener("click",e=>{const el=e.target.closest("a,button,select,input[type=file]");if(!el)return;
+ if(el.id==="sndB")return;
+ if(el.matches("a[data-hit]"))return play("dl");
+ if(el.matches("a[data-yt]"))return play("open");
+ if(el.closest("nav")||el.matches(".tabs a,.cat,.card,a.ni"))return play("nav");
+ play("click")},true);
+$("#sndB").addEventListener("click",()=>{SND.on=!SND.on;store.set("gmdz_snd",SND.on?"1":"0");drawSnd();if(SND.on)play("toggle")});
+/* little burst on download */
+app.addEventListener("click",e=>{const a=e.target.closest("a[data-hit]");if(!a||RM)return;const r=a.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,cols=["#00a651","#ffffff","#d21034"];
+ for(let i=0;i<14;i++){const d=document.createElement("i");d.className="like-burst";const ang=Math.PI*2*i/14,dist=40+Math.random()*40;d.style.cssText=`left:${cx}px;top:${cy}px;background:${cols[i%3]};--x:${Math.cos(ang)*dist}px;--y:${Math.sin(ang)*dist}px`;document.body.appendChild(d);setTimeout(()=>d.remove(),750)}});
 addEventListener("hashchange",()=>{if(S.uploading)return;S.edit=null;S.draftImgs=[];S.draftFile=null;S.editNews=null;S.newsImgs=[];S.editThx=null;S.thxImg="";S.bgDraft=null;render()});
 $("#langSel").addEventListener("change",e=>{
  let keep=null;if(lastH==="admin"&&$("#fMod"))keep=formVals();
- lang=e.target.value;store.set("gmdz_lang",lang);applyLang();
+ lang=e.target.value;store.set("gmdz_lang",lang);applyLang();drawSnd();play("toggle");
  if(keep)S.edit={...(S.edit||{}),...keep};render()});
 function formVals(){return{pub:$("#mPub").value,title:$("#mTitle").value,cat:$("#mCat").value,creator:$("#mCreator").value,size:$("#mSize").value,version:$("#mVer").value,link:$("#mLink").value,desc:$("#mDesc").value}}
 function gal(d){const s=$("#sl");if(!s)return;const n=s.children.length,i=Math.max(0,Math.min(n-1,Math.round(Math.abs(s.scrollLeft)/s.clientWidth)+d));s.children[i].scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"});document.querySelectorAll(".thumbs button").forEach((x,j)=>x.classList.toggle("on",j===i))}
@@ -794,7 +876,7 @@ app.addEventListener("submit",async e=>{e.preventDefault();const f=e.target,btn=
 addEventListener("beforeunload",e=>{if(S.uploading){e.preventDefault();e.returnValue=""}});
 
 /* ===== boot ===== */
-applyLang();render();
+applyLang();drawSnd();render();
 (async()=>{
  if(A.token){try{await adminLogin()}catch{A.ok=false;await loadPublic()}}else await loadPublic();
  render();loadCounts();
