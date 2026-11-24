@@ -126,6 +126,13 @@ nav a.on{box-shadow:inset 0 -3px 0 var(--g)}
 .spec{width:100%;border-collapse:collapse}
 .spec td{padding:9px 0;border-bottom:1px solid var(--line)}
 .spec td:first-child{color:var(--mute);width:40%}
+.ni.has{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;align-items:start;text-decoration:none}
+.ni.has img{width:120px;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block}
+a.ni{display:block;text-decoration:none}a.ni:hover{border-color:var(--g)}a.ni.has{display:grid}
+.ni .more{color:var(--g);font-size:14px;font-weight:700}
+.nbig{max-width:860px;margin:0 auto}
+.nbig .desc{font-size:17px}
+@media(max-width:600px){.ni.has{grid-template-columns:84px minmax(0,1fr)}.ni.has img{width:84px}}
 .giscus-box{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
 .f .row2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 @media(max-width:600px){.f .row2{grid-template-columns:minmax(0,1fr)}}
@@ -207,6 +214,7 @@ footer small{color:var(--mute)}
   <nav id="nav">
    <a href="#home" data-r="home" data-i="nav_home">الرئيسية</a>
    <a href="#mods" data-r="mods" data-i="nav_mods">المودات</a>
+   <a href="#news" data-r="news" data-i="nav_news">الأخبار</a>
    <a href="#about" data-r="about" data-i="nav_about">من نحن</a>
    <a href="#admin" data-r="admin" id="navAdmin" data-i="nav_admin" hidden>لوحة التحكم</a>
   </nav>
@@ -235,7 +243,7 @@ footer small{color:var(--mute)}
 
 <script>
 window.I18N={
-ar:{dir:"rtl",loc:"ar-DZ",
+ar:{nav_news:"الأخبار",news_all:"كل الأخبار",news_all_p:"جديد القناة، المودات القادمة والتحديثات",read_more:"اقرأ المزيد",back_news:"العودة للأخبار",news_nf:"هذا الخبر غير موجود.",f_nimgs:"صور الخبر (اختياري — أول صورة = الغلاف)",news_edit:"تعديل الخبر",save_news:"حفظ الخبر",st_dl:"تحميل",spec_dl:"عدد التحميلات",sort_dl:"الأكثر تحميلاً",dir:"rtl",loc:"ar-DZ",
  nav_home:"الرئيسية",nav_mods:"المودات",nav_about:"من نحن",nav_admin:"لوحة التحكم",
  hero_h1:"مودات <em>جزائرية</em> 100%<br>لعالم GTA V",
  hero_lead:"سيارات الأمن الوطني والدرك الوطني، الأزياء الرسمية، الإسعاف والحماية المدنية… كل مودات قناة GTA MODDER DZ في مكان واحد، جاهزة للتحميل.",
@@ -266,7 +274,7 @@ ar:{dir:"rtl",loc:"ar-DZ",
  t_copied:"تم نسخ البريد",t_file_up:"جارِ رفع الملف… {p}%",t_file_ok:"تم رفع الملف ✓",t_file_err:"تعذّر رفع الملف — جرّب مرة أخرى أو استعمل رابطاً خارجياً",t_file_big:"الملف أكبر من 95 MB — GitHub لا يقبله. ارفعه على MediaFire/Drive وضع الرابط.",t_need_dl:"أضف ملف المود أو رابط تحميل",t_wait_up:"انتظر حتى ينتهي رفع الملف",t_err:"تعذّر الحفظ",
  c_del_mod:"حذف المود؟",c_del_mod_b:"سيُحذف المود وصوره وملفه نهائياً من الموقع.",c_del:"تأكيد الحذف؟",c_del_b:"لا يمكن التراجع عن الحذف.",cancel:"إلغاء",confirm:"تأكيد",only_owner:"هذه الصفحة مخصّصة لصاحب الموقع فقط."},
 
-fr:{dir:"ltr",loc:"fr-FR",
+fr:{nav_news:"Actualités",news_all:"Toutes les actualités",news_all_p:"Nouveautés de la chaîne, mods à venir et mises à jour",read_more:"Lire la suite",back_news:"Retour aux actualités",news_nf:"Cette actualité n'existe pas.",f_nimgs:"Images (facultatif — la 1re = couverture)",news_edit:"Modifier l'actualité",save_news:"Enregistrer",st_dl:"téléchargements",spec_dl:"Téléchargements",sort_dl:"Plus téléchargés",dir:"ltr",loc:"fr-FR",
  nav_home:"Accueil",nav_mods:"Mods",nav_about:"À propos",nav_admin:"Administration",
  hero_h1:"Mods <em>algériens</em> 100%<br>pour GTA V",
  hero_lead:"Véhicules de la Sûreté nationale et de la Gendarmerie, uniformes officiels, ambulances et Protection civile… Tous les mods de la chaîne GTA MODDER DZ réunis au même endroit, prêts à télécharger.",
@@ -297,7 +305,7 @@ fr:{dir:"ltr",loc:"fr-FR",
  t_copied:"E-mail copié",t_file_up:"Envoi du fichier… {p}%",t_file_ok:"Fichier envoyé ✓",t_file_err:"Échec de l'envoi — réessayez ou utilisez un lien externe",t_file_big:"Fichier > 95 MB — refusé par GitHub. Hébergez-le sur MediaFire/Drive et mettez le lien.",t_need_dl:"Ajoutez un fichier ou un lien de téléchargement",t_wait_up:"Attendez la fin de l'envoi du fichier",t_err:"Échec de l'enregistrement",
  c_del_mod:"Supprimer le mod ?",c_del_mod_b:"Le mod, ses images et son fichier seront supprimés définitivement.",c_del:"Confirmer la suppression ?",c_del_b:"Action irréversible.",cancel:"Annuler",confirm:"Confirmer",only_owner:"Page réservée au propriétaire du site."},
 
-en:{dir:"ltr",loc:"en-GB",
+en:{nav_news:"News",news_all:"All news",news_all_p:"Channel news, upcoming mods and updates",read_more:"Read more",back_news:"Back to news",news_nf:"This news post doesn't exist.",f_nimgs:"Images (optional — 1st = cover)",news_edit:"Edit news",save_news:"Save news",st_dl:"downloads",spec_dl:"Downloads",sort_dl:"Most downloaded",dir:"ltr",loc:"en-GB",
  nav_home:"Home",nav_mods:"Mods",nav_about:"About",nav_admin:"Admin panel",
  hero_h1:"100% <em>Algerian</em> mods<br>for GTA V",
  hero_lead:"National Police and Gendarmerie vehicles, official uniforms, ambulance and Civil Protection… Every GTA MODDER DZ mod in one place, ready to download.",
@@ -328,7 +336,7 @@ en:{dir:"ltr",loc:"en-GB",
  t_copied:"Email copied",t_file_up:"Uploading file… {p}%",t_file_ok:"File uploaded ✓",t_file_err:"Upload failed — retry or use an external link",t_file_big:"File is over 95 MB — GitHub won't accept it. Host it on MediaFire/Drive and paste the link.",t_need_dl:"Add a mod file or a download link",t_wait_up:"Wait for the file upload to finish",t_err:"Save failed",
  c_del_mod:"Delete this mod?",c_del_mod_b:"The mod, its images and file will be deleted permanently.",c_del:"Confirm delete?",c_del_b:"This can't be undone.",cancel:"Cancel",confirm:"Confirm",only_owner:"This page is for the site owner only."},
 
-tr:{dir:"ltr",loc:"tr-TR",
+tr:{nav_news:"Haberler",news_all:"Tüm haberler",news_all_p:"Kanal haberleri, yakında gelecek modlar ve güncellemeler",read_more:"Devamını oku",back_news:"Haberlere dön",news_nf:"Bu haber bulunamadı.",f_nimgs:"Görseller (isteğe bağlı — ilki = kapak)",news_edit:"Haberi düzenle",save_news:"Haberi kaydet",st_dl:"indirme",spec_dl:"İndirme sayısı",sort_dl:"En çok indirilen",dir:"ltr",loc:"tr-TR",
  nav_home:"Ana sayfa",nav_mods:"Modlar",nav_about:"Hakkımızda",nav_admin:"Yönetim paneli",
  hero_h1:"%100 <em>Cezayir</em> modları<br>GTA V için",
  hero_lead:"Ulusal Emniyet ve Jandarma araçları, resmi üniformalar, ambulans ve Sivil Savunma… GTA MODDER DZ kanalının tüm modları tek yerde, indirmeye hazır.",
@@ -374,8 +382,21 @@ const CATS=[
  {k:"other",n:"OTHER MODS",c:"#d21034",i:"i-other"}];
 const catOf=k=>CATS.find(c=>c.k===k)||CATS[3];
 const D={mods:[],news:[],videos:[]};
-const S={loaded:false,err:false,edit:null,draftImgs:[],draftFile:null,uploading:false,prev:{},sha:null,busy:false};
+const S={loaded:false,err:false,edit:null,draftImgs:[],draftFile:null,editNews:null,newsImgs:[],uploading:false,prev:{},sha:null,busy:false};
 const $=s=>document.querySelector(s), app=$("#app");
+/* ===== download counter (Abacus — free counting API) ===== */
+const ABA="https://abacus.jasoncameron.dev",NS="gtamodderdz-cmyk-site";
+const DL={};
+const dlKey=id=>"dl-"+String(id).replace(/[^\w-]/g,"").slice(0,60);
+const dlTxt=id=>id in DL?String(DL[id]):"…";
+const dlTotal=()=>Object.values(DL).reduce((a,b)=>a+(+b||0),0);
+function refreshCounts(){document.querySelectorAll("[data-dl]").forEach(el=>el.textContent=dlTxt(el.dataset.dl));document.querySelectorAll("[data-dltotal]").forEach(el=>el.textContent=dlTotal())}
+async function loadCounts(){
+ const ids=D.mods.map(m=>m.id).filter(id=>!(id in DL));
+ for(let i=0;i<ids.length;i+=6)await Promise.all(ids.slice(i,i+6).map(async id=>{try{const r=await fetch(`${ABA}/get/${NS}/${dlKey(id)}`);DL[id]=r.ok?(+(await r.json()).value||0):0}catch{DL[id]=0}}));
+ refreshCounts();if(($("#sort")||{}).value==="dl")fillList(curCat())}
+function hitDl(id){let k="gmdz_dl_"+id,seen=false;try{seen=!!localStorage.getItem(k);localStorage.setItem(k,"1")}catch{}
+ if(seen)return;fetch(`${ABA}/hit/${NS}/${dlKey(id)}`,{keepalive:true}).then(r=>r.json()).then(j=>{DL[id]=+j.value||((DL[id]||0)+1);refreshCounts()}).catch(()=>{})}
 const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch{}}};
 
 /* ===== i18n ===== */
@@ -458,9 +479,22 @@ async function loadPublic(){try{const r=await fetch("data.json?v="+Date.now(),{c
 function cover(m){const c=catOf(m.cat),src=imgSrc((m.imgs||[])[0]);
  return `<div class="cover" style="--c:${c.c}">${src?`<img src="${esc(src)}" alt="" loading="lazy">`:`<div class="ph"><svg><use href="#${c.i}"/></svg></div>`}<span class="chip lat" style="--c:${c.c}">${c.n}</span></div>`}
 const sizeOf=m=>m.size||(m.file&&m.file.size?fmtSize(m.file.size):"");
-function modCard(m){return `<a class="card" href="#mod-${esc(m.id)}">${cover(m)}<div class="cbody"><h3>${esc(m.title)}</h3><span style="color:var(--mute);font-size:14px">${T("by")} ${esc(m.creator||"GTA MODDER DZ")}</span><div class="meta">${sizeOf(m)?`<span dir="ltr">${esc(sizeOf(m))}</span>`:""}<span>${esc(m.version?"v"+m.version:"")}</span><span>${fmtD(m.t)}</span></div></div></a>`}
+function modCard(m){return `<a class="card" href="#mod-${esc(m.id)}">${cover(m)}<div class="cbody"><h3>${esc(m.title)}</h3><span style="color:var(--mute);font-size:14px">${T("by")} ${esc(m.creator||"GTA MODDER DZ")}</span><div class="meta"><span title="${esc(T("spec_dl"))}"><svg><use href="#i-dl"/></svg><b data-dl="${esc(m.id)}" style="font-weight:600">${dlTxt(m.id)}</b></span>${sizeOf(m)?`<span dir="ltr">${esc(sizeOf(m))}</span>`:""}<span>${esc(m.version?"v"+m.version:"")}</span><span>${fmtD(m.t)}</span></div></div></a>`}
 function vidCard(v){const u=safeUrl(v.url),th=imgSrc(v.thumb);return `<a class="card vid" href="${esc(u||YT)}" target="_blank" rel="noopener"><div class="cover">${th?`<img src="${esc(th)}" alt="" loading="lazy">`:`<div class="ph"></div>`}<div class="play"><i><svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M8 5v14l11-7z"/></svg></i></div></div><div class="cbody"><h3 style="font-size:17px">${esc(v.title)}</h3><div class="meta"><span>${fmtD(v.t)}</span></div></div></a>`}
-function newsItem(n){return `<article class="ni"><time>${fmtD(n.t)}</time><h3>${esc(n.title)}</h3>${n.body?`<p>${esc(n.body)}</p>`:""}</article>`}
+function newsItem(n){const im=imgSrc((n.imgs||[])[0]),body=String(n.body||""),short=body.length>220?body.slice(0,220)+"…":body;
+ return `<a class="ni${im?" has":""}" href="#news-${esc(n.id)}">${im?`<img src="${esc(im)}" alt="" loading="lazy">`:""}<div><time>${fmtD(n.t)}</time><h3>${esc(n.title)}</h3>${short?`<p>${esc(short)}</p>`:""}<span class="more">${T("read_more")}</span></div></a>`}
+function vNews(){return `<section class="pagehd band"><div class="wrap"><h1>${T("news_all")}</h1><p style="color:var(--mute);margin:8px 0 0">${T("news_all_p")}</p></div></section>
+ <section class="band" style="padding-top:20px"><div class="wrap nbig">${loadingNote()||(D.news.length?`<div class="news">${sorted(D.news).map(newsItem).join("")}</div>`:emptyBox(T("empty_news")))}</div></section>`}
+function vNewsOne(id){const n=D.news.find(x=>x.id===id);
+ if(!n)return `<section class="band"><div class="wrap">${loadingNote()||`<div class="empty">${T("news_nf")} <a href="#news" style="color:var(--g)">${T("back_news")}</a></div>`}</div></section>`;
+ const imgs=(n.imgs||[]).map(imgSrc).filter(Boolean);
+ return `<section class="band"><div class="wrap nbig"><div class="bc"><a href="#news">${T("nav_news")}</a> / ${esc(n.title)}</div>
+  <time style="color:var(--mute)">${fmtD(n.t)}</time><h1 style="margin:6px 0 20px">${esc(n.title)}</h1>
+  ${imgs.length?`<div class="gal"><div class="slides" id="sl">${imgs.map(s=>`<div><img src="${esc(s)}" alt=""></div>`).join("")}</div>${imgs.length>1?`<button class="gnav p" data-g="-1" aria-label="prev">›</button><button class="gnav n" data-g="1" aria-label="next">‹</button>`:""}</div>
+  ${imgs.length>1?`<div class="thumbs">${imgs.map((s,i)=>`<button data-t="${i}" class="${i?"":"on"}"><img src="${esc(s)}" alt=""></button>`).join("")}</div>`:""}`:""}
+  ${n.body?`<div class="desc">${esc(n.body)}</div>`:""}
+  <div class="cta" style="margin-top:20px"><a class="btn" href="#news">${T("back_news")}</a>${isAdmin()?`<button class="btn sm" data-en="${esc(n.id)}">${T("edit")}</button><button class="btn sm red" data-xn="${esc(n.id)}">${T("del")}</button>`:""}</div>
+ </div></section>`}
 const loadingNote=()=>!S.loaded?`<div class="empty">${T("loading")}</div>`:S.err?`<div class="empty">${T("load_err")}</div>`:"";
 const emptyBox=t=>`<div class="empty">${t}${isAdmin()?`<br><a class="btn pri sm" style="margin-top:12px" href="#admin">${T("add_now")}</a>`:""}</div>`;
 const yt=`<svg><use href="#i-yt"/></svg>`,dc=`<svg><use href="#i-disc"/></svg>`;
@@ -472,7 +506,7 @@ function vHome(){const mods=sorted(D.mods);
    <h1 style="margin-top:14px">${T("hero_h1")}</h1>
    <p class="lead">${esc(T("hero_lead"))}</p>
    <div class="cta"><a class="btn pri" href="#mods">${T("btn_browse")}</a><a class="btn disc" href="${DISCORD}" target="_blank" rel="noopener">${dc}${T("btn_discord")}</a></div>
-   <div class="stats"><div><b>${D.mods.length}</b><span>${T("st_mods")}</span></div><div><b>${D.videos.length}</b><span>${T("st_videos")}</span></div><div><b>${D.news.length}</b><span>${T("st_news")}</span></div><div><b>4</b><span>${T("st_cats")}</span></div></div>
+   <div class="stats"><div><b>${D.mods.length}</b><span>${T("st_mods")}</span></div><div><b data-dltotal>${dlTotal()}</b><span>${T("st_dl")}</span></div><div><b>${D.videos.length}</b><span>${T("st_videos")}</span></div><div><b>${D.news.length}</b><span>${T("st_news")}</span></div></div>
   </div>
   <div class="badge"><svg class="bg" viewBox="0 0 400 400" aria-hidden="true">
    <defs><radialGradient id="gl"><stop offset="0" stop-color="#00a651" stop-opacity=".55"/><stop offset="1" stop-color="#00a651" stop-opacity="0"/></radialGradient></defs>
@@ -489,8 +523,8 @@ function vHome(){const mods=sorted(D.mods);
  <section class="band" style="padding-top:8px"><div class="wrap"><div class="sec-h"><div><h2>${T("sec_latest")}</h2><p>${T("sec_latest_p")}</p></div><a class="btn" href="#mods">${T("view_all")}</a></div>
   ${loadingNote()||(mods.length?`<div class="grid">${mods.slice(0,6).map(modCard).join("")}</div>`:emptyBox(T("empty_mods")))}</div></section>
  <section class="band" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap two">
-  <div><div class="sec-h"><div><h2>${T("sec_news")}</h2><p>${T("sec_news_p")}</p></div></div>
-   ${loadingNote()||(D.news.length?`<div class="news">${sorted(D.news).slice(0,5).map(newsItem).join("")}</div>`:emptyBox(T("empty_news")))}</div>
+  <div><div class="sec-h"><div><h2>${T("sec_news")}</h2><p>${T("sec_news_p")}</p></div><a class="btn sm" href="#news">${T("view_all")}</a></div>
+   ${loadingNote()||(D.news.length?`<div class="news">${sorted(D.news).slice(0,4).map(newsItem).join("")}</div>`:emptyBox(T("empty_news")))}</div>
   <div><div class="sec-h"><div><h2>${T("sec_videos")}</h2><p>${T("sec_videos_p")}</p></div><a class="btn red sm" href="${YT}" target="_blank" rel="noopener">${yt}${T("subscribe")}</a></div>
    ${loadingNote()||(D.videos.length?`<div class="vids">${sorted(D.videos).slice(0,4).map(vidCard).join("")}</div>`:emptyBox(T("empty_videos")))}</div>
  </div></section>`}
@@ -498,11 +532,11 @@ function vHome(){const mods=sorted(D.mods);
 function vMods(cat){const c=cat?catOf(cat):null;
  return `<section class="pagehd band"><div class="wrap"><h1>${c?`<span class="lat">${c.n}</span>`:T("all_mods")}</h1><p style="color:var(--mute);margin:8px 0 0">${c?T("cat_"+c.k):T("all_mods_p")}</p>
   <div class="tabs"><a href="#mods" class="${!c?"on":""}">ALL</a>${CATS.map(x=>`<a href="#${x.k}" class="${c&&c.k===x.k?"on":""}" style="--c:${x.c}">${x.n}</a>`).join("")}</div></div></section>
- <section class="band" style="padding-top:0"><div class="wrap"><div class="tools"><input id="q" type="search" placeholder="${esc(T("search_ph"))}" aria-label="${esc(T("search_ph"))}"><select id="sort" aria-label="sort"><option value="new">${T("sort_new")}</option><option value="old">${T("sort_old")}</option><option value="az">${T("sort_az")}</option></select></div><div id="list"></div></div></section>`}
+ <section class="band" style="padding-top:0"><div class="wrap"><div class="tools"><input id="q" type="search" placeholder="${esc(T("search_ph"))}" aria-label="${esc(T("search_ph"))}"><select id="sort" aria-label="sort"><option value="new">${T("sort_new")}</option><option value="old">${T("sort_old")}</option><option value="dl">${T("sort_dl")}</option><option value="az">${T("sort_az")}</option></select></div><div id="list"></div></div></section>`}
 function fillList(cat){
  const q=($("#q")?.value||"").trim().toLowerCase(),so=$("#sort")?.value||"new";
  let a=D.mods.filter(m=>(!cat||m.cat===cat)&&(!q||(m.title+" "+(m.creator||"")+" "+(m.desc||"")).toLowerCase().includes(q)));
- a=so==="az"?a.sort((x,y)=>String(x.title).localeCompare(String(y.title),lang)):so==="old"?sorted(a).reverse():sorted(a);
+ a=so==="dl"?a.sort((x,y)=>(DL[y.id]||0)-(DL[x.id]||0)):so==="az"?a.sort((x,y)=>String(x.title).localeCompare(String(y.title),lang)):so==="old"?sorted(a).reverse():sorted(a);
  $("#list").innerHTML=loadingNote()||(a.length?`<div class="grid">${a.map(modCard).join("")}</div>`:emptyBox(q?T("no_results"):T("empty_cat")));
 }
 
@@ -510,8 +544,8 @@ function vMod(id){
  const m=D.mods.find(x=>x.id===id);
  if(!m)return `<section class="band"><div class="wrap">${loadingNote()||`<div class="empty">${T("not_found")} <a href="#mods" style="color:var(--g)">${T("back_mods")}</a></div>`}</div></section>`;
  const c=catOf(m.cat),imgs=(m.imgs||[]).map(imgSrc).filter(Boolean),dl=safeUrl(m.link),f=m.file&&okFile(m.file.path)?m.file:null;
- const dlBtn=f?`<a class="btn pri" style="justify-content:center" href="${esc(f.path)}" download="${esc(f.name||"")}"><svg><use href="#i-dl"/></svg>${T("download")}</a>${dl?`<a class="btn" style="justify-content:center" href="${esc(dl)}" target="_blank" rel="noopener">${T("download_mirror")}</a>`:""}`
-  :dl?`<a class="btn pri" style="justify-content:center" href="${esc(dl)}" target="_blank" rel="noopener"><svg><use href="#i-dl"/></svg>${T("download")}</a>`:`<span class="note warn">${T("no_link")}</span>`;
+ const dlBtn=f?`<a class="btn pri" style="justify-content:center" href="${esc(f.path)}" download="${esc(f.name||"")}" data-hit="${esc(m.id)}"><svg><use href="#i-dl"/></svg>${T("download")}</a>${dl?`<a class="btn" style="justify-content:center" href="${esc(dl)}" target="_blank" rel="noopener" data-hit="${esc(m.id)}">${T("download_mirror")}</a>`:""}`
+  :dl?`<a class="btn pri" style="justify-content:center" href="${esc(dl)}" target="_blank" rel="noopener" data-hit="${esc(m.id)}"><svg><use href="#i-dl"/></svg>${T("download")}</a>`:`<span class="note warn">${T("no_link")}</span>`;
  return `<section class="band"><div class="wrap">
   <div class="bc"><a href="#mods">${T("nav_mods")}</a> / <a href="#${c.k}">${c.n}</a> / ${esc(m.title)}</div>
   <div class="det"><div>
@@ -523,7 +557,7 @@ function vMod(id){
    <div class="giscus-box" id="gbox">${CFG.giscus&&CFG.giscus.repoId?"":`<div class="empty">${T("comments_off")}</div>`}</div>
   </div>
   <aside class="side"><span class="chip lat" style="--c:${c.c};align-self:start">${c.n}</span><h1 style="font-size:clamp(26px,3vw,36px)">${esc(m.title)}</h1>
-   <table class="spec"><tr><td>${T("spec_creator")}</td><td>${esc(m.creator||"GTA MODDER DZ")}</td></tr><tr><td>${T("spec_size")}</td><td dir="ltr" style="text-align:start">${esc(sizeOf(m)||"—")}</td></tr><tr><td>${T("spec_ver")}</td><td>${esc(m.version||"1.0")}</td></tr><tr><td>${T("spec_date")}</td><td>${fmtD(m.t)}</td></tr>${f?`<tr><td>${T("spec_file")}</td><td dir="ltr" style="text-align:start;overflow-wrap:anywhere">${esc(f.name)}</td></tr>`:""}</table>
+   <table class="spec"><tr><td>${T("spec_creator")}</td><td>${esc(m.creator||"GTA MODDER DZ")}</td></tr><tr><td>${T("spec_size")}</td><td dir="ltr" style="text-align:start">${esc(sizeOf(m)||"—")}</td></tr><tr><td>${T("spec_ver")}</td><td>${esc(m.version||"1.0")}</td></tr><tr><td>${T("spec_date")}</td><td>${fmtD(m.t)}</td></tr><tr><td>${T("spec_dl")}</td><td><b data-dl="${esc(m.id)}">${dlTxt(m.id)}</b></td></tr>${f?`<tr><td>${T("spec_file")}</td><td dir="ltr" style="text-align:start;overflow-wrap:anywhere">${esc(f.name)}</td></tr>`:""}</table>
    ${dlBtn}
    <a class="btn" style="justify-content:center" href="#gbox"><svg><use href="#i-heart"/></svg>${T("react_btn")}</a>
    ${isAdmin()?`<div class="cta"><button class="btn sm" data-em="${esc(id)}">${T("edit")}</button><button class="btn sm red" data-xm="${esc(id)}">${T("del")}</button></div>`:""}
@@ -575,29 +609,33 @@ function vAdmin(){
   </form>
   <div class="alist">${sorted(D.mods).map(m=>`<div><span class="chip lat" style="--c:${catOf(m.cat).c}">${catOf(m.cat).n}</span><b>${esc(m.title)}</b><button class="btn sm" data-em="${esc(m.id)}">${T("edit")}</button><button class="btn sm red" data-xm="${esc(m.id)}">${T("del")}</button></div>`).join("")}</div></div>
   <div class="two">
-   <div><h2 style="margin-bottom:14px">${T("news_h")}</h2><form class="f" id="fNews"><label>${T("f_ntitle")}<input id="nTitle" required maxlength="140"></label><label>${T("f_nbody")}<textarea id="nBody" maxlength="2000"></textarea></label><button class="btn pri" style="justify-self:start">${T("publish_news")}</button></form>
-    <div class="alist">${sorted(D.news).map(n=>`<div><b>${esc(n.title)}</b><button class="btn sm red" data-xn="${esc(n.id)}">${T("del")}</button></div>`).join("")}</div></div>
+   <div><h2 style="margin-bottom:14px" id="newsH">${S.editNews?T("news_edit"):T("news_h")}</h2><form class="f" id="fNews"><label>${T("f_ntitle")}<input id="nTitle" required maxlength="140" value="${esc(S.editNews?.title||"")}"></label><label>${T("f_nbody")}<textarea id="nBody" maxlength="6000">${esc(S.editNews?.body||"")}</textarea></label><label>${T("f_nimgs")}<input id="nImgs" type="file" accept="image/*" multiple></label><div class="pv" id="npv"></div><div class="cta"><button class="btn pri">${S.editNews?T("save_news"):T("publish_news")}</button>${S.editNews?`<button type="button" class="btn" id="nCancel">${T("cancel_edit")}</button>`:""}</div></form>
+    <div class="alist">${sorted(D.news).map(n=>`<div><b>${esc(n.title)}</b><button class="btn sm" data-en="${esc(n.id)}">${T("edit")}</button><button class="btn sm red" data-xn="${esc(n.id)}">${T("del")}</button></div>`).join("")}</div></div>
    <div><h2 style="margin-bottom:14px">${T("vid_h")}</h2><form class="f" id="fVid"><label>${T("f_vtitle")}<input id="vTitle" required maxlength="140"></label><label>${T("f_vurl")}<input id="vUrl" type="url" dir="ltr" required placeholder="https://youtu.be/..."></label><label>${T("f_vthumb")}<input id="vThumb" type="file" accept="image/*"></label><button class="btn pri" style="justify-self:start">${T("add_vid")}</button></form>
     <div class="alist">${sorted(D.videos).map(v=>`<div><b>${esc(v.title)}</b><button class="btn sm red" data-xv="${esc(v.id)}">${T("del")}</button></div>`).join("")}</div></div>
   </div>
  </div></section>`}
-function drawPv(){const p=$("#pv");if(p)p.innerHTML=S.draftImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-rm="${i}" aria-label="x">×</button></div>`).join("");
+function drawPv(){const np=$("#npv");if(np)np.innerHTML=S.newsImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-nrm="${i}" aria-label="x">×</button></div>`).join("");
+ const p=$("#pv");if(p)p.innerHTML=S.draftImgs.map((s,i)=>`<div><img src="${esc(imgSrc(s))}" alt=""><button type="button" data-rm="${i}" aria-label="x">×</button></div>`).join("");
  const fc=$("#fcur");if(fc)fc.innerHTML=S.draftFile?`<div class="filebox"><svg width="22" height="22"><use href="#i-dl"/></svg><span>${T("f_file_cur")}</span><b dir="ltr">${esc(S.draftFile.name)} · ${fmtSize(S.draftFile.size||0)}</b><button type="button" class="btn sm red" id="rmFile">${T("f_file_rm")}</button></div>`:""}
 
 /* ===== router ===== */
 let lastH="";
 function render(){const h=location.hash.slice(1)||"home";
- const r=h.startsWith("mod-")||CATS.some(c=>c.k===h)?"mods":h;
+ const r=h.startsWith("mod-")||CATS.some(c=>c.k===h)?"mods":h.startsWith("news")?"news":h;
  document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.r===r));
  $("#navAdmin").hidden=!isAdmin();
  if(h==="home")app.innerHTML=vHome();
  else if(h==="about")app.innerHTML=vAbout();
  else if(h==="admin"){app.innerHTML=vAdmin();drawPv()}
  else if(h.startsWith("mod-")){app.innerHTML=vMod(h.slice(4));mountGiscus(h.slice(4))}
+ else if(h==="news")app.innerHTML=vNews();
+ else if(h.startsWith("news-"))app.innerHTML=vNewsOne(h.slice(5));
  else{const cat=CATS.some(c=>c.k===h)?h:null;app.innerHTML=vMods(cat);fillList(cat)}
  if(h!==lastH){scrollTo(0,0);lastH=h}
+ refreshCounts();
 }
-addEventListener("hashchange",()=>{if(S.uploading)return;S.edit=null;S.draftImgs=[];S.draftFile=null;render()});
+addEventListener("hashchange",()=>{if(S.uploading)return;S.edit=null;S.draftImgs=[];S.draftFile=null;S.editNews=null;S.newsImgs=[];render()});
 $("#langSel").addEventListener("change",e=>{
  let keep=null;if(lastH==="admin"&&$("#fMod"))keep=formVals();
  lang=e.target.value;store.set("gmdz_lang",lang);applyLang();
@@ -612,11 +650,16 @@ app.addEventListener("input",e=>{if(e.target.id==="q")fillList(curCat())});
 app.addEventListener("change",async e=>{
  if(e.target.id==="sort")fillList(curCat());
  if(e.target.id==="mImgs"){const files=[...e.target.files];e.target.value="";for(const f of files){const p=await uploadImg(f);if(p){S.draftImgs.push(p);drawPv()}}}
+ if(e.target.id==="nImgs"){const files=[...e.target.files];e.target.value="";for(const f of files){const p=await uploadImg(f);if(p){S.newsImgs.push(p);drawPv()}}}
  if(e.target.id==="mFile"){const f=e.target.files[0];e.target.value="";if(!f||S.uploading)return;
   const r=await uploadModFile(f);if(r){const old=S.draftFile;S.draftFile=r;const sz=$("#mSize");if(sz&&!sz.value)sz.value=fmtSize(r.size);drawPv();if(old&&old!==S.edit?.file&&okFile(old.path))delFile(old.path)}}
 });
+app.addEventListener("click",e=>{const a=e.target.closest("a[data-hit]");if(a)hitDl(a.dataset.hit)});
 app.addEventListener("click",async e=>{
  const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.nrm){S.newsImgs.splice(+b.dataset.nrm,1);drawPv()}
+ if(b.id==="nCancel"){S.editNews=null;S.newsImgs=[];render()}
+ if(b.dataset.en){const n=D.news.find(x=>x.id===b.dataset.en);if(n){S.editNews={...n};S.newsImgs=[...(n.imgs||[])];if(location.hash!=="#admin"){history.replaceState(null,"","#admin");lastH=""}render();setTimeout(()=>$("#newsH")?.scrollIntoView({block:"start"}),50)}}
  if(b.dataset.g)gal(+b.dataset.g*(L[lang].dir==="rtl"?1:1));
  if(b.dataset.t)gal(+b.dataset.t-Math.round(Math.abs($("#sl").scrollLeft)/$("#sl").clientWidth));
  if(b.id==="cpMail"){try{await navigator.clipboard.writeText(MAIL);toast(T("t_copied"))}catch{toast(MAIL)}}
@@ -627,12 +670,12 @@ app.addEventListener("click",async e=>{
  if(b.id==="mCancel"){S.edit=null;S.draftImgs=[];S.draftFile=null;render()}
  if(b.dataset.xm&&await ask(T("c_del_mod"),T("c_del_mod_b"))){const m=D.mods.find(x=>x.id===b.dataset.xm);
   if(await commit(()=>{D.mods=D.mods.filter(x=>x.id!==b.dataset.xm)},"delete mod: "+(m?.title||""))){for(const p of (m?.imgs||[]))if(okImg(p))await delFile(p);if(m?.file&&okFile(m.file.path))await delFile(m.file.path);if(lastH.startsWith("mod-"))location.hash="#mods"}}
- if(b.dataset.xn&&await ask(T("c_del"),T("c_del_b")))await commit(()=>{D.news=D.news.filter(x=>x.id!==b.dataset.xn)},"delete news");
+ if(b.dataset.xn&&await ask(T("c_del"),T("c_del_b"))){const n=D.news.find(x=>x.id===b.dataset.xn);if(await commit(()=>{D.news=D.news.filter(x=>x.id!==b.dataset.xn)},"delete news")){for(const p of (n?.imgs||[]))if(okImg(p))await delFile(p);if(lastH.startsWith("news-"))location.hash="#news"}}
  if(b.dataset.xv&&await ask(T("c_del"),T("c_del_b"))){const v=D.videos.find(x=>x.id===b.dataset.xv);if(await commit(()=>{D.videos=D.videos.filter(x=>x.id!==b.dataset.xv)},"delete video")&&okImg(v?.thumb))await delFile(v.thumb)}
 });
 async function commit(change,msg){
  if(S.busy)return false;S.busy=true;const backup=JSON.stringify(D);
- try{change();await saveData(msg);toast(T("t_saved"));S.busy=false;render();return true}
+ try{change();await saveData(msg);toast(T("t_saved"));S.busy=false;render();loadCounts();return true}
  catch(e){if(e.message!==T("t_conflict"))Object.assign(D,JSON.parse(backup));toast(e.message||T("t_err"),1);S.busy=false;render();return false}}
 app.addEventListener("submit",async e=>{e.preventDefault();const f=e.target,btn=f.querySelector("button.pri");btn.disabled=true;
  try{
@@ -648,7 +691,9 @@ app.addEventListener("submit",async e=>{e.preventDefault();const f=e.target,btn=
    if(await commit(()=>{D.mods=isEdit?D.mods.map(x=>x.id===id?mod:x):[...D.mods,mod]},(isEdit?"edit mod: ":"new mod: ")+mod.title)){
     if(oldFile&&okFile(oldFile.path)&&(!mod.file||mod.file.path!==oldFile.path))delFile(oldFile.path);
     S.edit=null;S.draftImgs=[];S.draftFile=null;location.hash="#mod-"+id}}
-  if(f.id==="fNews"){const n={id:"n"+uid(),title:$("#nTitle").value.trim(),body:$("#nBody").value,t:Date.now()};await commit(()=>{D.news=[...D.news,n]},"news: "+n.title)}
+  if(f.id==="fNews"){const ed=S.editNews,n={id:ed?.id||("n"+uid()),title:$("#nTitle").value.trim(),body:$("#nBody").value,imgs:[...S.newsImgs],t:ed?.t||Date.now()};
+   const removed=(ed?.imgs||[]).filter(p=>!n.imgs.includes(p));
+   if(await commit(()=>{D.news=ed?D.news.map(x=>x.id===n.id?n:x):[...D.news,n]},(ed?"edit news: ":"news: ")+n.title)){for(const p of removed)if(okImg(p))delFile(p);S.editNews=null;S.newsImgs=[];location.hash="#news-"+n.id}}
   if(f.id==="fVid"){const url=$("#vUrl").value.trim();if(!safeUrl(url))throw new Error(T("t_https"));
    const file=$("#vThumb").files[0],thumb=file?await uploadImg(file):"";const v={id:"v"+uid(),title:$("#vTitle").value.trim(),url,thumb,t:Date.now()};await commit(()=>{D.videos=[...D.videos,v]},"video: "+v.title)}
  }catch(err){toast(err.message||T("t_err"),1)}
@@ -660,7 +705,7 @@ addEventListener("beforeunload",e=>{if(S.uploading){e.preventDefault();e.returnV
 applyLang();render();
 (async()=>{
  if(A.token){try{await adminLogin()}catch{A.ok=false;await loadPublic()}}else await loadPublic();
- render();
+ render();loadCounts();
 })();
 }
 </script>
